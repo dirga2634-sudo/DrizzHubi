@@ -840,6 +840,73 @@ dpad.PaddingRight = UDim.new(0, 8)
 dpad.PaddingTop = UDim.new(0, 8)
 dpad.PaddingBottom = UDim.new(0, 8)
 
+-- INFO CARA DONATE
+local donateInfo = Instance.new("TextLabel")
+donateInfo.Parent = donatePage
+donateInfo.Size = UDim2.new(1, -10, 0, 0)
+donateInfo.AutomaticSize = Enum.AutomaticSize.Y
+donateInfo.Text = "📌 <b>Cara Donate:</b>\n1. Buka Roblox\n2. Cari user <b>haibung03</b>\n3. Kirim Robux via Game/Grup\n4. Screenshot bukti donate"
+donateInfo.TextColor3 = Color3.fromRGB(180, 255, 180)
+donateInfo.BackgroundColor3 = Color3.fromRGB(0, 80, 0)
+donateInfo.BackgroundTransparency = 0.3
+donateInfo.TextScaled = false
+donateInfo.TextSize = 12
+donateInfo.TextWrapped = true
+donateInfo.TextXAlignment = Enum.TextXAlignment.Left
+donateInfo.Font = Enum.Font.GothamBold
+donateInfo.RichText = true
+Instance.new("UICorner", donateInfo).CornerRadius = UDim.new(0, 6)
+local dipad = Instance.new("UIPadding", donateInfo)
+dipad.PaddingLeft = UDim.new(0, 8)
+dipad.PaddingRight = UDim.new(0, 8)
+dipad.PaddingTop = UDim.new(0, 8)
+dipad.PaddingBottom = UDim.new(0, 8)
+
+-- USERNAME
+local usernameBox = Instance.new("TextLabel")
+usernameBox.Parent = donatePage
+usernameBox.Size = UDim2.new(1, -10, 0, 40)
+usernameBox.Text = "👤 Username: haibung03"
+usernameBox.TextColor3 = Color3.fromRGB(0, 255, 255)
+usernameBox.BackgroundColor3 = Color3.fromRGB(0, 80, 150)
+usernameBox.BackgroundTransparency = 0.2
+usernameBox.TextScaled = true
+usernameBox.Font = Enum.Font.GothamBold
+Instance.new("UICorner", usernameBox).CornerRadius = UDim.new(0, 6)
+
+-- TOMBOL COPY USERNAME
+local copyBtn = Instance.new("TextButton")
+copyBtn.Parent = donatePage
+copyBtn.Size = UDim2.new(1, -10, 0, 35)
+copyBtn.Text = "📋 Copy Username: haibung03"
+copyBtn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+copyBtn.TextColor3 = Color3.new(1, 1, 1)
+copyBtn.TextScaled = true
+copyBtn.Font = Enum.Font.GothamBold
+Instance.new("UICorner", copyBtn)
+
+copyBtn.MouseButton1Click:Connect(function()
+    -- Set clipboard
+    pcall(function()
+        setclipboard("haibung03")
+    end)
+    copyBtn.Text = "✅ Tersalin! haibung03"
+    copyBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+    task.wait(2)
+    copyBtn.Text = "📋 Copy Username: haibung03"
+    copyBtn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+end)
+
+-- NOMINAL DONATE
+local nominalLabel = Instance.new("TextLabel")
+nominalLabel.Parent = donatePage
+nominalLabel.Size = UDim2.new(1, -10, 0, 25)
+nominalLabel.Text = "💸 Pilih Nominal Donate:"
+nominalLabel.TextColor3 = Color3.fromRGB(255, 220, 100)
+nominalLabel.BackgroundTransparency = 1
+nominalLabel.TextScaled = true
+nominalLabel.Font = Enum.Font.GothamBold
+
 local donateAmounts = {
     {rbx = "10 Robux",   color = Color3.fromRGB(0, 180, 100)},
     {rbx = "30 Robux",   color = Color3.fromRGB(0, 160, 200)},
@@ -852,24 +919,28 @@ local donateAmounts = {
 for _, d in ipairs(donateAmounts) do
     local dBtn = Instance.new("TextButton")
     dBtn.Parent = donatePage
-    dBtn.Size = UDim2.new(1, -10, 0, 38)
-    dBtn.Text = "💸 Donate " .. d.rbx
+    dBtn.Size = UDim2.new(1, -10, 0, 35)
+    dBtn.Text = "💸 " .. d.rbx .. " → haibung03"
     dBtn.BackgroundColor3 = d.color
     dBtn.TextColor3 = Color3.new(1, 1, 1)
     dBtn.TextScaled = true
     dBtn.Font = Enum.Font.GothamBold
     Instance.new("UICorner", dBtn)
     dBtn.MouseButton1Click:Connect(function()
-        TweenService:Create(dBtn, TweenInfo.new(0.1), {Size = UDim2.new(1, -10, 0, 28)}):Play()
+        TweenService:Create(dBtn, TweenInfo.new(0.1), {Size = UDim2.new(1, -10, 0, 25)}):Play()
         task.wait(0.1)
         TweenService:Create(dBtn, TweenInfo.new(0.2, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
-            Size = UDim2.new(1, -10, 0, 38)
+            Size = UDim2.new(1, -10, 0, 35)
         }):Play()
+        -- Copy username otomatis saat klik nominal
+        pcall(function()
+            setclipboard("haibung03")
+        end)
         pcall(function()
             game:GetService("StarterGui"):SetCore("SendNotification", {
                 Title = "💖 Terimakasih!",
-                Text = "Terimakasih sudah Donate " .. d.rbx .. "!\nSemoga sehat selalu 🙏",
-                Duration = 5
+                Text = "Terimakasih sudah Donate " .. d.rbx .. "!\nSemoga sehat selalu 🙏\nUsername: haibung03",
+                Duration = 6
             })
         end)
     end)
@@ -879,11 +950,12 @@ local donateNote = Instance.new("TextLabel")
 donateNote.Parent = donatePage
 donateNote.Size = UDim2.new(1, -10, 0, 0)
 donateNote.AutomaticSize = Enum.AutomaticSize.Y
-donateNote.Text = "📝 Hubungi Dirzzz untuk proses\ndonasi via Roblox Group/Game"
-donateNote.TextColor3 = Color3.fromRGB(180, 180, 180)
+donateNote.Text = "⚠️ Donate manual ya!\nCari <b>haibung03</b> di Roblox\nlalu kirim Robux via Gamepass/Grup"
+donateNote.TextColor3 = Color3.fromRGB(255, 180, 100)
 donateNote.BackgroundTransparency = 1
 donateNote.TextScaled = false
 donateNote.TextSize = 11
 donateNote.TextWrapped = true
 donateNote.TextXAlignment = Enum.TextXAlignment.Center
 donateNote.Font = Enum.Font.Gotham
+donateNote.RichText = true
