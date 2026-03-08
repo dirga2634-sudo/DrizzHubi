@@ -749,6 +749,6 @@ createToggle(settingPage, "Shaders HD", function(on)
         l.EnvironmentDiffuseScale=1 l.EnvironmentSpecularScale=1
         settings().Rendering.QualityLevel = 21
     else
-        settings().Rendering.QualityLevel = ,10
+        settings().Rendering.QualityLevel = 10
     end
 end)
