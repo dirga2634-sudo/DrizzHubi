@@ -1,0 +1,521 @@
+-- KEY SYSTEM
+local key = "FREE"
+
+local gui = Instance.new("ScreenGui",game.CoreGui)
+
+local frame = Instance.new("Frame",gui)
+frame.Size = UDim2.new(0,250,0,120)
+frame.Position = UDim2.new(0.5,-125,0.5,-60)
+
+local box = Instance.new("TextBox",frame)
+box.Size = UDim2.new(1,-20,0,40)
+box.Position = UDim2.new(0,10,0,20)
+box.PlaceholderText = "Enter Key"
+
+local btn = Instance.new("TextButton",frame)
+btn.Size = UDim2.new(1,-20,0,35)
+btn.Position = UDim2.new(0,10,0,70)
+btn.Text = "Submit"
+
+local unlocked = false
+
+btn.MouseButton1Click:Connect(function()
+
+if box.Text == key then
+unlocked = true
+gui:Destroy()
+else
+box.Text = "Wrong Key"
+end
+
+end)
+
+repeat task.wait() until unlocked
+
+-- ANTI DOUBLE EXECUTE
+if getgenv().DirzzzHubLoaded then return end
+getgenv().DirzzzHubLoaded = true
+
+local TweenService = game:GetService("TweenService")
+local CoreGui = game:GetService("CoreGui")
+local StarterGui = game:GetService("StarterGui")
+
+-- RGB LOADING SCREEN
+local loadingGui = Instance.new("ScreenGui",CoreGui)
+
+local loadFrame = Instance.new("Frame",loadingGui)
+loadFrame.Size = UDim2.new(1,0,1,0)
+loadFrame.BackgroundColor3 = Color3.fromRGB(255,0,0)
+
+local loadText = Instance.new("TextLabel",loadFrame)
+loadText.Size = UDim2.new(0,300,0,40)
+loadText.Position = UDim2.new(0.5,-150,0.5,-20)
+loadText.BackgroundTransparency = 1
+loadText.Text = "DirzzzHubLoaded..."
+loadText.TextScaled = true
+loadText.TextColor3 = Color3.fromRGB(255,255,255)
+
+-- RGB ANIMATION
+task.spawn(function()
+
+local colors = {
+Color3.fromRGB(255,0,0),
+Color3.fromRGB(255,120,0),
+Color3.fromRGB(255,255,0),
+Color3.fromRGB(0,255,0),
+Color3.fromRGB(0,255,255),
+Color3.fromRGB(0,120,255),
+Color3.fromRGB(180,0,255)
+}
+
+while loadingGui.Parent do
+
+for _,c in ipairs(colors) do
+TweenService:Create(loadFrame,TweenInfo.new(0.8),{
+BackgroundColor3 = c
+}):Play()
+task.wait(0.8)
+end
+
+end
+
+end)
+
+task.wait(2)
+
+-- EXECUTE NOTIFICATION
+pcall(function()
+StarterGui:SetCore("SendNotification",{
+Title = "🔥 Dirzzz Hub",
+Text = "Script Executed",
+Duration = 4
+})
+end)
+
+-- MAIN GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "DirzzzHub"
+gui.Parent = CoreGui
+
+-- FRAME
+local frame = Instance.new("Frame")
+frame.Parent = gui
+frame.Size = UDim2.new(0,0,0,0)
+frame.Position = UDim2.new(0,20,0,120)
+frame.BackgroundColor3 = Color3.fromRGB(0,120,255)
+frame.Active = true
+frame.Draggable = true
+
+Instance.new("UICorner",frame)
+
+-- INTRO ANIMATION
+TweenService:Create(frame,TweenInfo.new(
+0.7,
+Enum.EasingStyle.Back,
+Enum.EasingDirection.Out
+),{
+Size = UDim2.new(0,260,0,220)
+}):Play()
+
+-- NEON STROKE
+local stroke = Instance.new("UIStroke")
+stroke.Parent = frame
+stroke.Thickness = 2
+stroke.Color = Color3.fromRGB(0,200,255)
+
+-- GLOW ANIMATION
+task.spawn(function()
+while true do
+
+TweenService:Create(stroke,TweenInfo.new(1),{
+Color = Color3.fromRGB(0,255,255)
+}):Play()
+
+task.wait(1)
+
+TweenService:Create(stroke,TweenInfo.new(1),{
+Color = Color3.fromRGB(0,120,255)
+}):Play()
+
+task.wait(1)
+
+end
+end)
+
+-- TITLE
+local title = Instance.new("TextLabel")
+title.Parent = frame
+title.Size = UDim2.new(1,0,0,30)
+title.Text = "Dirzzz Hub"
+title.TextColor3 = Color3.new(1,1,1)
+title.BackgroundTransparency = 1
+title.TextScaled = true
+
+-- MINIMIZE BUTTON
+local minBtn = Instance.new("TextButton")
+minBtn.Parent = frame
+minBtn.Size = UDim2.new(0,30,0,30)
+minBtn.Position = UDim2.new(1,-35,0,0)
+minBtn.Text = "-"
+minBtn.BackgroundColor3 = Color3.fromRGB(0,180,255)
+minBtn.TextColor3 = Color3.new(1,1,1)
+
+-- ICON BULAT
+local icon = Instance.new("TextButton")
+icon.Parent = gui
+icon.Size = UDim2.new(0,45,0,45)
+icon.Position = UDim2.new(0,20,0,120)
+icon.BackgroundColor3 = Color3.fromRGB(0,200,255)
+icon.Text = "DH"
+icon.TextColor3 = Color3.new(1,1,1)
+icon.Visible = false
+icon.Active = true
+icon.Draggable = true
+icon.TextScaled = true
+
+local iconCorner = Instance.new("UICorner")
+iconCorner.Parent = icon
+iconCorner.CornerRadius = UDim.new(1,0)
+
+-- WATERMARK
+local watermark = Instance.new("TextLabel")
+watermark.Parent = gui
+watermark.Size = UDim2.new(0,150,0,25)
+watermark.Position = UDim2.new(1,-160,0,10)
+watermark.BackgroundTransparency = 1
+watermark.Text = "Dirzzz Hub"
+watermark.TextColor3 = Color3.fromRGB(0,200,255)
+watermark.TextScaled = true
+
+-- TABS
+local tabs = Instance.new("Frame")
+tabs.Parent = frame
+tabs.Size = UDim2.new(1,0,0,30)
+tabs.Position = UDim2.new(0,0,0,30)
+tabs.BackgroundTransparency = 1
+
+local tabLayout = Instance.new("UIListLayout")
+tabLayout.Parent = tabs
+tabLayout.FillDirection = Enum.FillDirection.Horizontal
+
+-- PAGES
+local pages = Instance.new("Frame")
+pages.Parent = frame
+pages.Size = UDim2.new(1,0,1,-60)
+pages.Position = UDim2.new(0,0,0,60)
+pages.BackgroundTransparency = 1
+
+-- MINIMIZE SYSTEM
+local minimized = false
+
+minBtn.MouseButton1Click:Connect(function()
+
+minimized = not minimized
+
+if minimized then
+frame.Visible = false
+icon.Visible = true
+else
+frame.Visible = true
+icon.Visible = false
+end
+
+end)
+
+icon.MouseButton1Click:Connect(function()
+
+frame.Visible = true
+icon.Visible = false
+minimized = false
+
+end)
+
+-- PAGE FUNCTION
+function createPage()
+
+local scroll = Instance.new("ScrollingFrame")
+scroll.Parent = pages
+scroll.Size = UDim2.new(1,0,1,0)
+scroll.ScrollBarThickness = 4
+scroll.BackgroundTransparency = 1
+
+local layout = Instance.new("UIListLayout")
+layout.Parent = scroll
+layout.Padding = UDim.new(0,6)
+
+layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+scroll.CanvasSize = UDim2.new(0,0,0,layout.AbsoluteContentSize.Y + 10)
+end)
+
+return scroll
+
+end
+
+-- TAB FUNCTION
+function createTab(name)
+
+local btn = Instance.new("TextButton")
+btn.Parent = tabs
+btn.Size = UDim2.new(0,100,1,0)
+btn.Text = name
+btn.BackgroundColor3 = Color3.fromRGB(0,180,255)
+btn.TextColor3 = Color3.new(1,1,1)
+
+local page = createPage()
+page.Visible = false
+
+btn.MouseButton1Click:Connect(function()
+
+for _,v in pairs(pages:GetChildren()) do
+if v:IsA("ScrollingFrame") then
+v.Visible = false
+end
+end
+
+page.Visible = true
+
+end)
+
+return page
+
+end
+
+-- BUTTON FUNCTION
+function createButton(parent,name,callback)
+
+local btn = Instance.new("TextButton")
+btn.Parent = parent
+btn.Size = UDim2.new(1,-10,0,35)
+btn.Text = name
+btn.BackgroundColor3 = Color3.fromRGB(0,200,255)
+btn.TextColor3 = Color3.new(1,1,1)
+
+btn.MouseButton1Click:Connect(function()
+
+TweenService:Create(btn,TweenInfo.new(0.1),{
+Size = UDim2.new(1,-10,0,25)
+}):Play()
+
+task.wait(0.1)
+
+TweenService:Create(btn,TweenInfo.new(
+0.2,
+Enum.EasingStyle.Elastic,
+Enum.EasingDirection.Out
+),{
+Size = UDim2.new(1,-10,0,35)
+}):Play()
+
+callback()
+
+end)
+
+end
+
+-- CREATE TABS
+local main = createTab("🏠 Main")
+local visual = createTab("👁 Visual")
+local Admin = createTab("🔥Admin")
+local Hub = createTab("Hub")
+main.Visible = true
+
+-- SEARCH BOX
+local searchBox = Instance.new("TextBox")
+searchBox.Parent = main
+searchBox.Size = UDim2.new(1,-10,0,30)
+searchBox.PlaceholderText = "Search script..."
+searchBox.BackgroundColor3 = Color3.fromRGB(0,180,255)
+searchBox.TextColor3 = Color3.new(1,1,1)
+
+Instance.new("UICorner",searchBox)
+
+searchBox:GetPropertyChangedSignal("Text"):Connect(function()
+
+local text = string.lower(searchBox.Text)  
+
+for _,v in pairs(main:GetChildren()) do  
+    if v:IsA("TextButton") then  
+
+        if string.find(string.lower(v.Text), text) then  
+            v.Visible = true  
+        else  
+            v.Visible = false  
+        end  
+
+    end  
+end
+
+end)
+
+-- BUTTONS
+createButton(main,"Infinite Yield",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+createButton(main,"Dex Explorer",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+end)
+
+createButton(main,"Orbital Tsb op",function()
+loadstring(game:HttpGet("https://pastebin.com/raw/cQgr9kqU"))()
+end)
+
+createButton(main,"Op wallhop",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script"))()
+end)
+
+createButton(main,"Sambung kata No key",function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Sambung-Kata-Auto-Answer-No-Key-126550"))()
+end)
+
+createButton(main,"Tag game op",function()
+loadstring(game:HttpGet("https://pastebin.com/raw/GVZZgEf6"))()
+end)
+
+createButton(main,"shlied hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua"))()
+end)
+
+createButton(main,"gomaba hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JustLevel/goombahub/main/AriseCrossover.lua"))()
+end)
+
+createButton(main,"Prison life",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua"))()
+end)
+
+createButton(main,"Dark Dex V3",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+end)
+
+createButton(main,"Hydroxide",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua"))()
+end)
+
+createButton(main,"Owl Hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
+end)
+
+createButton(main,"VG Hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"))()
+end)
+
+createButton(main,"Simple Spy",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpy.lua"))()
+end)
+
+createButton(main,"Remote Spy",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"))()
+end)
+
+createButton(main,"than hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
+end)
+
+createButton(main,"moon hub",function()
+loadstring(game:HttpGet("https://usemoon.xyz/loader"))()
+end)
+
+createButton(main,"Exuso hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BexruzScripts/Blue-lock-no-cd-reo-get-any-style-script.-WORKS-WITH-WORLD-CLASSES-/refs/heads/main/script.lua"))()
+end)
+
+createButton(main,"Merebennie tsb",function()
+loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))()
+end)
+
+createButton(main,"Overdrive",function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))()
+end)
+
+createButton(main,"Solix",function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))()
+end)
+
+createButton(Hub,"Speed hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua%22"))()
+end)
+
+createButton(Hub,"Chiyo hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))()
+end)
+
+createButton(Hub,"Hoho Hub",function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+end)
+
+createButton(Hub,"Domain X Hub",function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))()
+end)
+
+createButton(Hub,"Orion UI Demo",function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+end)
+
+createButton(Hub,"Thunder Client Hub",function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))()
+end)
+
+createButton(visual,"FullBright",function() local l=game:GetService("Lighting") l.Brightness=2 l.ClockTime=14 l.FogEnd=100000 l.GlobalShadows=false l.Ambient=Color3.fromRGB(255,255,255)
+end)
+
+createButton(visual,"FPS Boost Extreme",function() for i,v in pairs(game:GetDescendants()) do if v:IsA("BasePart") then v.Material=Enum.Material.Plastic v.Reflectance=0 end end end)
+
+createButton(visual,"No Fog",function() game:GetService("Lighting").FogEnd=100000
+end)
+
+createButton(visual,"esp player",function()
+loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))()
+end)
+
+createButton(visual,"PSHade",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))()
+end)
+
+createButton(Admin,"Fly gui",function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))()
+end)
+
+createButton(Admin,"godmode",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))()
+end)
+
+createButton(Admin,"CMD-X Admin",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))()
+end)
+
+-- SUARA NEON LOOP & KLIK
+for _, btn in pairs(pages:GetDescendants()) do
+    if btn:IsA("TextButton") then
+        btn.MouseButton1Click:Connect(function()
+            -- bunyi klik
+            local clickSound = Instance.new("Sound")
+            clickSound.SoundId = "rbxassetid://9118821026" -- nyaring
+            clickSound.Volume = 5
+            clickSound.Parent = btn
+            clickSound:Play()
+        end)
+    end
+end
+
+-- loop neon glow + suara ringan tiap frame terbuka
+task.spawn(function()
+    local colors = {Color3.fromRGB(0,255,255), Color3.fromRGB(0,120,255)}
+    while true do
+        for _, stroke in pairs(gui:GetDescendants()) do
+            if stroke:IsA("UIStroke") then
+                for _, c in ipairs(colors) do
+                    stroke.Color = c
+                    -- bunyi neon kecil tiap ganti warna
+                    local neonSound = Instance.new("Sound")
+                    neonSound.SoundId = "rbxassetid://9118821026"
+                    neonSound.Volume = 1
+                    neonSound.Parent = stroke
+                    neonSound:Play()
+                    task.wait(1)
+                    neonSound:Destroy()
+                end
+            end
+        end
+        task.wait(1)
+    end
+end)
+
+task.wait(1)
+loadingGui:Destroy()
