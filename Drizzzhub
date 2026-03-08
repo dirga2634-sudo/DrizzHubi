@@ -28,7 +28,6 @@ end)
 
 repeat task.wait() until unlocked
 
--- ANTI DOUBLE EXECUTE
 if getgenv().DirzzzHubLoaded then return end
 getgenv().DirzzzHubLoaded = true
 
@@ -36,7 +35,6 @@ local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
 local StarterGui = game:GetService("StarterGui")
 
--- RGB LOADING SCREEN (KOTAK KECIL DI TENGAH)
 local loadingGui = Instance.new("ScreenGui", CoreGui)
 
 local overlay = Instance.new("Frame", loadingGui)
@@ -117,7 +115,6 @@ task.wait(3)
 rgbRunning = false
 loadingGui:Destroy()
 
--- EXECUTE NOTIFICATION
 pcall(function()
     StarterGui:SetCore("SendNotification", {
         Title = "🔥 Dirzzz Hub",
@@ -126,14 +123,13 @@ pcall(function()
     })
 end)
 
--- MAIN GUI
 local mainGui = Instance.new("ScreenGui")
 mainGui.Name = "DirzzzHub"
 mainGui.Parent = CoreGui
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Parent = mainGui
-mainFrame.Size = UDim2.new(0, 340, 0, 240)  -- DIPERBESAR
+mainFrame.Size = UDim2.new(0, 340, 0, 260)
 mainFrame.Position = UDim2.new(0, 20, 0, 120)
 mainFrame.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
 mainFrame.Active = true
@@ -150,7 +146,7 @@ Instance.new("UICorner", mainFrame)
 
 mainFrame.Size = UDim2.new(0, 0, 0, 0)
 TweenService:Create(mainFrame, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-    Size = UDim2.new(0, 340, 0, 240)  -- DIPERBESAR
+    Size = UDim2.new(0, 340, 0, 260)
 }):Play()
 
 local stroke = Instance.new("UIStroke")
@@ -254,7 +250,7 @@ end
 local function createTab(name)
     local btn = Instance.new("TextButton")
     btn.Parent = tabs
-    btn.Size = UDim2.new(0, 65, 1, 0)  -- DIPERKECIL dari 80 ke 65
+    btn.Size = UDim2.new(0, 55, 1, 0)
     btn.Text = name
     btn.BackgroundColor3 = Color3.fromRGB(0, 180, 255)
     btn.TextColor3 = Color3.new(1, 1, 1)
@@ -291,13 +287,47 @@ local function createButton(parent, name, callback)
     end)
 end
 
+local function createLabel(parent, text, color)
+    local lbl = Instance.new("TextLabel")
+    lbl.Parent = parent
+    lbl.Size = UDim2.new(1, -10, 0, 0)
+    lbl.AutomaticSize = Enum.AutomaticSize.Y
+    lbl.Text = text
+    lbl.TextColor3 = color or Color3.fromRGB(255, 255, 255)
+    lbl.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
+    lbl.BackgroundTransparency = 0.3
+    lbl.TextScaled = false
+    lbl.TextSize = 13
+    lbl.TextWrapped = true
+    lbl.TextXAlignment = Enum.TextXAlignment.Left
+    lbl.Font = Enum.Font.GothamBold
+    lbl.RichText = true
+    Instance.new("UICorner", lbl).CornerRadius = UDim.new(0, 6)
+    local pad = Instance.new("UIPadding", lbl)
+    pad.PaddingLeft = UDim.new(0, 8)
+    pad.PaddingRight = UDim.new(0, 8)
+    pad.PaddingTop = UDim.new(0, 6)
+    pad.PaddingBottom = UDim.new(0, 6)
+end
+
+local homePage = createTab("🏠")
 local mainPage = createTab("Main")
 local visualPage = createTab("Visual")
 local adminPage = createTab("Admin")
 local hubPage = createTab("Hub")
 
-mainPage.Visible = true
+homePage.Visible = true
 
+createLabel(homePage, "🔥 <b>Dirzzz Hub</b>\n📦 Versi: <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>", Color3.fromRGB(0, 255, 255))
+createLabel(homePage, "━━━━━━━━━━━━━━━━━━━━", Color3.fromRGB(100, 200, 255))
+createLabel(homePage, "📋 <b>Update Log V3.0:</b>\n✅ Tambah script baru di semua tab\n✅ Visual tab ditambah\n✅ Admin tab diperbaiki\n✅ WalkSpeed & JumpPower input\n✅ Toggle ON/OFF digabung", Color3.fromRGB(180, 255, 180))
+createLabel(homePage, "📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute script!\n🔑 Key: FREE (gratis)\n💬 Report bug ke Dirzzz", Color3.fromRGB(255, 220, 100))
+createLabel(homePage, "⚠️ <b>PENTING:</b>\n🚫 Script ini <b>GRATIS</b> dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!", Color3.fromRGB(255, 80, 80))
+createLabel(homePage, "💡 <b>Tips:</b>\n🔍 Gunakan Search di tab Main\n📌 Klik [ - ] untuk minimize\n🔄 Re-execute jika ada error", Color3.fromRGB(200, 180, 255))
+
+-- ==================
+-- MAIN PAGE
+-- ==================
 local searchBox = Instance.new("TextBox")
 searchBox.Parent = mainPage
 searchBox.Size = UDim2.new(1, -10, 0, 30)
@@ -387,7 +417,16 @@ end)
 createButton(mainPage, "Doors", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
 end)
+createButton(mainPage, "Universal Aimbot", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))()
+end)
+createButton(mainPage, "Steal Tools Hub", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))()
+end)
 
+-- ==================
+-- HUB PAGE
+-- ==================
 createButton(hubPage, "Speed hub", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
 end)
@@ -406,7 +445,19 @@ end)
 createButton(hubPage, "Thunder Client Hub", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))()
 end)
+createButton(hubPage, "Rayfield UI", function()
+    loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+end)
+createButton(hubPage, "Linoria Lib", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))()
+end)
+createButton(hubPage, "Kavo UI Lib", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+end)
 
+-- ==================
+-- VISUAL PAGE
+-- ==================
 createButton(visualPage, "FullBright", function()
     local l = game:GetService("Lighting")
     l.Brightness = 2
@@ -432,13 +483,270 @@ end)
 createButton(visualPage, "PShade", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))()
 end)
+createButton(visualPage, "Remove Textures", function()
+    for _, v in pairs(game:GetDescendants()) do
+        if v:IsA("Texture") or v:IsA("Decal") then v:Destroy() end
+    end
+end)
+createButton(visualPage, "Neon Theme", function()
+    local l = game:GetService("Lighting")
+    l.Ambient = Color3.fromRGB(0, 100, 200)
+    l.OutdoorAmbient = Color3.fromRGB(0, 50, 150)
+    l.Brightness = 1
+    l.ClockTime = 0
+    l.FogEnd = 500
+    l.FogColor = Color3.fromRGB(0, 20, 80)
+end)
+createButton(visualPage, "Day Time", function()
+    game:GetService("Lighting").ClockTime = 12
+end)
+createButton(visualPage, "Night Time", function()
+    game:GetService("Lighting").ClockTime = 0
+end)
+createButton(visualPage, "Reset Lighting", function()
+    local l = game:GetService("Lighting")
+    l.Brightness = 1
+    l.ClockTime = 14
+    l.FogEnd = 100000
+    l.GlobalShadows = true
+    l.Ambient = Color3.fromRGB(70, 70, 70)
+    l.OutdoorAmbient = Color3.fromRGB(127, 127, 127)
+end)
+createButton(visualPage, "Rainbow Sky", function()
+    task.spawn(function()
+        local l = game:GetService("Lighting")
+        local hue = 0
+        while true do
+            hue = (hue + 0.005) % 1
+            l.Ambient = Color3.fromHSV(hue, 0.8, 1)
+            task.wait(0.05)
+        end
+    end)
+end)
+createButton(visualPage, "Blur Effect", function()
+    local blur = Instance.new("BlurEffect")
+    blur.Size = 15
+    blur.Parent = game:GetService("Lighting")
+end)
+createButton(visualPage, "Remove Blur", function()
+    for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
+        if v:IsA("BlurEffect") then v:Destroy() end
+    end
+end)
 
+-- ==================
+-- ADMIN PAGE
+-- ==================
 createButton(adminPage, "Fly GUI", function()
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))()
 end)
 createButton(adminPage, "Godmode", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MMyOwnGodModeScript/refs/heads/main/lua"))()
 end)
 createButton(adminPage, "CMD-X Admin", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))()
+end)
+
+-- WALKSPEED INPUT
+local wsLabel = Instance.new("TextLabel")
+wsLabel.Parent = adminPage
+wsLabel.Size = UDim2.new(1, -10, 0, 20)
+wsLabel.Text = "⚡ WalkSpeed (default 16, max 500)"
+wsLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+wsLabel.BackgroundTransparency = 1
+wsLabel.TextScaled = true
+wsLabel.Font = Enum.Font.GothamBold
+
+local wsBox = Instance.new("TextBox")
+wsBox.Parent = adminPage
+wsBox.Size = UDim2.new(1, -10, 0, 32)
+wsBox.PlaceholderText = "Masukkan WalkSpeed (1-500)..."
+wsBox.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+wsBox.TextColor3 = Color3.new(1, 1, 1)
+wsBox.TextScaled = true
+wsBox.ClearTextOnFocus = false
+Instance.new("UICorner", wsBox)
+
+local wsBtn = Instance.new("TextButton")
+wsBtn.Parent = adminPage
+wsBtn.Size = UDim2.new(1, -10, 0, 32)
+wsBtn.Text = "✅ Set WalkSpeed"
+wsBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
+wsBtn.TextColor3 = Color3.new(1, 1, 1)
+wsBtn.TextScaled = true
+Instance.new("UICorner", wsBtn)
+
+local wsResetBtn = Instance.new("TextButton")
+wsResetBtn.Parent = adminPage
+wsResetBtn.Size = UDim2.new(1, -10, 0, 32)
+wsResetBtn.Text = "🔄 Reset WalkSpeed (16)"
+wsResetBtn.BackgroundColor3 = Color3.fromRGB(200, 100, 0)
+wsResetBtn.TextColor3 = Color3.new(1, 1, 1)
+wsResetBtn.TextScaled = true
+Instance.new("UICorner", wsResetBtn)
+
+wsBtn.MouseButton1Click:Connect(function()
+    local val = tonumber(wsBox.Text)
+    if val and val >= 1 and val <= 500 then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = val
+        wsBtn.Text = "✅ Speed: " .. val
+    else
+        wsBtn.Text = "❌ Angka 1-500!"
+        task.wait(1.5)
+        wsBtn.Text = "✅ Set WalkSpeed"
+    end
+end)
+
+wsResetBtn.MouseButton1Click:Connect(function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    wsBox.Text = ""
+    wsBtn.Text = "✅ Set WalkSpeed"
+end)
+
+-- JUMPPOWER INPUT
+local jpLabel = Instance.new("TextLabel")
+jpLabel.Parent = adminPage
+jpLabel.Size = UDim2.new(1, -10, 0, 20)
+jpLabel.Text = "🦘 JumpPower (default 50, max 1000)"
+jpLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+jpLabel.BackgroundTransparency = 1
+jpLabel.TextScaled = true
+jpLabel.Font = Enum.Font.GothamBold
+
+local jpBox = Instance.new("TextBox")
+jpBox.Parent = adminPage
+jpBox.Size = UDim2.new(1, -10, 0, 32)
+jpBox.PlaceholderText = "Masukkan JumpPower (1-1000)..."
+jpBox.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+jpBox.TextColor3 = Color3.new(1, 1, 1)
+jpBox.TextScaled = true
+jpBox.ClearTextOnFocus = false
+Instance.new("UICorner", jpBox)
+
+local jpBtn = Instance.new("TextButton")
+jpBtn.Parent = adminPage
+jpBtn.Size = UDim2.new(1, -10, 0, 32)
+jpBtn.Text = "✅ Set JumpPower"
+jpBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
+jpBtn.TextColor3 = Color3.new(1, 1, 1)
+jpBtn.TextScaled = true
+Instance.new("UICorner", jpBtn)
+
+local jpResetBtn = Instance.new("TextButton")
+jpResetBtn.Parent = adminPage
+jpResetBtn.Size = UDim2.new(1, -10, 0, 32)
+jpResetBtn.Text = "🔄 Reset JumpPower (50)"
+jpResetBtn.BackgroundColor3 = Color3.fromRGB(200, 100, 0)
+jpResetBtn.TextColor3 = Color3.new(1, 1, 1)
+jpResetBtn.TextScaled = true
+Instance.new("UICorner", jpResetBtn)
+
+jpBtn.MouseButton1Click:Connect(function()
+    local val = tonumber(jpBox.Text)
+    if val and val >= 1 and val <= 1000 then
+        local char = game.Players.LocalPlayer.Character
+        local hum = char and char:FindFirstChildOfClass("Humanoid")
+        if hum then
+            hum.UseJumpPower = true
+            hum.JumpPower = val
+            jpBtn.Text = "✅ Jump: " .. val
+        end
+    else
+        jpBtn.Text = "❌ Angka 1-1000!"
+        task.wait(1.5)
+        jpBtn.Text = "✅ Set JumpPower"
+    end
+end)
+
+jpResetBtn.MouseButton1Click:Connect(function()
+    local char = game.Players.LocalPlayer.Character
+    local hum = char and char:FindFirstChildOfClass("Humanoid")
+    if hum then
+        hum.UseJumpPower = true
+        hum.JumpPower = 50
+    end
+    jpBox.Text = ""
+    jpBtn.Text = "✅ Set JumpPower"
+end)
+
+-- INFINITE JUMP TOGGLE
+local infJumpOn = false
+local infJumpBtn = Instance.new("TextButton")
+infJumpBtn.Parent = adminPage
+infJumpBtn.Size = UDim2.new(1, -10, 0, 35)
+infJumpBtn.Text = "🔴 Infinite Jump: OFF"
+infJumpBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+infJumpBtn.TextColor3 = Color3.new(1, 1, 1)
+infJumpBtn.TextScaled = true
+Instance.new("UICorner", infJumpBtn)
+
+game:GetService("UserInputService").JumpRequest:Connect(function()
+    if infJumpOn then
+        local char = game.Players.LocalPlayer.Character
+        local hum = char and char:FindFirstChildOfClass("Humanoid")
+        if hum then
+            hum:ChangeState(Enum.HumanoidStateType.Jumping)
+        end
+    end
+end)
+
+infJumpBtn.MouseButton1Click:Connect(function()
+    infJumpOn = not infJumpOn
+    if infJumpOn then
+        infJumpBtn.Text = "🟢 Infinite Jump: ON"
+        infJumpBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+    else
+        infJumpBtn.Text = "🔴 Infinite Jump: OFF"
+        infJumpBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+    end
+end)
+
+-- NOCLIP TOGGLE
+local noclipOn = false
+local noclipBtn = Instance.new("TextButton")
+noclipBtn.Parent = adminPage
+noclipBtn.Size = UDim2.new(1, -10, 0, 35)
+noclipBtn.Text = "🔴 Noclip: OFF"
+noclipBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+noclipBtn.TextColor3 = Color3.new(1, 1, 1)
+noclipBtn.TextScaled = true
+Instance.new("UICorner", noclipBtn)
+
+game:GetService("RunService").Stepped:Connect(function()
+    if noclipOn then
+        local char = game.Players.LocalPlayer.Character
+        if char then
+            for _, v in pairs(char:GetDescendants()) do
+                if v:IsA("BasePart") then
+                    v.CanCollide = false
+                end
+            end
+        end
+    end
+end)
+
+noclipBtn.MouseButton1Click:Connect(function()
+    noclipOn = not noclipOn
+    if noclipOn then
+        noclipBtn.Text = "🟢 Noclip: ON"
+        noclipBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+    else
+        noclipBtn.Text = "🔴 Noclip: OFF"
+        noclipBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+    end
+end)
+
+-- ANTI AFK
+createButton(adminPage, "Anti AFK", function()
+    local vu = game:GetService("VirtualUser")
+    game.Players.LocalPlayer.Idled:Connect(function()
+        vu:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+        task.wait(1)
+        vu:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+    end)
+end)
+
+-- REJOIN
+createButton(adminPage, "Rejoin Game", function()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end)
