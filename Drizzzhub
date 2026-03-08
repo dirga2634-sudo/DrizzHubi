@@ -100,7 +100,7 @@ gui.Parent = CoreGui
 -- FRAME
 local frame = Instance.new("Frame")
 frame.Parent = gui
-frame.Size = UDim2.new(0,0,0,0)
+frame.Size = UDim2.new(0,260,0,220)
 frame.Position = UDim2.new(0,20,0,120)
 frame.BackgroundColor3 = Color3.fromRGB(0,120,255)
 frame.Active = true
@@ -113,7 +113,7 @@ bg.Size = UDim2.new(1,0,1,0)
 bg.Position = UDim2.new(0,0,0,0)
 bg.Image = "rbxassetid://16704002223"
 bg.BackgroundTransparency = 1
-bg.ZIndex = 0
+bg.ZIndex = -1
 
 -- BLUR EFFECT
 local blur = Instance.new("UIBlurEffect")
