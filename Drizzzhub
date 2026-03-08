@@ -1,3 +1,9 @@
+-- RESET JIKA SUDAH PERNAH EXECUTE
+for _, v in pairs(game.CoreGui:GetChildren()) do
+    if v.Name == "DirzzzHub" then v:Destroy() end
+end
+getgenv().DirzzzHubLoaded = false
+
 -- KEY SYSTEM
 local key = "DIRZZZHUB90"
 
@@ -493,7 +499,7 @@ local function createInput(parent, labelText, placeholder, maxVal, callback)
     end)
 end
 
--- CREATE TABS (6 tab, tanpa donate)
+-- CREATE TABS
 local homePage    = createTab("🏠", "Home")
 local mainPage    = createTab("📜", "Main")
 local visualPage  = createTab("👁", "Visual")
@@ -509,7 +515,7 @@ homePage.Visible = true
 -- HOME PAGE
 createLabel(homePage, "🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>", Color3.fromRGB(0, 200, 255))
 createLabel(homePage, "📋 <b>Update Log V3.0:</b>\n✅ UI baru style Lunar Hub\n✅ Sidebar navigasi\n✅ Toggle switch smooth\n✅ Tab Pengaturan\n✅ WalkSpeed & JumpPower input", Color3.fromRGB(120, 255, 150))
-createLabel(homePage, "📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute!\n🔑 Key: FREE\n💬 Report bug ke Dirzzz", Color3.fromRGB(255, 210, 80))
+createLabel(homePage, "📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute!\n🔑 Key: DIRZZZHUB90\n💬 Report bug ke Dirzzz", Color3.fromRGB(255, 210, 80))
 createLabel(homePage, "⚠️ <b>PENTING:</b>\n🚫 Script ini GRATIS dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!", Color3.fromRGB(255, 80, 80))
 createLabel(homePage, "💡 <b>Tips:</b>\n🔍 Search di tab Main\n📌 Klik ─ untuk minimize\n✕ Klik X untuk tutup", Color3.fromRGB(180, 150, 255))
 
