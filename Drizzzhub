@@ -1,20 +1,28 @@
 -- KEY SYSTEM
-local key = "FREE"
+local key = "DIRZZZHUB90"
 
 local gui = Instance.new("ScreenGui", game.CoreGui)
 local frame = Instance.new("Frame", gui)
 frame.Size = UDim2.new(0, 250, 0, 120)
 frame.Position = UDim2.new(0.5, -125, 0.5, -60)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+Instance.new("UICorner", frame)
 
 local box = Instance.new("TextBox", frame)
 box.Size = UDim2.new(1, -20, 0, 40)
 box.Position = UDim2.new(0, 10, 0, 20)
 box.PlaceholderText = "Enter Key"
+box.BackgroundColor3 = Color3.fromRGB(50, 50, 70)
+box.TextColor3 = Color3.new(1, 1, 1)
+Instance.new("UICorner", box)
 
 local btn = Instance.new("TextButton", frame)
 btn.Size = UDim2.new(1, -20, 0, 35)
 btn.Position = UDim2.new(0, 10, 0, 70)
 btn.Text = "Submit"
+btn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+btn.TextColor3 = Color3.new(1, 1, 1)
+Instance.new("UICorner", btn)
 
 local unlocked = false
 btn.MouseButton1Click:Connect(function()
@@ -35,6 +43,7 @@ local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
 local StarterGui = game:GetService("StarterGui")
 
+-- LOADING SCREEN
 local loadingGui = Instance.new("ScreenGui", CoreGui)
 
 local overlay = Instance.new("Frame", loadingGui)
@@ -93,12 +102,9 @@ end)
 local rgbRunning = true
 task.spawn(function()
     local colors = {
-        Color3.fromRGB(255, 0, 0),
-        Color3.fromRGB(255, 120, 0),
-        Color3.fromRGB(255, 255, 0),
-        Color3.fromRGB(0, 255, 0),
-        Color3.fromRGB(0, 255, 255),
-        Color3.fromRGB(0, 120, 255),
+        Color3.fromRGB(255, 0, 0), Color3.fromRGB(255, 120, 0),
+        Color3.fromRGB(255, 255, 0), Color3.fromRGB(0, 255, 0),
+        Color3.fromRGB(0, 255, 255), Color3.fromRGB(0, 120, 255),
         Color3.fromRGB(180, 0, 255)
     }
     while rgbRunning do
@@ -123,102 +129,92 @@ pcall(function()
     })
 end)
 
--- MAIN GUI
+-- MAIN GUI - LUNAR STYLE
 local mainGui = Instance.new("ScreenGui")
 mainGui.Name = "DirzzzHub"
 mainGui.Parent = CoreGui
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Parent = mainGui
-mainFrame.Size = UDim2.new(0, 340, 0, 260)
-mainFrame.Position = UDim2.new(0, 20, 0, 120)
-mainFrame.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+mainFrame.Size = UDim2.new(0, 500, 0, 320)
+mainFrame.Position = UDim2.new(0.5, -250, 0.5, -160)
+mainFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 28)
 mainFrame.Active = true
 mainFrame.Draggable = true
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 10)
 
-local bg = Instance.new("ImageLabel")
-bg.Parent = mainFrame
-bg.Size = UDim2.new(1, 0, 1, 0)
-bg.Image = "rbxassetid://16704002223"
-bg.BackgroundTransparency = 1
-bg.ZIndex = -1
-
-Instance.new("UICorner", mainFrame)
-
-mainFrame.Size = UDim2.new(0, 0, 0, 0)
-TweenService:Create(mainFrame, TweenInfo.new(0.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-    Size = UDim2.new(0, 340, 0, 260)
-}):Play()
-
-local stroke = Instance.new("UIStroke")
-stroke.Parent = mainFrame
-stroke.Thickness = 2
-stroke.Color = Color3.fromRGB(0, 200, 255)
+local mainStroke = Instance.new("UIStroke", mainFrame)
+mainStroke.Thickness = 1.5
+mainStroke.Color = Color3.fromRGB(0, 150, 255)
 
 task.spawn(function()
     while mainGui.Parent do
-        TweenService:Create(stroke, TweenInfo.new(1), {Color = Color3.fromRGB(0, 255, 255)}):Play()
-        task.wait(1)
-        TweenService:Create(stroke, TweenInfo.new(1), {Color = Color3.fromRGB(0, 120, 255)}):Play()
-        task.wait(1)
+        TweenService:Create(mainStroke, TweenInfo.new(1.5), {Color = Color3.fromRGB(0, 200, 255)}):Play()
+        task.wait(1.5)
+        TweenService:Create(mainStroke, TweenInfo.new(1.5), {Color = Color3.fromRGB(100, 0, 255)}):Play()
+        task.wait(1.5)
     end
 end)
 
-local title = Instance.new("TextLabel")
-title.Parent = mainFrame
-title.Size = UDim2.new(1, -40, 0, 30)
-title.Text = "Dirzzz Hub"
-title.TextColor3 = Color3.new(1, 1, 1)
-title.BackgroundTransparency = 1
-title.TextScaled = true
+mainFrame.Size = UDim2.new(0, 0, 0, 0)
+TweenService:Create(mainFrame, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+    Size = UDim2.new(0, 500, 0, 320)
+}):Play()
 
-local watermark = Instance.new("TextLabel")
-watermark.Parent = mainGui
-watermark.Size = UDim2.new(0, 150, 0, 25)
-watermark.Position = UDim2.new(1, -160, 0, 10)
-watermark.BackgroundTransparency = 1
-watermark.Text = "Dirzzz Hub"
-watermark.TextColor3 = Color3.fromRGB(0, 200, 255)
-watermark.TextScaled = true
+-- TOPBAR
+local topBar = Instance.new("Frame", mainFrame)
+topBar.Size = UDim2.new(1, 0, 0, 35)
+topBar.BackgroundColor3 = Color3.fromRGB(12, 12, 20)
+Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 10)
 
-local minBtn = Instance.new("TextButton")
-minBtn.Parent = mainFrame
-minBtn.Size = UDim2.new(0, 30, 0, 30)
-minBtn.Position = UDim2.new(1, -35, 0, 0)
-minBtn.Text = "-"
-minBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 255)
+local topTitle = Instance.new("TextLabel", topBar)
+topTitle.Size = UDim2.new(1, -80, 1, 0)
+topTitle.Position = UDim2.new(0, 15, 0, 0)
+topTitle.Text = "🔥 Dirzzz Hub  |  V3.0"
+topTitle.TextColor3 = Color3.fromRGB(0, 200, 255)
+topTitle.BackgroundTransparency = 1
+topTitle.TextScaled = true
+topTitle.Font = Enum.Font.GothamBold
+topTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local minBtn = Instance.new("TextButton", topBar)
+minBtn.Size = UDim2.new(0, 28, 0, 28)
+minBtn.Position = UDim2.new(1, -65, 0.5, -14)
+minBtn.Text = "─"
+minBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
 minBtn.TextColor3 = Color3.new(1, 1, 1)
-Instance.new("UICorner", minBtn)
+minBtn.TextScaled = true
+Instance.new("UICorner", minBtn).CornerRadius = UDim.new(0, 6)
 
-local icon = Instance.new("TextButton")
-icon.Parent = mainGui
+local closeBtn = Instance.new("TextButton", topBar)
+closeBtn.Size = UDim2.new(0, 28, 0, 28)
+closeBtn.Position = UDim2.new(1, -33, 0.5, -14)
+closeBtn.Text = "✕"
+closeBtn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+closeBtn.TextColor3 = Color3.new(1, 1, 1)
+closeBtn.TextScaled = true
+Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(0, 6)
+
+closeBtn.MouseButton1Click:Connect(function()
+    TweenService:Create(mainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {
+        Size = UDim2.new(0, 0, 0, 0)
+    }):Play()
+    task.wait(0.3)
+    mainGui:Destroy()
+end)
+
+local icon = Instance.new("TextButton", mainGui)
 icon.Size = UDim2.new(0, 45, 0, 45)
-icon.Position = UDim2.new(0, 20, 0, 120)
-icon.BackgroundColor3 = Color3.fromRGB(0, 200, 255)
+icon.Position = UDim2.new(0, 20, 0.5, -22)
+icon.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
 icon.Text = "DH"
 icon.TextColor3 = Color3.new(1, 1, 1)
 icon.Visible = false
 icon.Active = true
 icon.Draggable = true
 icon.TextScaled = true
-local iconCorner = Instance.new("UICorner")
-iconCorner.Parent = icon
-iconCorner.CornerRadius = UDim.new(1, 0)
-
-local tabs = Instance.new("Frame")
-tabs.Parent = mainFrame
-tabs.Size = UDim2.new(1, 0, 0, 30)
-tabs.Position = UDim2.new(0, 0, 0, 30)
-tabs.BackgroundTransparency = 1
-local tabLayout = Instance.new("UIListLayout")
-tabLayout.Parent = tabs
-tabLayout.FillDirection = Enum.FillDirection.Horizontal
-
-local pages = Instance.new("Frame")
-pages.Parent = mainFrame
-pages.Size = UDim2.new(1, 0, 1, -60)
-pages.Position = UDim2.new(0, 0, 0, 60)
-pages.BackgroundTransparency = 1
+icon.Font = Enum.Font.GothamBold
+Instance.new("UICorner", icon).CornerRadius = UDim.new(1, 0)
 
 local minimized = false
 minBtn.MouseButton1Click:Connect(function()
@@ -232,76 +228,144 @@ icon.MouseButton1Click:Connect(function()
     minimized = false
 end)
 
+local watermark = Instance.new("TextLabel", mainGui)
+watermark.Size = UDim2.new(0, 130, 0, 22)
+watermark.Position = UDim2.new(1, -140, 0, 8)
+watermark.BackgroundColor3 = Color3.fromRGB(12, 12, 20)
+watermark.BackgroundTransparency = 0.3
+watermark.Text = "⚡ Dirzzz Hub"
+watermark.TextColor3 = Color3.fromRGB(0, 200, 255)
+watermark.TextScaled = true
+watermark.Font = Enum.Font.GothamBold
+Instance.new("UICorner", watermark).CornerRadius = UDim.new(0, 6)
+
+-- SIDEBAR
+local sidebar = Instance.new("Frame", mainFrame)
+sidebar.Size = UDim2.new(0, 110, 1, -35)
+sidebar.Position = UDim2.new(0, 0, 0, 35)
+sidebar.BackgroundColor3 = Color3.fromRGB(12, 12, 22)
+Instance.new("UICorner", sidebar).CornerRadius = UDim.new(0, 10)
+
+local sideLayout = Instance.new("UIListLayout", sidebar)
+sideLayout.Padding = UDim.new(0, 4)
+sideLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+
+local sidePad = Instance.new("UIPadding", sidebar)
+sidePad.PaddingTop = UDim.new(0, 8)
+sidePad.PaddingLeft = UDim.new(0, 6)
+sidePad.PaddingRight = UDim.new(0, 6)
+
+-- CONTENT AREA
+local contentArea = Instance.new("Frame", mainFrame)
+contentArea.Size = UDim2.new(1, -118, 1, -35)
+contentArea.Position = UDim2.new(0, 114, 0, 35)
+contentArea.BackgroundTransparency = 1
+
+-- FUNGSI
+local activeTab = nil
+local tabButtons = {}
+
 local function createPage()
-    local scroll = Instance.new("ScrollingFrame")
-    scroll.Parent = pages
+    local scroll = Instance.new("ScrollingFrame", contentArea)
     scroll.Size = UDim2.new(1, 0, 1, 0)
-    scroll.ScrollBarThickness = 4
+    scroll.ScrollBarThickness = 3
     scroll.BackgroundTransparency = 1
     scroll.Visible = false
-    local layout = Instance.new("UIListLayout")
-    layout.Parent = scroll
-    layout.Padding = UDim.new(0, 6)
+    scroll.ScrollBarImageColor3 = Color3.fromRGB(0, 150, 255)
+    local layout = Instance.new("UIListLayout", scroll)
+    layout.Padding = UDim.new(0, 5)
+    local pad = Instance.new("UIPadding", scroll)
+    pad.PaddingTop = UDim.new(0, 5)
+    pad.PaddingRight = UDim.new(0, 5)
     layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-        scroll.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 10)
+        scroll.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 15)
     end)
     return scroll
 end
 
-local function createTab(name)
-    local btn = Instance.new("TextButton")
-    btn.Parent = tabs
-    btn.Size = UDim2.new(0, 44, 1, 0)
-    btn.Text = name
-    btn.BackgroundColor3 = Color3.fromRGB(0, 180, 255)
-    btn.TextColor3 = Color3.new(1, 1, 1)
-    btn.TextScaled = true
-    Instance.new("UICorner", btn)
+local function createTab(icon_text, label)
+    local tabBtn = Instance.new("TextButton", sidebar)
+    tabBtn.Size = UDim2.new(1, 0, 0, 38)
+    tabBtn.BackgroundColor3 = Color3.fromRGB(25, 25, 40)
+    tabBtn.TextColor3 = Color3.fromRGB(160, 160, 180)
+    tabBtn.TextScaled = true
+    tabBtn.Font = Enum.Font.GothamBold
+    tabBtn.Text = icon_text .. "\n" .. label
+    tabBtn.BackgroundTransparency = 0.3
+    Instance.new("UICorner", tabBtn).CornerRadius = UDim.new(0, 8)
+
+    local indicator = Instance.new("Frame", tabBtn)
+    indicator.Size = UDim2.new(0, 3, 0.7, 0)
+    indicator.Position = UDim2.new(0, 0, 0.15, 0)
+    indicator.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+    indicator.Visible = false
+    Instance.new("UICorner", indicator).CornerRadius = UDim.new(1, 0)
+
     local page = createPage()
-    btn.MouseButton1Click:Connect(function()
-        for _, v in pairs(pages:GetChildren()) do
-            if v:IsA("ScrollingFrame") then
-                v.Visible = false
-            end
+
+    tabBtn.MouseButton1Click:Connect(function()
+        for _, t in pairs(tabButtons) do
+            TweenService:Create(t.btn, TweenInfo.new(0.2), {
+                BackgroundColor3 = Color3.fromRGB(25, 25, 40),
+                TextColor3 = Color3.fromRGB(160, 160, 180)
+            }):Play()
+            t.indicator.Visible = false
+            t.page.Visible = false
         end
+        TweenService:Create(tabBtn, TweenInfo.new(0.2), {
+            BackgroundColor3 = Color3.fromRGB(0, 80, 160),
+            TextColor3 = Color3.fromRGB(255, 255, 255)
+        }):Play()
+        indicator.Visible = true
         page.Visible = true
+        activeTab = tabBtn
     end)
+
+    table.insert(tabButtons, {btn = tabBtn, indicator = indicator, page = page})
     return page
 end
 
 local function createButton(parent, name, callback)
-    local btn = Instance.new("TextButton")
-    btn.Parent = parent
-    btn.Size = UDim2.new(1, -10, 0, 35)
-    btn.Text = name
-    btn.BackgroundColor3 = Color3.fromRGB(0, 200, 255)
-    btn.TextColor3 = Color3.new(1, 1, 1)
+    local btn = Instance.new("TextButton", parent)
+    btn.Size = UDim2.new(1, -8, 0, 32)
+    btn.Text = "  " .. name
+    btn.BackgroundColor3 = Color3.fromRGB(25, 25, 45)
+    btn.TextColor3 = Color3.fromRGB(200, 200, 220)
     btn.TextScaled = true
-    Instance.new("UICorner", btn)
+    btn.Font = Enum.Font.Gotham
+    btn.TextXAlignment = Enum.TextXAlignment.Left
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+    local s = Instance.new("UIStroke", btn)
+    s.Thickness = 1
+    s.Color = Color3.fromRGB(40, 40, 70)
+
+    btn.MouseEnter:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(0, 80, 160)}):Play()
+    end)
+    btn.MouseLeave:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(25, 25, 45)}):Play()
+    end)
     btn.MouseButton1Click:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.1), {Size = UDim2.new(1, -10, 0, 25)}):Play()
-        task.wait(0.1)
-        TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
-            Size = UDim2.new(1, -10, 0, 35)
-        }):Play()
+        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3 = Color3.fromRGB(0, 120, 255)}):Play()
+        task.wait(0.08)
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(0, 80, 160)}):Play()
         callback()
     end)
 end
 
 local function createLabel(parent, text, color)
-    local lbl = Instance.new("TextLabel")
-    lbl.Parent = parent
-    lbl.Size = UDim2.new(1, -10, 0, 0)
+    local lbl = Instance.new("TextLabel", parent)
+    lbl.Size = UDim2.new(1, -8, 0, 0)
     lbl.AutomaticSize = Enum.AutomaticSize.Y
     lbl.Text = text
-    lbl.TextColor3 = color or Color3.fromRGB(255, 255, 255)
-    lbl.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
-    lbl.BackgroundTransparency = 0.3
+    lbl.TextColor3 = color or Color3.fromRGB(200, 200, 220)
+    lbl.BackgroundColor3 = Color3.fromRGB(20, 20, 35)
+    lbl.BackgroundTransparency = 0.1
     lbl.TextScaled = false
-    lbl.TextSize = 13
+    lbl.TextSize = 12
     lbl.TextWrapped = true
     lbl.TextXAlignment = Enum.TextXAlignment.Left
-    lbl.Font = Enum.Font.GothamBold
+    lbl.Font = Enum.Font.Gotham
     lbl.RichText = true
     Instance.new("UICorner", lbl).CornerRadius = UDim.new(0, 6)
     local pad = Instance.new("UIPadding", lbl)
@@ -311,36 +375,155 @@ local function createLabel(parent, text, color)
     pad.PaddingBottom = UDim.new(0, 6)
 end
 
--- CREATE TABS (7 tab)
-local homePage = createTab("🏠")
-local mainPage = createTab("Main")
-local visualPage = createTab("Visual")
-local adminPage = createTab("Admin")
-local hubPage = createTab("Hub")
-local settingPage = createTab("⚙️")
+local function createToggle(parent, name, callback)
+    local toggleOn = false
+    local row = Instance.new("Frame", parent)
+    row.Size = UDim2.new(1, -8, 0, 32)
+    row.BackgroundColor3 = Color3.fromRGB(25, 25, 45)
+    Instance.new("UICorner", row).CornerRadius = UDim.new(0, 6)
+    Instance.new("UIStroke", row).Color = Color3.fromRGB(40, 40, 70)
 
+    local lbl = Instance.new("TextLabel", row)
+    lbl.Size = UDim2.new(1, -50, 1, 0)
+    lbl.Position = UDim2.new(0, 10, 0, 0)
+    lbl.Text = name
+    lbl.TextColor3 = Color3.fromRGB(200, 200, 220)
+    lbl.BackgroundTransparency = 1
+    lbl.TextScaled = true
+    lbl.Font = Enum.Font.Gotham
+    lbl.TextXAlignment = Enum.TextXAlignment.Left
+
+    local toggleBg = Instance.new("Frame", row)
+    toggleBg.Size = UDim2.new(0, 36, 0, 20)
+    toggleBg.Position = UDim2.new(1, -42, 0.5, -10)
+    toggleBg.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
+    Instance.new("UICorner", toggleBg).CornerRadius = UDim.new(1, 0)
+
+    local toggleDot = Instance.new("Frame", toggleBg)
+    toggleDot.Size = UDim2.new(0, 16, 0, 16)
+    toggleDot.Position = UDim2.new(0, 2, 0.5, -8)
+    toggleDot.BackgroundColor3 = Color3.fromRGB(180, 180, 200)
+    Instance.new("UICorner", toggleDot).CornerRadius = UDim.new(1, 0)
+
+    local btn = Instance.new("TextButton", row)
+    btn.Size = UDim2.new(1, 0, 1, 0)
+    btn.BackgroundTransparency = 1
+    btn.Text = ""
+
+    btn.MouseButton1Click:Connect(function()
+        toggleOn = not toggleOn
+        if toggleOn then
+            TweenService:Create(toggleBg, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 150, 255)}):Play()
+            TweenService:Create(toggleDot, TweenInfo.new(0.2), {Position = UDim2.new(0, 18, 0.5, -8), BackgroundColor3 = Color3.fromRGB(255,255,255)}):Play()
+        else
+            TweenService:Create(toggleBg, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(60, 60, 80)}):Play()
+            TweenService:Create(toggleDot, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -8), BackgroundColor3 = Color3.fromRGB(180,180,200)}):Play()
+        end
+        callback(toggleOn)
+    end)
+end
+
+local function createInput(parent, labelText, placeholder, maxVal, callback)
+    local lbl = Instance.new("TextLabel", parent)
+    lbl.Size = UDim2.new(1, -8, 0, 18)
+    lbl.Text = labelText
+    lbl.TextColor3 = Color3.fromRGB(0, 200, 255)
+    lbl.BackgroundTransparency = 1
+    lbl.TextScaled = true
+    lbl.Font = Enum.Font.GothamBold
+    lbl.TextXAlignment = Enum.TextXAlignment.Left
+
+    local inputRow = Instance.new("Frame", parent)
+    inputRow.Size = UDim2.new(1, -8, 0, 32)
+    inputRow.BackgroundTransparency = 1
+
+    local inputLayout = Instance.new("UIListLayout", inputRow)
+    inputLayout.FillDirection = Enum.FillDirection.Horizontal
+    inputLayout.Padding = UDim.new(0, 4)
+
+    local box = Instance.new("TextBox", inputRow)
+    box.Size = UDim2.new(0.55, 0, 1, 0)
+    box.PlaceholderText = placeholder
+    box.BackgroundColor3 = Color3.fromRGB(20, 20, 38)
+    box.TextColor3 = Color3.new(1, 1, 1)
+    box.TextScaled = true
+    box.Font = Enum.Font.Gotham
+    box.ClearTextOnFocus = false
+    Instance.new("UICorner", box).CornerRadius = UDim.new(0, 6)
+    Instance.new("UIStroke", box).Color = Color3.fromRGB(0, 100, 200)
+
+    local setBtn = Instance.new("TextButton", inputRow)
+    setBtn.Size = UDim2.new(0.22, 0, 1, 0)
+    setBtn.Text = "Set"
+    setBtn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+    setBtn.TextColor3 = Color3.new(1, 1, 1)
+    setBtn.TextScaled = true
+    setBtn.Font = Enum.Font.GothamBold
+    Instance.new("UICorner", setBtn).CornerRadius = UDim.new(0, 6)
+
+    local resetBtn = Instance.new("TextButton", inputRow)
+    resetBtn.Size = UDim2.new(0.2, 0, 1, 0)
+    resetBtn.Text = "↺"
+    resetBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 100)
+    resetBtn.TextColor3 = Color3.new(1, 1, 1)
+    resetBtn.TextScaled = true
+    Instance.new("UICorner", resetBtn).CornerRadius = UDim.new(0, 6)
+
+    setBtn.MouseButton1Click:Connect(function()
+        local val = tonumber(box.Text)
+        if val and val >= 1 and val <= maxVal then
+            callback(val, false)
+            setBtn.Text = "✓"
+            setBtn.BackgroundColor3 = Color3.fromRGB(0, 180, 80)
+            task.wait(1.5)
+            setBtn.Text = "Set"
+            setBtn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+        else
+            setBtn.Text = "!"
+            setBtn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+            task.wait(1.5)
+            setBtn.Text = "Set"
+            setBtn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+        end
+    end)
+
+    resetBtn.MouseButton1Click:Connect(function()
+        box.Text = ""
+        callback(nil, true)
+    end)
+end
+
+-- CREATE TABS (6 tab, tanpa donate)
+local homePage    = createTab("🏠", "Home")
+local mainPage    = createTab("📜", "Main")
+local visualPage  = createTab("👁", "Visual")
+local adminPage   = createTab("⚡", "Admin")
+local hubPage     = createTab("🌐", "Hub")
+local settingPage = createTab("⚙️", "Setting")
+
+tabButtons[1].btn.BackgroundColor3 = Color3.fromRGB(0, 80, 160)
+tabButtons[1].btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+tabButtons[1].indicator.Visible = true
 homePage.Visible = true
 
--- ==================
 -- HOME PAGE
--- ==================
-createLabel(homePage, "🔥 <b>Dirzzz Hub</b>\n📦 Versi: <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>", Color3.fromRGB(0, 255, 255))
-createLabel(homePage, "━━━━━━━━━━━━━━━━━━━━", Color3.fromRGB(100, 200, 255))
-createLabel(homePage, "📋 <b>Update Log V3.0:</b>\n✅ Tambah script baru di semua tab\n✅ Tab Pengaturan & Donate baru\n✅ Admin tab diperbaiki\n✅ WalkSpeed & JumpPower input\n✅ Toggle ON/OFF digabung", Color3.fromRGB(180, 255, 180))
-createLabel(homePage, "📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute script!\n🔑 Key: FREE (gratis)\n💬 Report bug ke Dirzzz", Color3.fromRGB(255, 220, 100))
-createLabel(homePage, "⚠️ <b>PENTING:</b>\n🚫 Script ini <b>GRATIS</b> dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!", Color3.fromRGB(255, 80, 80))
-createLabel(homePage, "💡 <b>Tips:</b>\n🔍 Gunakan Search di tab Main\n📌 Klik [ - ] untuk minimize\n🔄 Re-execute jika ada error", Color3.fromRGB(200, 180, 255))
+createLabel(homePage, "🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>", Color3.fromRGB(0, 200, 255))
+createLabel(homePage, "📋 <b>Update Log V3.0:</b>\n✅ UI baru style Lunar Hub\n✅ Sidebar navigasi\n✅ Toggle switch smooth\n✅ Tab Pengaturan\n✅ WalkSpeed & JumpPower input", Color3.fromRGB(120, 255, 150))
+createLabel(homePage, "📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute!\n🔑 Key: FREE\n💬 Report bug ke Dirzzz", Color3.fromRGB(255, 210, 80))
+createLabel(homePage, "⚠️ <b>PENTING:</b>\n🚫 Script ini GRATIS dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!", Color3.fromRGB(255, 80, 80))
+createLabel(homePage, "💡 <b>Tips:</b>\n🔍 Search di tab Main\n📌 Klik ─ untuk minimize\n✕ Klik X untuk tutup", Color3.fromRGB(180, 150, 255))
 
--- ==================
 -- MAIN PAGE
--- ==================
-local searchBox = Instance.new("TextBox")
-searchBox.Parent = mainPage
-searchBox.Size = UDim2.new(1, -10, 0, 30)
-searchBox.PlaceholderText = "Search script..."
-searchBox.BackgroundColor3 = Color3.fromRGB(0, 180, 255)
+local searchBox = Instance.new("TextBox", mainPage)
+searchBox.Size = UDim2.new(1, -8, 0, 30)
+searchBox.PlaceholderText = "🔍 Search script..."
+searchBox.BackgroundColor3 = Color3.fromRGB(20, 20, 38)
 searchBox.TextColor3 = Color3.new(1, 1, 1)
-Instance.new("UICorner", searchBox)
+searchBox.TextScaled = true
+searchBox.Font = Enum.Font.Gotham
+searchBox.ClearTextOnFocus = false
+Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0, 6)
+Instance.new("UIStroke", searchBox).Color = Color3.fromRGB(0, 100, 200)
 
 searchBox:GetPropertyChangedSignal("Text"):Connect(function()
     local text = string.lower(searchBox.Text)
@@ -378,259 +561,115 @@ createButton(mainPage, "Doors", function() loadstring(game:HttpGet("https://raw.
 createButton(mainPage, "Universal Aimbot", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
 createButton(mainPage, "Steal Tools Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
 
--- ==================
--- HUB PAGE
--- ==================
-createButton(hubPage, "Speed hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
-createButton(hubPage, "Chiyo hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
-createButton(hubPage, "Hoho Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
-createButton(hubPage, "Domain X Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
-createButton(hubPage, "Orion UI Demo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))() end)
-createButton(hubPage, "Thunder Client Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))() end)
-createButton(hubPage, "Rayfield UI", function() loadstring(game:HttpGet("https://sirius.menu/rayfield"))() end)
-createButton(hubPage, "Linoria Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
-createButton(hubPage, "Kavo UI Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
-
--- ==================
 -- VISUAL PAGE
--- ==================
-createButton(visualPage, "FullBright", function()
+createToggle(visualPage, "FullBright", function(on)
     local l = game:GetService("Lighting")
-    l.Brightness = 2 l.ClockTime = 14 l.FogEnd = 100000 l.GlobalShadows = false
-    l.Ambient = Color3.fromRGB(255, 255, 255)
-end)
-createButton(visualPage, "FPS Boost Extreme", function()
-    for _, v in pairs(game:GetDescendants()) do
-        if v:IsA("BasePart") then v.Material = Enum.Material.Plastic v.Reflectance = 0 end
+    if on then
+        l.Brightness=2 l.ClockTime=14 l.FogEnd=100000
+        l.GlobalShadows=false l.Ambient=Color3.fromRGB(255,255,255)
+    else
+        l.Brightness=1 l.GlobalShadows=true l.Ambient=Color3.fromRGB(70,70,70)
     end
 end)
-createButton(visualPage, "No Fog", function() game:GetService("Lighting").FogEnd = 100000 end)
-createButton(visualPage, "ESP Player", function() loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))() end)
-createButton(visualPage, "PShade", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))() end)
-createButton(visualPage, "Remove Textures", function()
+createToggle(visualPage, "No Fog", function(on)
+    game:GetService("Lighting").FogEnd = on and 100000 or 1000
+end)
+createToggle(visualPage, "Remove Textures", function(on)
     for _, v in pairs(game:GetDescendants()) do
-        if v:IsA("Texture") or v:IsA("Decal") then v:Destroy() end
+        if v:IsA("Texture") or v:IsA("Decal") then
+            v.Transparency = on and 1 or 0
+        end
     end
 end)
-createButton(visualPage, "Neon Theme", function()
+createToggle(visualPage, "FPS Boost", function(on)
+    for _, v in pairs(game:GetDescendants()) do
+        if v:IsA("BasePart") then
+            v.Material = on and Enum.Material.Plastic or Enum.Material.SmoothPlastic
+            v.Reflectance = on and 0 or 0.1
+        end
+    end
+end)
+createToggle(visualPage, "Blur Effect", function(on)
+    for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
+        if v:IsA("BlurEffect") then v:Destroy() end
+    end
+    if on then
+        local blur = Instance.new("BlurEffect", game:GetService("Lighting"))
+        blur.Size = 15
+    end
+end)
+createToggle(visualPage, "Neon Theme", function(on)
     local l = game:GetService("Lighting")
-    l.Ambient = Color3.fromRGB(0, 100, 200) l.OutdoorAmbient = Color3.fromRGB(0, 50, 150)
-    l.Brightness = 1 l.ClockTime = 0 l.FogEnd = 500 l.FogColor = Color3.fromRGB(0, 20, 80)
+    if on then
+        l.Ambient=Color3.fromRGB(0,100,200) l.ClockTime=0
+        l.FogEnd=500 l.FogColor=Color3.fromRGB(0,20,80)
+    else
+        l.Ambient=Color3.fromRGB(70,70,70) l.ClockTime=14 l.FogEnd=100000
+    end
+end)
+createToggle(visualPage, "Rainbow Sky", function(on)
+    getgenv().rainbowOn = on
+    if on then
+        task.spawn(function()
+            local l = game:GetService("Lighting")
+            local hue = 0
+            while getgenv().rainbowOn do
+                hue = (hue + 0.005) % 1
+                l.Ambient = Color3.fromHSV(hue, 0.8, 1)
+                task.wait(0.05)
+            end
+        end)
+    end
 end)
 createButton(visualPage, "Day Time", function() game:GetService("Lighting").ClockTime = 12 end)
 createButton(visualPage, "Night Time", function() game:GetService("Lighting").ClockTime = 0 end)
 createButton(visualPage, "Reset Lighting", function()
     local l = game:GetService("Lighting")
-    l.Brightness = 1 l.ClockTime = 14 l.FogEnd = 100000 l.GlobalShadows = true
-    l.Ambient = Color3.fromRGB(70, 70, 70) l.OutdoorAmbient = Color3.fromRGB(127, 127, 127)
+    l.Brightness=1 l.ClockTime=14 l.FogEnd=100000
+    l.GlobalShadows=true l.Ambient=Color3.fromRGB(70,70,70)
 end)
-createButton(visualPage, "Rainbow Sky", function()
-    task.spawn(function()
-        local l = game:GetService("Lighting")
-        local hue = 0
-        while true do
-            hue = (hue + 0.005) % 1
-            l.Ambient = Color3.fromHSV(hue, 0.8, 1)
-            task.wait(0.05)
-        end
-    end)
-end)
-createButton(visualPage, "Blur Effect", function()
-    local blur = Instance.new("BlurEffect")
-    blur.Size = 15
-    blur.Parent = game:GetService("Lighting")
-end)
-createButton(visualPage, "Remove Blur", function()
-    for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
-        if v:IsA("BlurEffect") then v:Destroy() end
-    end
-end)
+createButton(visualPage, "ESP Player", function() loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))() end)
+createButton(visualPage, "PShade", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))() end)
 
--- ==================
 -- ADMIN PAGE
--- ==================
 createButton(adminPage, "Fly GUI", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))() end)
 createButton(adminPage, "Godmode", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))() end)
 createButton(adminPage, "CMD-X Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))() end)
 
-local wsLabel = Instance.new("TextLabel")
-wsLabel.Parent = adminPage
-wsLabel.Size = UDim2.new(1, -10, 0, 20)
-wsLabel.Text = "⚡ WalkSpeed (default 16, max 500)"
-wsLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
-wsLabel.BackgroundTransparency = 1
-wsLabel.TextScaled = true
-wsLabel.Font = Enum.Font.GothamBold
-
-local wsBox = Instance.new("TextBox")
-wsBox.Parent = adminPage
-wsBox.Size = UDim2.new(1, -10, 0, 32)
-wsBox.PlaceholderText = "Masukkan WalkSpeed (1-500)..."
-wsBox.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-wsBox.TextColor3 = Color3.new(1, 1, 1)
-wsBox.TextScaled = true
-wsBox.ClearTextOnFocus = false
-Instance.new("UICorner", wsBox)
-
-local wsBtn = Instance.new("TextButton")
-wsBtn.Parent = adminPage
-wsBtn.Size = UDim2.new(1, -10, 0, 32)
-wsBtn.Text = "✅ Set WalkSpeed"
-wsBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
-wsBtn.TextColor3 = Color3.new(1, 1, 1)
-wsBtn.TextScaled = true
-Instance.new("UICorner", wsBtn)
-
-local wsResetBtn = Instance.new("TextButton")
-wsResetBtn.Parent = adminPage
-wsResetBtn.Size = UDim2.new(1, -10, 0, 32)
-wsResetBtn.Text = "🔄 Reset WalkSpeed (16)"
-wsResetBtn.BackgroundColor3 = Color3.fromRGB(200, 100, 0)
-wsResetBtn.TextColor3 = Color3.new(1, 1, 1)
-wsResetBtn.TextScaled = true
-Instance.new("UICorner", wsResetBtn)
-
-wsBtn.MouseButton1Click:Connect(function()
-    local val = tonumber(wsBox.Text)
-    if val and val >= 1 and val <= 500 then
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = val
-        wsBtn.Text = "✅ Speed: " .. val
-    else
-        wsBtn.Text = "❌ Angka 1-500!"
-        task.wait(1.5)
-        wsBtn.Text = "✅ Set WalkSpeed"
-    end
+createInput(adminPage, "⚡ WalkSpeed (max 500)", "Ketik 1-500...", 500, function(val, reset)
+    local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+    if hum then hum.WalkSpeed = reset and 16 or val end
 end)
 
-wsResetBtn.MouseButton1Click:Connect(function()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-    wsBox.Text = ""
-    wsBtn.Text = "✅ Set WalkSpeed"
-end)
-
-local jpLabel = Instance.new("TextLabel")
-jpLabel.Parent = adminPage
-jpLabel.Size = UDim2.new(1, -10, 0, 20)
-jpLabel.Text = "🦘 JumpPower (default 50, max 1000)"
-jpLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
-jpLabel.BackgroundTransparency = 1
-jpLabel.TextScaled = true
-jpLabel.Font = Enum.Font.GothamBold
-
-local jpBox = Instance.new("TextBox")
-jpBox.Parent = adminPage
-jpBox.Size = UDim2.new(1, -10, 0, 32)
-jpBox.PlaceholderText = "Masukkan JumpPower (1-1000)..."
-jpBox.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-jpBox.TextColor3 = Color3.new(1, 1, 1)
-jpBox.TextScaled = true
-jpBox.ClearTextOnFocus = false
-Instance.new("UICorner", jpBox)
-
-local jpBtn = Instance.new("TextButton")
-jpBtn.Parent = adminPage
-jpBtn.Size = UDim2.new(1, -10, 0, 32)
-jpBtn.Text = "✅ Set JumpPower"
-jpBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
-jpBtn.TextColor3 = Color3.new(1, 1, 1)
-jpBtn.TextScaled = true
-Instance.new("UICorner", jpBtn)
-
-local jpResetBtn = Instance.new("TextButton")
-jpResetBtn.Parent = adminPage
-jpResetBtn.Size = UDim2.new(1, -10, 0, 32)
-jpResetBtn.Text = "🔄 Reset JumpPower (50)"
-jpResetBtn.BackgroundColor3 = Color3.fromRGB(200, 100, 0)
-jpResetBtn.TextColor3 = Color3.new(1, 1, 1)
-jpResetBtn.TextScaled = true
-Instance.new("UICorner", jpResetBtn)
-
-jpBtn.MouseButton1Click:Connect(function()
-    local val = tonumber(jpBox.Text)
-    if val and val >= 1 and val <= 1000 then
-        local char = game.Players.LocalPlayer.Character
-        local hum = char and char:FindFirstChildOfClass("Humanoid")
-        if hum then
-            hum.UseJumpPower = true
-            hum.JumpPower = val
-            jpBtn.Text = "✅ Jump: " .. val
-        end
-    else
-        jpBtn.Text = "❌ Angka 1-1000!"
-        task.wait(1.5)
-        jpBtn.Text = "✅ Set JumpPower"
-    end
-end)
-
-jpResetBtn.MouseButton1Click:Connect(function()
-    local char = game.Players.LocalPlayer.Character
-    local hum = char and char:FindFirstChildOfClass("Humanoid")
+createInput(adminPage, "🦘 JumpPower (max 1000)", "Ketik 1-1000...", 1000, function(val, reset)
+    local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
     if hum then
         hum.UseJumpPower = true
-        hum.JumpPower = 50
+        hum.JumpPower = reset and 50 or val
     end
-    jpBox.Text = ""
-    jpBtn.Text = "✅ Set JumpPower"
 end)
 
-local infJumpOn = false
-local infJumpBtn = Instance.new("TextButton")
-infJumpBtn.Parent = adminPage
-infJumpBtn.Size = UDim2.new(1, -10, 0, 35)
-infJumpBtn.Text = "🔴 Infinite Jump: OFF"
-infJumpBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
-infJumpBtn.TextColor3 = Color3.new(1, 1, 1)
-infJumpBtn.TextScaled = true
-Instance.new("UICorner", infJumpBtn)
-
+createToggle(adminPage, "Infinite Jump", function(on)
+    getgenv().infJumpOn = on
+end)
 game:GetService("UserInputService").JumpRequest:Connect(function()
-    if infJumpOn then
-        local char = game.Players.LocalPlayer.Character
-        local hum = char and char:FindFirstChildOfClass("Humanoid")
+    if getgenv().infJumpOn then
+        local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
         if hum then hum:ChangeState(Enum.HumanoidStateType.Jumping) end
     end
 end)
 
-infJumpBtn.MouseButton1Click:Connect(function()
-    infJumpOn = not infJumpOn
-    if infJumpOn then
-        infJumpBtn.Text = "🟢 Infinite Jump: ON"
-        infJumpBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
-    else
-        infJumpBtn.Text = "🔴 Infinite Jump: OFF"
-        infJumpBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
-    end
+createToggle(adminPage, "Noclip", function(on)
+    getgenv().noclipOn = on
 end)
-
-local noclipOn = false
-local noclipBtn = Instance.new("TextButton")
-noclipBtn.Parent = adminPage
-noclipBtn.Size = UDim2.new(1, -10, 0, 35)
-noclipBtn.Text = "🔴 Noclip: OFF"
-noclipBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
-noclipBtn.TextColor3 = Color3.new(1, 1, 1)
-noclipBtn.TextScaled = true
-Instance.new("UICorner", noclipBtn)
-
 game:GetService("RunService").Stepped:Connect(function()
-    if noclipOn then
+    if getgenv().noclipOn then
         local char = game.Players.LocalPlayer.Character
         if char then
             for _, v in pairs(char:GetDescendants()) do
                 if v:IsA("BasePart") then v.CanCollide = false end
             end
         end
-    end
-end)
-
-noclipBtn.MouseButton1Click:Connect(function()
-    noclipOn = not noclipOn
-    if noclipOn then
-        noclipBtn.Text = "🟢 Noclip: ON"
-        noclipBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
-    else
-        noclipBtn.Text = "🔴 Noclip: OFF"
-        noclipBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
     end
 end)
 
@@ -642,175 +681,74 @@ createButton(adminPage, "Anti AFK", function()
         vu:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
     end)
 end)
-
 createButton(adminPage, "Rejoin Game", function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end)
 
--- ==================
+-- HUB PAGE
+createButton(hubPage, "Speed hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
+createButton(hubPage, "Chiyo hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
+createButton(hubPage, "Hoho Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
+createButton(hubPage, "Domain X Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
+createButton(hubPage, "Orion UI Demo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))() end)
+createButton(hubPage, "Thunder Client Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))() end)
+createButton(hubPage, "Rayfield UI", function() loadstring(game:HttpGet("https://sirius.menu/rayfield"))() end)
+createButton(hubPage, "Linoria Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
+createButton(hubPage, "Kavo UI Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
+
 -- SETTING PAGE
--- ==================
-local autoExecOn = false
-local autoExecBtn = Instance.new("TextButton")
-autoExecBtn.Parent = settingPage
-autoExecBtn.Size = UDim2.new(1, -10, 0, 35)
-autoExecBtn.Text = "🔴 Auto Execute: OFF"
-autoExecBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
-autoExecBtn.TextColor3 = Color3.new(1, 1, 1)
-autoExecBtn.TextScaled = true
-Instance.new("UICorner", autoExecBtn)
-
-local autoExecDesc = Instance.new("TextLabel")
-autoExecDesc.Parent = settingPage
-autoExecDesc.Size = UDim2.new(1, -10, 0, 0)
-autoExecDesc.AutomaticSize = Enum.AutomaticSize.Y
-autoExecDesc.Text = "ℹ️ Jika ON, script akan otomatis\nexecute ulang saat respawn/join"
-autoExecDesc.TextColor3 = Color3.fromRGB(200, 200, 200)
-autoExecDesc.BackgroundTransparency = 1
-autoExecDesc.TextScaled = false
-autoExecDesc.TextSize = 11
-autoExecDesc.TextWrapped = true
-autoExecDesc.Font = Enum.Font.Gotham
-
-autoExecBtn.MouseButton1Click:Connect(function()
-    autoExecOn = not autoExecOn
-    if autoExecOn then
-        autoExecBtn.Text = "🟢 Auto Execute: ON"
-        autoExecBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+createToggle(settingPage, "Auto Execute", function(on)
+    getgenv().autoExecOn = on
+    if on then
         game.Players.LocalPlayer.CharacterAdded:Connect(function()
-            if autoExecOn then
+            if getgenv().autoExecOn then
                 task.wait(2)
                 getgenv().DirzzzHubLoaded = false
             end
         end)
-    else
-        autoExecBtn.Text = "🔴 Auto Execute: OFF"
-        autoExecBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
     end
 end)
-
-local fixLagOn = false
-local fixLagBtn = Instance.new("TextButton")
-fixLagBtn.Parent = settingPage
-fixLagBtn.Size = UDim2.new(1, -10, 0, 35)
-fixLagBtn.Text = "🔴 Fix Lag: OFF"
-fixLagBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
-fixLagBtn.TextColor3 = Color3.new(1, 1, 1)
-fixLagBtn.TextScaled = true
-Instance.new("UICorner", fixLagBtn)
-
-local fixLagDesc = Instance.new("TextLabel")
-fixLagDesc.Parent = settingPage
-fixLagDesc.Size = UDim2.new(1, -10, 0, 0)
-fixLagDesc.AutomaticSize = Enum.AutomaticSize.Y
-fixLagDesc.Text = "ℹ️ Menghapus partikel, shadow,\ntexture & efek berat lainnya"
-fixLagDesc.TextColor3 = Color3.fromRGB(200, 200, 200)
-fixLagDesc.BackgroundTransparency = 1
-fixLagDesc.TextScaled = false
-fixLagDesc.TextSize = 11
-fixLagDesc.TextWrapped = true
-fixLagDesc.Font = Enum.Font.Gotham
-
-fixLagBtn.MouseButton1Click:Connect(function()
-    fixLagOn = not fixLagOn
-    if fixLagOn then
-        fixLagBtn.Text = "🟢 Fix Lag: ON"
-        fixLagBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
-        local l = game:GetService("Lighting")
-        l.GlobalShadows = false
-        l.FogEnd = 100000
-        l.Brightness = 1
+createToggle(settingPage, "Fix Lag", function(on)
+    local l = game:GetService("Lighting")
+    if on then
+        l.GlobalShadows=false l.FogEnd=100000 l.Brightness=1
         for _, v in pairs(game:GetDescendants()) do
-            if v:IsA("ParticleEmitter") or v:IsA("Trail")
-            or v:IsA("Smoke") or v:IsA("Fire") or v:IsA("Sparkles") then
+            if v:IsA("ParticleEmitter") or v:IsA("Trail") or v:IsA("Smoke") or v:IsA("Fire") or v:IsA("Sparkles") then
                 v.Enabled = false
             end
-            if v:IsA("Texture") or v:IsA("Decal") then
-                v.Transparency = 1
-            end
+            if v:IsA("Texture") or v:IsA("Decal") then v.Transparency = 1 end
             if v:IsA("BasePart") then
-                v.Material = Enum.Material.Plastic
-                v.Reflectance = 0
-                v.CastShadow = false
+                v.Material=Enum.Material.Plastic v.Reflectance=0 v.CastShadow=false
             end
         end
         for _, v in pairs(l:GetChildren()) do
-            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect")
-            or v:IsA("ColorCorrectionEffect") or v:IsA("DepthOfFieldEffect")
-            or v:IsA("BloomEffect") then
-                v:Destroy()
-            end
+            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect")
+            or v:IsA("DepthOfFieldEffect") or v:IsA("BloomEffect") then v:Destroy() end
         end
         settings().Rendering.QualityLevel = 1
     else
-        fixLagBtn.Text = "🔴 Fix Lag: OFF"
-        fixLagBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
         settings().Rendering.QualityLevel = 10
     end
 end)
-
-local shadersOn = false
-local shadersBtn = Instance.new("TextButton")
-shadersBtn.Parent = settingPage
-shadersBtn.Size = UDim2.new(1, -10, 0, 35)
-shadersBtn.Text = "🔴 Shaders HD: OFF"
-shadersBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
-shadersBtn.TextColor3 = Color3.new(1, 1, 1)
-shadersBtn.TextScaled = true
-Instance.new("UICorner", shadersBtn)
-
-local shadersDesc = Instance.new("TextLabel")
-shadersDesc.Parent = settingPage
-shadersDesc.Size = UDim2.new(1, -10, 0, 0)
-shadersDesc.AutomaticSize = Enum.AutomaticSize.Y
-shadersDesc.Text = "ℹ️ Grafik HD dengan bloom,\nsun rays & color correction"
-shadersDesc.TextColor3 = Color3.fromRGB(200, 200, 200)
-shadersDesc.BackgroundTransparency = 1
-shadersDesc.TextScaled = false
-shadersDesc.TextSize = 11
-shadersDesc.TextWrapped = true
-shadersDesc.Font = Enum.Font.Gotham
-
-shadersBtn.MouseButton1Click:Connect(function()
-    shadersOn = not shadersOn
+createToggle(settingPage, "Shaders HD", function(on)
     local l = game:GetService("Lighting")
-    if shadersOn then
-        shadersBtn.Text = "🟢 Shaders HD: ON"
-        shadersBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
-        for _, v in pairs(l:GetChildren()) do
-            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect")
-            or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
-                v:Destroy()
-            end
+    for _, v in pairs(l:GetChildren()) do
+        if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
+            v:Destroy()
         end
+    end
+    if on then
         local bloom = Instance.new("BloomEffect", l)
-        bloom.Intensity = 0.8
-        bloom.Size = 24
-        bloom.Threshold = 0.95
+        bloom.Intensity=0.8 bloom.Size=24 bloom.Threshold=0.95
         local sunRays = Instance.new("SunRaysEffect", l)
-        sunRays.Intensity = 0.25
-        sunRays.Spread = 0.5
-        local colorCorrect = Instance.new("ColorCorrectionEffect", l)
-        colorCorrect.Brightness = 0.05
-        colorCorrect.Contrast = 0.15
-        colorCorrect.Saturation = 0.2
-        colorCorrect.TintColor = Color3.fromRGB(255, 245, 235)
-        l.GlobalShadows = true
-        l.Brightness = 2
-        l.ClockTime = 14
-        l.FogEnd = 100000
-        l.EnvironmentDiffuseScale = 1
-        l.EnvironmentSpecularScale = 1
+        sunRays.Intensity=0.25 sunRays.Spread=0.5
+        local cc = Instance.new("ColorCorrectionEffect", l)
+        cc.Brightness=0.05 cc.Contrast=0.15 cc.Saturation=0.2
+        cc.TintColor=Color3.fromRGB(255,245,235)
+        l.GlobalShadows=true l.Brightness=2 l.ClockTime=14
+        l.EnvironmentDiffuseScale=1 l.EnvironmentSpecularScale=1
         settings().Rendering.QualityLevel = 21
     else
-        shadersBtn.Text = "🔴 Shaders HD: OFF"
-        shadersBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
-        for _, v in pairs(l:GetChildren()) do
-            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect")
-            or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
-                v:Destroy()
-            end
-        end
-        settings().Rendering.QualityLevel = 10
+        settings().Rendering.QualityLevel = ,15
     end
 end)
