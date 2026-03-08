@@ -106,6 +106,20 @@ frame.BackgroundColor3 = Color3.fromRGB(0,120,255)
 frame.Active = true
 frame.Draggable = true
 
+-- GALAXY BACKGROUND
+local bg = Instance.new("ImageLabel")
+bg.Parent = frame
+bg.Size = UDim2.new(1,0,1,0)
+bg.Position = UDim2.new(0,0,0,0)
+bg.Image = "rbxassetid://16704002223"
+bg.BackgroundTransparency = 1
+bg.ZIndex = 0
+
+-- BLUR EFFECT
+local blur = Instance.new("UIBlurEffect")
+blur.Parent = bg
+blur.Size = 10
+
 Instance.new("UICorner",frame)
 
 -- INTRO ANIMATION
