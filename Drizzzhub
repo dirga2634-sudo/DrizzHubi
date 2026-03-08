@@ -123,6 +123,7 @@ pcall(function()
     })
 end)
 
+-- MAIN GUI
 local mainGui = Instance.new("ScreenGui")
 mainGui.Name = "DirzzzHub"
 mainGui.Parent = CoreGui
@@ -250,7 +251,7 @@ end
 local function createTab(name)
     local btn = Instance.new("TextButton")
     btn.Parent = tabs
-    btn.Size = UDim2.new(0, 55, 1, 0)
+    btn.Size = UDim2.new(0, 44, 1, 0)
     btn.Text = name
     btn.BackgroundColor3 = Color3.fromRGB(0, 180, 255)
     btn.TextColor3 = Color3.new(1, 1, 1)
@@ -310,17 +311,23 @@ local function createLabel(parent, text, color)
     pad.PaddingBottom = UDim.new(0, 6)
 end
 
+-- CREATE TABS (7 tab)
 local homePage = createTab("🏠")
 local mainPage = createTab("Main")
 local visualPage = createTab("Visual")
 local adminPage = createTab("Admin")
 local hubPage = createTab("Hub")
+local settingPage = createTab("⚙️")
+local donatePage = createTab("💰")
 
 homePage.Visible = true
 
+-- ==================
+-- HOME PAGE
+-- ==================
 createLabel(homePage, "🔥 <b>Dirzzz Hub</b>\n📦 Versi: <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>", Color3.fromRGB(0, 255, 255))
 createLabel(homePage, "━━━━━━━━━━━━━━━━━━━━", Color3.fromRGB(100, 200, 255))
-createLabel(homePage, "📋 <b>Update Log V3.0:</b>\n✅ Tambah script baru di semua tab\n✅ Visual tab ditambah\n✅ Admin tab diperbaiki\n✅ WalkSpeed & JumpPower input\n✅ Toggle ON/OFF digabung", Color3.fromRGB(180, 255, 180))
+createLabel(homePage, "📋 <b>Update Log V3.0:</b>\n✅ Tambah script baru di semua tab\n✅ Tab Pengaturan & Donate baru\n✅ Admin tab diperbaiki\n✅ WalkSpeed & JumpPower input\n✅ Toggle ON/OFF digabung", Color3.fromRGB(180, 255, 180))
 createLabel(homePage, "📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute script!\n🔑 Key: FREE (gratis)\n💬 Report bug ke Dirzzz", Color3.fromRGB(255, 220, 100))
 createLabel(homePage, "⚠️ <b>PENTING:</b>\n🚫 Script ini <b>GRATIS</b> dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!", Color3.fromRGB(255, 80, 80))
 createLabel(homePage, "💡 <b>Tips:</b>\n🔍 Gunakan Search di tab Main\n📌 Klik [ - ] untuk minimize\n🔄 Re-execute jika ada error", Color3.fromRGB(200, 180, 255))
@@ -345,144 +352,62 @@ searchBox:GetPropertyChangedSignal("Text"):Connect(function()
     end
 end)
 
-createButton(mainPage, "Infinite Yield", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-end)
-createButton(mainPage, "Dex Explorer", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
-end)
-createButton(mainPage, "Orbital Tsb op", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/cQgr9kqU"))()
-end)
-createButton(mainPage, "Op wallhop", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script"))()
-end)
-createButton(mainPage, "Sambung kata No key", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Sambung-Kata-Auto-Answer-No-Key-126550"))()
-end)
-createButton(mainPage, "Tag game op", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/GVZZgEf6"))()
-end)
-createButton(mainPage, "Shlied hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua"))()
-end)
-createButton(mainPage, "Gomaba hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/JustLevel/goombahub/main/AriseCrossover.lua"))()
-end)
-createButton(mainPage, "Prison life", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua"))()
-end)
-createButton(mainPage, "Dark Dex V3", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
-end)
-createButton(mainPage, "Hydroxide", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua"))()
-end)
-createButton(mainPage, "Owl Hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
-end)
-createButton(mainPage, "VG Hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"))()
-end)
-createButton(mainPage, "Simple Spy", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpy.lua"))()
-end)
-createButton(mainPage, "Remote Spy", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"))()
-end)
-createButton(mainPage, "Than hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
-end)
-createButton(mainPage, "Moon hub", function()
-    loadstring(game:HttpGet("https://usemoon.xyz/loader"))()
-end)
-createButton(mainPage, "Exuso hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BexruzScripts/Blue-lock-no-cd-reo-get-any-style-script.-WORKS-WITH-WORLD-CLASSES-/refs/heads/main/script.lua"))()
-end)
-createButton(mainPage, "Merebennie tsb", function()
-    loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))()
-end)
-createButton(mainPage, "Overdrive", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))()
-end)
-createButton(mainPage, "Solix", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))()
-end)
-createButton(mainPage, "Redz hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
-end)
-createButton(mainPage, "Arsenal", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))()
-end)
-createButton(mainPage, "Doors", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
-end)
-createButton(mainPage, "Universal Aimbot", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))()
-end)
-createButton(mainPage, "Steal Tools Hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))()
-end)
+createButton(mainPage, "Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
+createButton(mainPage, "Dex Explorer", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))() end)
+createButton(mainPage, "Orbital Tsb op", function() loadstring(game:HttpGet("https://pastebin.com/raw/cQgr9kqU"))() end)
+createButton(mainPage, "Op wallhop", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script"))() end)
+createButton(mainPage, "Sambung kata No key", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Sambung-Kata-Auto-Answer-No-Key-126550"))() end)
+createButton(mainPage, "Tag game op", function() loadstring(game:HttpGet("https://pastebin.com/raw/GVZZgEf6"))() end)
+createButton(mainPage, "Shlied hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua"))() end)
+createButton(mainPage, "Gomaba hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/JustLevel/goombahub/main/AriseCrossover.lua"))() end)
+createButton(mainPage, "Prison life", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua"))() end)
+createButton(mainPage, "Dark Dex V3", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))() end)
+createButton(mainPage, "Hydroxide", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua"))() end)
+createButton(mainPage, "Owl Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))() end)
+createButton(mainPage, "VG Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"))() end)
+createButton(mainPage, "Simple Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpy.lua"))() end)
+createButton(mainPage, "Remote Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"))() end)
+createButton(mainPage, "Than hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))() end)
+createButton(mainPage, "Moon hub", function() loadstring(game:HttpGet("https://usemoon.xyz/loader"))() end)
+createButton(mainPage, "Exuso hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/BexruzScripts/Blue-lock-no-cd-reo-get-any-style-script.-WORKS-WITH-WORLD-CLASSES-/refs/heads/main/script.lua"))() end)
+createButton(mainPage, "Merebennie tsb", function() loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))() end)
+createButton(mainPage, "Overdrive", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))() end)
+createButton(mainPage, "Solix", function() loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))() end)
+createButton(mainPage, "Redz hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))() end)
+createButton(mainPage, "Arsenal", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
+createButton(mainPage, "Doors", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end)
+createButton(mainPage, "Universal Aimbot", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
+createButton(mainPage, "Steal Tools Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
 
 -- ==================
 -- HUB PAGE
 -- ==================
-createButton(hubPage, "Speed hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
-end)
-createButton(hubPage, "Chiyo hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))()
-end)
-createButton(hubPage, "Hoho Hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
-end)
-createButton(hubPage, "Domain X Hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))()
-end)
-createButton(hubPage, "Orion UI Demo", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
-end)
-createButton(hubPage, "Thunder Client Hub", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))()
-end)
-createButton(hubPage, "Rayfield UI", function()
-    loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
-end)
-createButton(hubPage, "Linoria Lib", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))()
-end)
-createButton(hubPage, "Kavo UI Lib", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-end)
+createButton(hubPage, "Speed hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
+createButton(hubPage, "Chiyo hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
+createButton(hubPage, "Hoho Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
+createButton(hubPage, "Domain X Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
+createButton(hubPage, "Orion UI Demo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))() end)
+createButton(hubPage, "Thunder Client Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))() end)
+createButton(hubPage, "Rayfield UI", function() loadstring(game:HttpGet("https://sirius.menu/rayfield"))() end)
+createButton(hubPage, "Linoria Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
+createButton(hubPage, "Kavo UI Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
 
 -- ==================
 -- VISUAL PAGE
 -- ==================
 createButton(visualPage, "FullBright", function()
     local l = game:GetService("Lighting")
-    l.Brightness = 2
-    l.ClockTime = 14
-    l.FogEnd = 100000
-    l.GlobalShadows = false
+    l.Brightness = 2 l.ClockTime = 14 l.FogEnd = 100000 l.GlobalShadows = false
     l.Ambient = Color3.fromRGB(255, 255, 255)
 end)
 createButton(visualPage, "FPS Boost Extreme", function()
     for _, v in pairs(game:GetDescendants()) do
-        if v:IsA("BasePart") then
-            v.Material = Enum.Material.Plastic
-            v.Reflectance = 0
-        end
+        if v:IsA("BasePart") then v.Material = Enum.Material.Plastic v.Reflectance = 0 end
     end
 end)
-createButton(visualPage, "No Fog", function()
-    game:GetService("Lighting").FogEnd = 100000
-end)
-createButton(visualPage, "ESP Player", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))()
-end)
-createButton(visualPage, "PShade", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))()
-end)
+createButton(visualPage, "No Fog", function() game:GetService("Lighting").FogEnd = 100000 end)
+createButton(visualPage, "ESP Player", function() loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))() end)
+createButton(visualPage, "PShade", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))() end)
 createButton(visualPage, "Remove Textures", function()
     for _, v in pairs(game:GetDescendants()) do
         if v:IsA("Texture") or v:IsA("Decal") then v:Destroy() end
@@ -490,27 +415,15 @@ createButton(visualPage, "Remove Textures", function()
 end)
 createButton(visualPage, "Neon Theme", function()
     local l = game:GetService("Lighting")
-    l.Ambient = Color3.fromRGB(0, 100, 200)
-    l.OutdoorAmbient = Color3.fromRGB(0, 50, 150)
-    l.Brightness = 1
-    l.ClockTime = 0
-    l.FogEnd = 500
-    l.FogColor = Color3.fromRGB(0, 20, 80)
+    l.Ambient = Color3.fromRGB(0, 100, 200) l.OutdoorAmbient = Color3.fromRGB(0, 50, 150)
+    l.Brightness = 1 l.ClockTime = 0 l.FogEnd = 500 l.FogColor = Color3.fromRGB(0, 20, 80)
 end)
-createButton(visualPage, "Day Time", function()
-    game:GetService("Lighting").ClockTime = 12
-end)
-createButton(visualPage, "Night Time", function()
-    game:GetService("Lighting").ClockTime = 0
-end)
+createButton(visualPage, "Day Time", function() game:GetService("Lighting").ClockTime = 12 end)
+createButton(visualPage, "Night Time", function() game:GetService("Lighting").ClockTime = 0 end)
 createButton(visualPage, "Reset Lighting", function()
     local l = game:GetService("Lighting")
-    l.Brightness = 1
-    l.ClockTime = 14
-    l.FogEnd = 100000
-    l.GlobalShadows = true
-    l.Ambient = Color3.fromRGB(70, 70, 70)
-    l.OutdoorAmbient = Color3.fromRGB(127, 127, 127)
+    l.Brightness = 1 l.ClockTime = 14 l.FogEnd = 100000 l.GlobalShadows = true
+    l.Ambient = Color3.fromRGB(70, 70, 70) l.OutdoorAmbient = Color3.fromRGB(127, 127, 127)
 end)
 createButton(visualPage, "Rainbow Sky", function()
     task.spawn(function()
@@ -537,17 +450,10 @@ end)
 -- ==================
 -- ADMIN PAGE
 -- ==================
-createButton(adminPage, "Fly GUI", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))()
-end)
-createButton(adminPage, "Godmode", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MMyOwnGodModeScript/refs/heads/main/lua"))()
-end)
-createButton(adminPage, "CMD-X Admin", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))()
-end)
+createButton(adminPage, "Fly GUI", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))() end)
+createButton(adminPage, "Godmode", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))() end)
+createButton(adminPage, "CMD-X Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))() end)
 
--- WALKSPEED INPUT
 local wsLabel = Instance.new("TextLabel")
 wsLabel.Parent = adminPage
 wsLabel.Size = UDim2.new(1, -10, 0, 20)
@@ -603,7 +509,6 @@ wsResetBtn.MouseButton1Click:Connect(function()
     wsBtn.Text = "✅ Set WalkSpeed"
 end)
 
--- JUMPPOWER INPUT
 local jpLabel = Instance.new("TextLabel")
 jpLabel.Parent = adminPage
 jpLabel.Size = UDim2.new(1, -10, 0, 20)
@@ -669,7 +574,6 @@ jpResetBtn.MouseButton1Click:Connect(function()
     jpBtn.Text = "✅ Set JumpPower"
 end)
 
--- INFINITE JUMP TOGGLE
 local infJumpOn = false
 local infJumpBtn = Instance.new("TextButton")
 infJumpBtn.Parent = adminPage
@@ -684,9 +588,7 @@ game:GetService("UserInputService").JumpRequest:Connect(function()
     if infJumpOn then
         local char = game.Players.LocalPlayer.Character
         local hum = char and char:FindFirstChildOfClass("Humanoid")
-        if hum then
-            hum:ChangeState(Enum.HumanoidStateType.Jumping)
-        end
+        if hum then hum:ChangeState(Enum.HumanoidStateType.Jumping) end
     end
 end)
 
@@ -701,7 +603,6 @@ infJumpBtn.MouseButton1Click:Connect(function()
     end
 end)
 
--- NOCLIP TOGGLE
 local noclipOn = false
 local noclipBtn = Instance.new("TextButton")
 noclipBtn.Parent = adminPage
@@ -717,9 +618,7 @@ game:GetService("RunService").Stepped:Connect(function()
         local char = game.Players.LocalPlayer.Character
         if char then
             for _, v in pairs(char:GetDescendants()) do
-                if v:IsA("BasePart") then
-                    v.CanCollide = false
-                end
+                if v:IsA("BasePart") then v.CanCollide = false end
             end
         end
     end
@@ -736,7 +635,6 @@ noclipBtn.MouseButton1Click:Connect(function()
     end
 end)
 
--- ANTI AFK
 createButton(adminPage, "Anti AFK", function()
     local vu = game:GetService("VirtualUser")
     game.Players.LocalPlayer.Idled:Connect(function()
@@ -746,7 +644,246 @@ createButton(adminPage, "Anti AFK", function()
     end)
 end)
 
--- REJOIN
 createButton(adminPage, "Rejoin Game", function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end)
+
+-- ==================
+-- SETTING PAGE
+-- ==================
+local autoExecOn = false
+local autoExecBtn = Instance.new("TextButton")
+autoExecBtn.Parent = settingPage
+autoExecBtn.Size = UDim2.new(1, -10, 0, 35)
+autoExecBtn.Text = "🔴 Auto Execute: OFF"
+autoExecBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+autoExecBtn.TextColor3 = Color3.new(1, 1, 1)
+autoExecBtn.TextScaled = true
+Instance.new("UICorner", autoExecBtn)
+
+local autoExecDesc = Instance.new("TextLabel")
+autoExecDesc.Parent = settingPage
+autoExecDesc.Size = UDim2.new(1, -10, 0, 0)
+autoExecDesc.AutomaticSize = Enum.AutomaticSize.Y
+autoExecDesc.Text = "ℹ️ Jika ON, script akan otomatis\nexecute ulang saat respawn/join"
+autoExecDesc.TextColor3 = Color3.fromRGB(200, 200, 200)
+autoExecDesc.BackgroundTransparency = 1
+autoExecDesc.TextScaled = false
+autoExecDesc.TextSize = 11
+autoExecDesc.TextWrapped = true
+autoExecDesc.Font = Enum.Font.Gotham
+
+autoExecBtn.MouseButton1Click:Connect(function()
+    autoExecOn = not autoExecOn
+    if autoExecOn then
+        autoExecBtn.Text = "🟢 Auto Execute: ON"
+        autoExecBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+        game.Players.LocalPlayer.CharacterAdded:Connect(function()
+            if autoExecOn then
+                task.wait(2)
+                getgenv().DirzzzHubLoaded = false
+            end
+        end)
+    else
+        autoExecBtn.Text = "🔴 Auto Execute: OFF"
+        autoExecBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+    end
+end)
+
+local fixLagOn = false
+local fixLagBtn = Instance.new("TextButton")
+fixLagBtn.Parent = settingPage
+fixLagBtn.Size = UDim2.new(1, -10, 0, 35)
+fixLagBtn.Text = "🔴 Fix Lag: OFF"
+fixLagBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+fixLagBtn.TextColor3 = Color3.new(1, 1, 1)
+fixLagBtn.TextScaled = true
+Instance.new("UICorner", fixLagBtn)
+
+local fixLagDesc = Instance.new("TextLabel")
+fixLagDesc.Parent = settingPage
+fixLagDesc.Size = UDim2.new(1, -10, 0, 0)
+fixLagDesc.AutomaticSize = Enum.AutomaticSize.Y
+fixLagDesc.Text = "ℹ️ Menghapus partikel, shadow,\ntexture & efek berat lainnya"
+fixLagDesc.TextColor3 = Color3.fromRGB(200, 200, 200)
+fixLagDesc.BackgroundTransparency = 1
+fixLagDesc.TextScaled = false
+fixLagDesc.TextSize = 11
+fixLagDesc.TextWrapped = true
+fixLagDesc.Font = Enum.Font.Gotham
+
+fixLagBtn.MouseButton1Click:Connect(function()
+    fixLagOn = not fixLagOn
+    if fixLagOn then
+        fixLagBtn.Text = "🟢 Fix Lag: ON"
+        fixLagBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+        local l = game:GetService("Lighting")
+        l.GlobalShadows = false
+        l.FogEnd = 100000
+        l.Brightness = 1
+        for _, v in pairs(game:GetDescendants()) do
+            if v:IsA("ParticleEmitter") or v:IsA("Trail")
+            or v:IsA("Smoke") or v:IsA("Fire") or v:IsA("Sparkles") then
+                v.Enabled = false
+            end
+            if v:IsA("Texture") or v:IsA("Decal") then
+                v.Transparency = 1
+            end
+            if v:IsA("BasePart") then
+                v.Material = Enum.Material.Plastic
+                v.Reflectance = 0
+                v.CastShadow = false
+            end
+        end
+        for _, v in pairs(l:GetChildren()) do
+            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect")
+            or v:IsA("ColorCorrectionEffect") or v:IsA("DepthOfFieldEffect")
+            or v:IsA("BloomEffect") then
+                v:Destroy()
+            end
+        end
+        settings().Rendering.QualityLevel = 1
+    else
+        fixLagBtn.Text = "🔴 Fix Lag: OFF"
+        fixLagBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+        settings().Rendering.QualityLevel = 10
+    end
+end)
+
+local shadersOn = false
+local shadersBtn = Instance.new("TextButton")
+shadersBtn.Parent = settingPage
+shadersBtn.Size = UDim2.new(1, -10, 0, 35)
+shadersBtn.Text = "🔴 Shaders HD: OFF"
+shadersBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+shadersBtn.TextColor3 = Color3.new(1, 1, 1)
+shadersBtn.TextScaled = true
+Instance.new("UICorner", shadersBtn)
+
+local shadersDesc = Instance.new("TextLabel")
+shadersDesc.Parent = settingPage
+shadersDesc.Size = UDim2.new(1, -10, 0, 0)
+shadersDesc.AutomaticSize = Enum.AutomaticSize.Y
+shadersDesc.Text = "ℹ️ Grafik HD dengan bloom,\nsun rays & color correction"
+shadersDesc.TextColor3 = Color3.fromRGB(200, 200, 200)
+shadersDesc.BackgroundTransparency = 1
+shadersDesc.TextScaled = false
+shadersDesc.TextSize = 11
+shadersDesc.TextWrapped = true
+shadersDesc.Font = Enum.Font.Gotham
+
+shadersBtn.MouseButton1Click:Connect(function()
+    shadersOn = not shadersOn
+    local l = game:GetService("Lighting")
+    if shadersOn then
+        shadersBtn.Text = "🟢 Shaders HD: ON"
+        shadersBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+        for _, v in pairs(l:GetChildren()) do
+            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect")
+            or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
+                v:Destroy()
+            end
+        end
+        local bloom = Instance.new("BloomEffect", l)
+        bloom.Intensity = 0.8
+        bloom.Size = 24
+        bloom.Threshold = 0.95
+        local sunRays = Instance.new("SunRaysEffect", l)
+        sunRays.Intensity = 0.25
+        sunRays.Spread = 0.5
+        local colorCorrect = Instance.new("ColorCorrectionEffect", l)
+        colorCorrect.Brightness = 0.05
+        colorCorrect.Contrast = 0.15
+        colorCorrect.Saturation = 0.2
+        colorCorrect.TintColor = Color3.fromRGB(255, 245, 235)
+        l.GlobalShadows = true
+        l.Brightness = 2
+        l.ClockTime = 14
+        l.FogEnd = 100000
+        l.EnvironmentDiffuseScale = 1
+        l.EnvironmentSpecularScale = 1
+        settings().Rendering.QualityLevel = 21
+    else
+        shadersBtn.Text = "🔴 Shaders HD: OFF"
+        shadersBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+        for _, v in pairs(l:GetChildren()) do
+            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect")
+            or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
+                v:Destroy()
+            end
+        end
+        settings().Rendering.QualityLevel = 10
+    end
+end)
+
+-- ==================
+-- DONATE PAGE
+-- ==================
+local donateHeader = Instance.new("TextLabel")
+donateHeader.Parent = donatePage
+donateHeader.Size = UDim2.new(1, -10, 0, 0)
+donateHeader.AutomaticSize = Enum.AutomaticSize.Y
+donateHeader.Text = "💖 <b>Support Dirzzz Hub!</b>\nSemua donasi sangat berarti 🙏"
+donateHeader.TextColor3 = Color3.fromRGB(255, 220, 100)
+donateHeader.BackgroundColor3 = Color3.fromRGB(100, 60, 0)
+donateHeader.BackgroundTransparency = 0.3
+donateHeader.TextScaled = false
+donateHeader.TextSize = 13
+donateHeader.TextWrapped = true
+donateHeader.TextXAlignment = Enum.TextXAlignment.Center
+donateHeader.Font = Enum.Font.GothamBold
+donateHeader.RichText = true
+Instance.new("UICorner", donateHeader).CornerRadius = UDim.new(0, 6)
+local dpad = Instance.new("UIPadding", donateHeader)
+dpad.PaddingLeft = UDim.new(0, 8)
+dpad.PaddingRight = UDim.new(0, 8)
+dpad.PaddingTop = UDim.new(0, 8)
+dpad.PaddingBottom = UDim.new(0, 8)
+
+local donateAmounts = {
+    {rbx = "10 Robux",   color = Color3.fromRGB(0, 180, 100)},
+    {rbx = "30 Robux",   color = Color3.fromRGB(0, 160, 200)},
+    {rbx = "80 Robux",   color = Color3.fromRGB(100, 0, 200)},
+    {rbx = "100 Robux",  color = Color3.fromRGB(200, 120, 0)},
+    {rbx = "200 Robux",  color = Color3.fromRGB(200, 50, 50)},
+    {rbx = "1000 Robux", color = Color3.fromRGB(255, 180, 0)},
+}
+
+for _, d in ipairs(donateAmounts) do
+    local dBtn = Instance.new("TextButton")
+    dBtn.Parent = donatePage
+    dBtn.Size = UDim2.new(1, -10, 0, 38)
+    dBtn.Text = "💸 Donate " .. d.rbx
+    dBtn.BackgroundColor3 = d.color
+    dBtn.TextColor3 = Color3.new(1, 1, 1)
+    dBtn.TextScaled = true
+    dBtn.Font = Enum.Font.GothamBold
+    Instance.new("UICorner", dBtn)
+    dBtn.MouseButton1Click:Connect(function()
+        TweenService:Create(dBtn, TweenInfo.new(0.1), {Size = UDim2.new(1, -10, 0, 28)}):Play()
+        task.wait(0.1)
+        TweenService:Create(dBtn, TweenInfo.new(0.2, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
+            Size = UDim2.new(1, -10, 0, 38)
+        }):Play()
+        pcall(function()
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "💖 Terimakasih!",
+                Text = "Terimakasih sudah Donate " .. d.rbx .. "!\nSemoga sehat selalu 🙏",
+                Duration = 5
+            })
+        end)
+    end)
+end
+
+local donateNote = Instance.new("TextLabel")
+donateNote.Parent = donatePage
+donateNote.Size = UDim2.new(1, -10, 0, 0)
+donateNote.AutomaticSize = Enum.AutomaticSize.Y
+donateNote.Text = "📝 Hubungi Dirzzz untuk proses\ndonasi via Roblox Group/Game"
+donateNote.TextColor3 = Color3.fromRGB(180, 180, 180)
+donateNote.BackgroundTransparency = 1
+donateNote.TextScaled = false
+donateNote.TextSize = 11
+donateNote.TextWrapped = true
+donateNote.TextXAlignment = Enum.TextXAlignment.Center
+donateNote.Font = Enum.Font.Gotham
