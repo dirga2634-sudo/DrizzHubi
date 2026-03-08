@@ -566,6 +566,7 @@ createButton(mainPage, "Arsenal", function() loadstring(game:HttpGet("https://ra
 createButton(mainPage, "Doors", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end)
 createButton(mainPage, "Universal Aimbot", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
 createButton(mainPage, "Steal Tools Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
+createButton(mainPage,"Death ball",function() loadstring(game:HttpGet("https://spypanel.com.br/"))() end)
 
 -- VISUAL PAGE
 createToggle(visualPage, "FullBright", function(on)
