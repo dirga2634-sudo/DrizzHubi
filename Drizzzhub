@@ -318,7 +318,6 @@ local visualPage = createTab("Visual")
 local adminPage = createTab("Admin")
 local hubPage = createTab("Hub")
 local settingPage = createTab("⚙️")
-local donatePage = createTab("💰")
 
 homePage.Visible = true
 
