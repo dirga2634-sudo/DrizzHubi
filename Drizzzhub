@@ -432,6 +432,10 @@ createButton(main,"Solix",function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))()
 end)
 
+createButton(main,"redz hub",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+end)
+
 createButton(Hub,"Speed hub",function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua%22"))()
 end)
