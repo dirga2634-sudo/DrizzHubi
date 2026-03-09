@@ -5,7 +5,7 @@ end
 getgenv().DirzzzHubLoaded = false
 
 -- KEY SYSTEM
-local key = "DIRZZZHUB90"
+local key = "FREE"
 
 local gui = Instance.new("ScreenGui", game.CoreGui)
 local frame = Instance.new("Frame", gui)
