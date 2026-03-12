@@ -17,7 +17,7 @@ Instance.new("UICorner", frame)
 local box = Instance.new("TextBox", frame)
 box.Size = UDim2.new(1, -20, 0, 40)
 box.Position = UDim2.new(0, 10, 0, 20)
-box.PlaceholderText = "Enter Key"
+box.PlaceholderText = "Key: FREE"
 box.BackgroundColor3 = Color3.fromRGB(50, 50, 70)
 box.TextColor3 = Color3.new(1, 1, 1)
 Instance.new("UICorner", box)
@@ -60,7 +60,7 @@ local languages = {
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetting", tab_lang="🌍\nLanguage",
         home1="🔥 <b>Dirzzz Hub</b>  |  Version <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
         home2="📋 <b>Update Log V3.0:</b>\n✅ New Lunar Hub style UI\n✅ Sidebar navigation\n✅ Smooth toggle switch\n✅ Settings tab\n✅ Multi Language System",
-        home3="📢 <b>Announcement:</b>\n⚠️ Don't spam execute!\n🔑 Key: DIRZZZHUB90\n💬 Report bugs to Dirzzz",
+        home3="📢 <b>Announcement:</b>\n⚠️ Don't spam execute!\n🔑 Key: FREE\n💬 Report bugs to Dirzzz",
         home4="⚠️ <b>IMPORTANT:</b>\n🚫 This script is FREE and\n<b>NOT FOR SALE!</b>\n❌ If anyone sells it, it's FAKE!",
         home5="💡 <b>Tips:</b>\n🔍 Search in Main tab\n📌 Click ─ to minimize\n✕ Click X to close",
         search_ph="🔍 Search script...",
@@ -84,7 +84,7 @@ local languages = {
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetting", tab_lang="🌍\nBahasa",
         home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
         home2="📋 <b>Update Log V3.0:</b>\n✅ UI baru style Lunar Hub\n✅ Sidebar navigasi\n✅ Toggle switch smooth\n✅ Tab Pengaturan\n✅ Sistem Multi Bahasa",
-        home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute!\n🔑 Key: DIRZZZHUB90\n💬 Report bug ke Dirzzz",
+        home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute!\n🔑 Key: FREE\n💬 Report bug ke Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 Script ini GRATIS dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!",
         home5="💡 <b>Tips:</b>\n🔍 Search di tab Main\n📌 Klik ─ untuk minimize\n✕ Klik X untuk tutup",
         search_ph="🔍 Cari script...",
@@ -108,7 +108,7 @@ local languages = {
         tab_admin="⚡\nアドミン", tab_hub="🌐\nハブ", tab_setting="⚙️\n設定", tab_lang="🌍\n言語",
         home1="🔥 <b>Dirzzz Hub</b>  |  バージョン <b>V3.0</b>\n👤 開発者: <b>Dirzzz</b>",
         home2="📋 <b>更新ログ V3.0:</b>\n✅ 新しいUI\n✅ サイドバー\n✅ トグルスイッチ\n✅ 設定タブ\n✅ 多言語システム",
-        home3="📢 <b>お知らせ:</b>\n⚠️ スパム禁止!\n🔑 キー: DIRZZZHUB90\n💬 バグ報告はDirzzzへ",
+        home3="📢 <b>お知らせ:</b>\n⚠️ スパム禁止!\n🔑 キー: FREE\n💬 バグ報告はDirzzzへ",
         home4="⚠️ <b>重要:</b>\n🚫 このスクリプトは無料!\n<b>販売禁止!</b>\n❌ 販売は偽物です!",
         home5="💡 <b>ヒント:</b>\n🔍 メインで検索\n📌 ─で最小化\n✕ Xで閉じる",
         search_ph="🔍 スクリプト検索...",
@@ -132,7 +132,7 @@ local languages = {
         tab_admin="⚡\nإدارة", tab_hub="🌐\nهاب", tab_setting="⚙️\nإعداد", tab_lang="🌍\nلغة",
         home1="🔥 <b>Dirzzz Hub</b>  |  الإصدار <b>V3.0</b>\n👤 المطور: <b>Dirzzz</b>",
         home2="📋 <b>سجل التحديث:</b>\n✅ واجهة جديدة\n✅ شريط جانبي\n✅ مفتاح تبديل\n✅ إعدادات\n✅ متعدد اللغات",
-        home3="📢 <b>إعلان:</b>\n⚠️ لا تكرر!\n🔑 المفتاح: DIRZZZHUB90\n💬 أبلغ Dirzzz",
+        home3="📢 <b>إعلان:</b>\n⚠️ لا تكرر!\n🔑 المفتاح: FREE\n💬 أبلغ Dirzzz",
         home4="⚠️ <b>مهم:</b>\n🚫 مجاني!\n<b>ليس للبيع!</b>\n❌ البيع مزيف!",
         home5="💡 <b>نصائح:</b>\n🔍 ابحث في Main\n📌 ─ للتصغير\n✕ X للإغلاق",
         search_ph="🔍 ابحث...",
@@ -156,7 +156,7 @@ local languages = {
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nTetapan", tab_lang="🌍\nBahasa",
         home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Pembangun: <b>Dirzzz</b>",
         home2="📋 <b>Log Kemaskini V3.0:</b>\n✅ UI baharu\n✅ Bar sisi\n✅ Togol lancar\n✅ Tetapan\n✅ Pelbagai Bahasa",
-        home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam!\n🔑 Kunci: DIRZZZHUB90\n💬 Laporkan kepada Dirzzz",
+        home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam!\n🔑 Kunci: FREE\n💬 Laporkan kepada Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 PERCUMA!\n<b>TIDAK DIJUAL!</b>\n❌ Jika dijual, ia PALSU!",
         home5="💡 <b>Tips:</b>\n🔍 Cari di Main\n📌 ─ minimumkan\n✕ X tutup",
         search_ph="🔍 Cari skrip...",
@@ -180,7 +180,7 @@ local languages = {
         tab_admin="⚡\n管理", tab_hub="🌐\n中心", tab_setting="⚙️\n设置", tab_lang="🌍\n语言",
         home1="🔥 <b>Dirzzz Hub</b>  |  版本 <b>V3.0</b>\n👤 开发者: <b>Dirzzz</b>",
         home2="📋 <b>更新日志:</b>\n✅ 新界面\n✅ 侧边栏\n✅ 开关\n✅ 设置\n✅ 多语言",
-        home3="📢 <b>公告:</b>\n⚠️ 勿重复!\n🔑 密钥: DIRZZZHUB90\n💬 报告给Dirzzz",
+        home3="📢 <b>公告:</b>\n⚠️ 勿重复!\n🔑 密钥: FREE\n💬 报告给Dirzzz",
         home4="⚠️ <b>重要:</b>\n🚫 免费!\n<b>不出售!</b>\n❌ 出售是假的!",
         home5="💡 <b>提示:</b>\n🔍 在Main搜索\n📌 ─最小化\n✕ X关闭",
         search_ph="🔍 搜索脚本...",
@@ -204,7 +204,7 @@ local languages = {
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetelan", tab_lang="🌍\nBasa",
         home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Sing gawe: <b>Dirzzz</b>",
         home2="📋 <b>Update Log V3.0:</b>\n✅ Tampilan anyar\n✅ Sidebar\n✅ Toggle alus\n✅ Setelan\n✅ Multi Basa",
-        home3="📢 <b>Pengumuman:</b>\n⚠️ Ojo spam!\n🔑 Kunci: DIRZZZHUB90\n💬 Lapor neng Dirzzz",
+        home3="📢 <b>Pengumuman:</b>\n⚠️ Ojo spam!\n🔑 Kunci: FREE\n💬 Lapor neng Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 GRATIS!\n<b>ORA DIDOL!</b>\n❌ Yen didol, kuwi PALSU!",
         home5="💡 <b>Tips:</b>\n🔍 Goleki neng Main\n📌 ─ minimize\n✕ X nutup",
         search_ph="🔍 Goleki script...",
@@ -243,7 +243,6 @@ Instance.new("UICorner", loadFrame).CornerRadius = UDim.new(0,12)
 
 local loadStroke = Instance.new("UIStroke", loadFrame)
 loadStroke.Thickness = 3
-loadStroke.Color = Color3.fromRGB(0,200,255)
 
 local logoBox = Instance.new("Frame", loadFrame)
 logoBox.Size = UDim2.new(0,90,0,90)
@@ -325,7 +324,6 @@ Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,10)
 
 local mainStroke = Instance.new("UIStroke", mainFrame)
 mainStroke.Thickness = 1.5
-mainStroke.Color = Color3.fromRGB(0,150,255)
 
 task.spawn(function()
     while mainGui.Parent do
@@ -498,10 +496,11 @@ local function createTab(textKey)
     return page
 end
 
-local function createButton(parent, name, callback)
+-- FIX: createButton sekarang simpan ke allTexts dengan langKey
+local function createButton(parent, langKey, callback)
     local btn = Instance.new("TextButton", parent)
     btn.Size = UDim2.new(1,-8,0,32)
-    btn.Text = "  "..name
+    btn.Text = "  "..(currentLang[langKey] or langKey)
     btn.BackgroundColor3 = Color3.fromRGB(25,25,45)
     btn.TextColor3 = Color3.fromRGB(200,200,220)
     btn.TextScaled = true
@@ -523,6 +522,11 @@ local function createButton(parent, name, callback)
         TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,80,160)}):Play()
         callback()
     end)
+    -- Simpan ke allTexts untuk update bahasa
+    -- Kalau langKey ada di languages, simpan. Kalau tidak (button name static), skip
+    if languages.EN[langKey] then
+        table.insert(allTexts, {obj=btn, key=langKey, type="btn"})
+    end
     return btn
 end
 
@@ -548,7 +552,8 @@ local function createLabel(parent, textKey, color)
     return lbl
 end
 
-local function createToggle(parent, textKey, callback)
+-- FIX: createToggle sekarang pakai langKey dan simpan ke allTexts
+local function createToggle(parent, langKey, callback)
     local toggleOn = false
     local row = Instance.new("Frame", parent)
     row.Size = UDim2.new(1,-8,0,32)
@@ -559,7 +564,7 @@ local function createToggle(parent, textKey, callback)
     local lbl = Instance.new("TextLabel", row)
     lbl.Size = UDim2.new(1,-50,1,0)
     lbl.Position = UDim2.new(0,10,0,0)
-    lbl.Text = currentLang[textKey] or textKey
+    lbl.Text = currentLang[langKey] or langKey
     lbl.TextColor3 = Color3.fromRGB(200,200,220)
     lbl.BackgroundTransparency = 1
     lbl.TextScaled = true
@@ -578,12 +583,12 @@ local function createToggle(parent, textKey, callback)
     toggleDot.BackgroundColor3 = Color3.fromRGB(180,180,200)
     Instance.new("UICorner", toggleDot).CornerRadius = UDim.new(1,0)
 
-    local btn = Instance.new("TextButton", row)
-    btn.Size = UDim2.new(1,0,1,0)
-    btn.BackgroundTransparency = 1
-    btn.Text = ""
+    local clickBtn = Instance.new("TextButton", row)
+    clickBtn.Size = UDim2.new(1,0,1,0)
+    clickBtn.BackgroundTransparency = 1
+    clickBtn.Text = ""
 
-    btn.MouseButton1Click:Connect(function()
+    clickBtn.MouseButton1Click:Connect(function()
         toggleOn = not toggleOn
         if toggleOn then
             TweenService:Create(toggleBg, TweenInfo.new(0.2), {BackgroundColor3=Color3.fromRGB(0,150,255)}):Play()
@@ -595,7 +600,7 @@ local function createToggle(parent, textKey, callback)
         callback(toggleOn)
     end)
 
-    table.insert(allTexts, {obj=lbl, key=textKey, type="text"})
+    table.insert(allTexts, {obj=lbl, key=langKey, type="text"})
     return row
 end
 
@@ -669,7 +674,6 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
     table.insert(allTexts, {obj=lbl, key=labelKey, type="text"})
     table.insert(allTexts, {obj=box, key=phKey, type="ph"})
     table.insert(allTexts, {obj=setBtn, key="set_btn", type="text"})
-    return box
 end
 
 -- ==================
@@ -686,6 +690,8 @@ local function applyLanguage(lang)
         if lang[item.key] then
             if item.type == "ph" then
                 item.obj.PlaceholderText = lang[item.key]
+            elseif item.type == "btn" then
+                item.obj.Text = "  "..lang[item.key]
             else
                 item.obj.Text = lang[item.key]
             end
@@ -749,33 +755,61 @@ searchBox:GetPropertyChangedSignal("Text"):Connect(function()
     end
 end)
 
-createButton(mainPage, "Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
-createButton(mainPage, "Dex Explorer", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))() end)
-createButton(mainPage, "Orbital Tsb op", function() loadstring(game:HttpGet("https://pastebin.com/raw/cQgr9kqU"))() end)
-createButton(mainPage, "Op wallhop", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script"))() end)
-createButton(mainPage, "Sambung kata No key", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Sambung-Kata-Auto-Answer-No-Key-126550"))() end)
-createButton(mainPage, "Tag game op", function() loadstring(game:HttpGet("https://pastebin.com/raw/GVZZgEf6"))() end)
-createButton(mainPage, "Shlied hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua"))() end)
-createButton(mainPage, "Gomaba hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/JustLevel/goombahub/main/AriseCrossover.lua"))() end)
-createButton(mainPage, "Prison life", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua"))() end)
-createButton(mainPage, "Dark Dex V3", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))() end)
-createButton(mainPage, "Hydroxide", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua"))() end)
-createButton(mainPage, "Owl Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))() end)
-createButton(mainPage, "VG Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"))() end)
-createButton(mainPage, "Simple Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpy.lua"))() end)
-createButton(mainPage, "Remote Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"))() end)
-createButton(mainPage, "Than hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))() end)
-createButton(mainPage, "Moon hub", function() loadstring(game:HttpGet("https://usemoon.xyz/loader"))() end)
-createButton(mainPage, "Exuso hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/BexruzScripts/Blue-lock-no-cd-reo-get-any-style-script.-WORKS-WITH-WORLD-CLASSES-/refs/heads/main/script.lua"))() end)
-createButton(mainPage, "Merebennie tsb", function() loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))() end)
-createButton(mainPage, "Overdrive", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))() end)
-createButton(mainPage, "Solix", function() loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))() end)
-createButton(mainPage, "Redz hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))() end)
-createButton(mainPage, "Arsenal", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
-createButton(mainPage, "Doors", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end)
-createButton(mainPage, "Universal Aimbot", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
-createButton(mainPage, "Steal Tools Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
-createButton(mainPage, "Death ball", function() loadstring(game:HttpGet("https://spypanel.com.br/"))() end)
+-- Main buttons pakai string static (nama script tidak ditranslate)
+local function createStaticButton(parent, name, callback)
+    local btn = Instance.new("TextButton", parent)
+    btn.Size = UDim2.new(1,-8,0,32)
+    btn.Text = "  "..name
+    btn.BackgroundColor3 = Color3.fromRGB(25,25,45)
+    btn.TextColor3 = Color3.fromRGB(200,200,220)
+    btn.TextScaled = true
+    btn.Font = Enum.Font.Gotham
+    btn.TextXAlignment = Enum.TextXAlignment.Left
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
+    local s = Instance.new("UIStroke", btn)
+    s.Thickness = 1
+    s.Color = Color3.fromRGB(40,40,70)
+    btn.MouseEnter:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,80,160)}):Play()
+    end)
+    btn.MouseLeave:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(25,25,45)}):Play()
+    end)
+    btn.MouseButton1Click:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,255)}):Play()
+        task.wait(0.08)
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,80,160)}):Play()
+        callback()
+    end)
+end
+
+createStaticButton(mainPage, "Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
+createStaticButton(mainPage, "Dex Explorer", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))() end)
+createStaticButton(mainPage, "Orbital Tsb op", function() loadstring(game:HttpGet("https://pastebin.com/raw/cQgr9kqU"))() end)
+createStaticButton(mainPage, "Op wallhop", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script"))() end)
+createStaticButton(mainPage, "Sambung kata No key", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Sambung-Kata-Auto-Answer-No-Key-126550"))() end)
+createStaticButton(mainPage, "Tag game op", function() loadstring(game:HttpGet("https://pastebin.com/raw/GVZZgEf6"))() end)
+createStaticButton(mainPage, "Shlied hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua"))() end)
+createStaticButton(mainPage, "Gomaba hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/JustLevel/goombahub/main/AriseCrossover.lua"))() end)
+createStaticButton(mainPage, "Prison life", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua"))() end)
+createStaticButton(mainPage, "Dark Dex V3", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))() end)
+createStaticButton(mainPage, "Hydroxide", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua"))() end)
+createStaticButton(mainPage, "Owl Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))() end)
+createStaticButton(mainPage, "VG Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"))() end)
+createStaticButton(mainPage, "Simple Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpy.lua"))() end)
+createStaticButton(mainPage, "Remote Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"))() end)
+createStaticButton(mainPage, "Than hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))() end)
+createStaticButton(mainPage, "Moon hub", function() loadstring(game:HttpGet("https://usemoon.xyz/loader"))() end)
+createStaticButton(mainPage, "Exuso hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/BexruzScripts/Blue-lock-no-cd-reo-get-any-style-script.-WORKS-WITH-WORLD-CLASSES-/refs/heads/main/script.lua"))() end)
+createStaticButton(mainPage, "Merebennie tsb", function() loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))() end)
+createStaticButton(mainPage, "Overdrive", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))() end)
+createStaticButton(mainPage, "Solix", function() loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))() end)
+createStaticButton(mainPage, "Redz hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))() end)
+createStaticButton(mainPage, "Arsenal", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
+createStaticButton(mainPage, "Doors", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end)
+createStaticButton(mainPage, "Universal Aimbot", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
+createStaticButton(mainPage, "Steal Tools Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
+createStaticButton(mainPage, "Death ball", function() loadstring(game:HttpGet("https://spypanel.com.br/"))() end)
 
 -- ==================
 -- VISUAL PAGE
@@ -825,21 +859,21 @@ createToggle(visualPage, "rainbow", function(on)
         end)
     end
 end)
-createButton(visualPage, "Day Time", function() game:GetService("Lighting").ClockTime=12 end)
-createButton(visualPage, "Night Time", function() game:GetService("Lighting").ClockTime=0 end)
-createButton(visualPage, "Reset Lighting", function()
+createButton(visualPage, "daytime", function() game:GetService("Lighting").ClockTime=12 end)
+createButton(visualPage, "nighttime", function() game:GetService("Lighting").ClockTime=0 end)
+createButton(visualPage, "reset_light", function()
     local l=game:GetService("Lighting")
     l.Brightness=1 l.ClockTime=14 l.FogEnd=100000 l.GlobalShadows=true l.Ambient=Color3.fromRGB(70,70,70)
 end)
-createButton(visualPage, "ESP Player", function() loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))() end)
-createButton(visualPage, "PShade", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))() end)
+createButton(visualPage, "esp", function() loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))() end)
+createButton(visualPage, "pshade", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))() end)
 
 -- ==================
 -- ADMIN PAGE
 -- ==================
-createButton(adminPage, "Fly GUI", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))() end)
-createButton(adminPage, "Godmode", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))() end)
-createButton(adminPage, "CMD-X Admin", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))() end)
+createButton(adminPage, "fly", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))() end)
+createButton(adminPage, "godmode", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))() end)
+createButton(adminPage, "cmdx", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))() end)
 
 createInput(adminPage, "ws_label", "ws_ph", 500, function(val, reset)
     local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
@@ -870,7 +904,7 @@ game:GetService("RunService").Stepped:Connect(function()
     end
 end)
 
-createButton(adminPage, "Anti AFK", function()
+createButton(adminPage, "anti_afk", function()
     local vu = game:GetService("VirtualUser")
     game.Players.LocalPlayer.Idled:Connect(function()
         vu:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
@@ -878,22 +912,22 @@ createButton(adminPage, "Anti AFK", function()
         vu:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
     end)
 end)
-createButton(adminPage, "Rejoin Game", function()
+createButton(adminPage, "rejoin", function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end)
 
 -- ==================
 -- HUB PAGE
 -- ==================
-createButton(hubPage, "Speed hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
-createButton(hubPage, "Chiyo hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
-createButton(hubPage, "Hoho Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
-createButton(hubPage, "Domain X Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
-createButton(hubPage, "Orion UI Demo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))() end)
-createButton(hubPage, "Thunder Client Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))() end)
-createButton(hubPage, "Rayfield UI", function() loadstring(game:HttpGet("https://sirius.menu/rayfield"))() end)
-createButton(hubPage, "Linoria Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
-createButton(hubPage, "Kavo UI Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
+createStaticButton(hubPage, "Speed hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
+createStaticButton(hubPage, "Chiyo hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
+createStaticButton(hubPage, "Hoho Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
+createStaticButton(hubPage, "Domain X Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
+createStaticButton(hubPage, "Orion UI Demo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))() end)
+createStaticButton(hubPage, "Thunder Client Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))() end)
+createStaticButton(hubPage, "Rayfield UI", function() loadstring(game:HttpGet("https://sirius.menu/rayfield"))() end)
+createStaticButton(hubPage, "Linoria Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
+createStaticButton(hubPage, "Kavo UI Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
 
 -- ==================
 -- SETTING PAGE
