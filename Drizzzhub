@@ -220,8 +220,7 @@ local languages = {
         lang_title="🌍 <b>Pilih Basa</b>",
         lang_desc="Klik tombol kanggo ganti kabeh tulisan!",
         set_btn="Setel",
-    },
-}
+},
 DK = {
         flag="🌿", name="Dayak Ngaju",
         hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
