@@ -222,6 +222,31 @@ local languages = {
         set_btn="Setel",
     },
 }
+DK = {
+        flag="🌿", name="Dayak Ngaju",
+        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        tab_home="🏠\nBetang", tab_main="📜\nUtama", tab_visual="👁\nTampak",
+        tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nAtur", tab_lang="🌍\nBasa",
+        home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Anak buah: <b>Dirzzz</b>",
+        home2="📋 <b>Catatan Ubah V3.0:</b>\n✅ Tampak barue\n✅ Sidebar navigasi\n✅ Tombol toggle halus\n✅ Tab pengatur\n✅ Sistem basa hindai",
+        home3="📢 <b>Pemberita:</b>\n⚠️ Ela spam execute!\n🔑 Kunci: FREE\n💬 Lapor kasalahan kilau Dirzzz",
+        home4="⚠️ <b>PENTING:</b>\n🚫 Script ije GRATIS\n<b>ELA DIJUAL!</b>\n❌ Amon ada manjual, ije PALSU!",
+        home5="💡 <b>Petunjuk:</b>\n🔍 Sanan di tab Utama\n📌 Klik ─ kare ngecilkan\n✕ Klik X kare nutup",
+        search_ph="🔍 Sanan script...",
+        ws_label="⚡ Kacepatan Jalan (maks 500)", ws_ph="Ketik 1-500...",
+        jp_label="🦘 Kuasa Lompat (maks 1000)", jp_ph="Ketik 1-1000...",
+        inf_jump="Lompat Terus", noclip="Tembus Dinding", anti_afk="Anti AFK", rejoin="Masuk Balik",
+        fly="Terbang GUI", godmode="Mode Dewa", cmdx="CMD-X Admin",
+        fullbright="Cahaya Penuh", no_fog="Ela Ada Humbut", rem_tex="Buang Tekstur",
+        fps="FPS Boost", blur="Efek Kabur", neon="Tema Neon", rainbow="Langit Pelangi",
+        daytime="Waktu Andau", nighttime="Waktu Halem", reset_light="Reset Cahaya",
+        esp="ESP Player", pshade="PShade",
+        auto_exec="Auto Execute", fix_lag="Pander Lag", shaders="Shaders HD",
+        lang_title="🌍 <b>Pilih Basa</b>",
+        lang_desc="Klik tombol basa kare ganti semua tulisan!",
+        set_btn="Setel",
+    },
+}
 
 local currentLang = languages.EN
 local allTexts = {}
@@ -987,6 +1012,7 @@ local langList = {
     {code="MY", color=Color3.fromRGB(0,80,160)},
     {code="CN", color=Color3.fromRGB(200,30,30)},
     {code="JV", color=Color3.fromRGB(120,80,30)},
+    {code="DK", color=Color3.fromRGB(30,130,60)},
 }
 
 for _, l in ipairs(langList) do
