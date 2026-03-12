@@ -7,9 +7,10 @@ getgenv().DirzzzHubLoaded = false
 -- KEY SYSTEM
 local key = "FREE"
 local gui = Instance.new("ScreenGui", game.CoreGui)
+gui.Name = "DirzzzHubKey"
 local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.new(0,260,0,130)
-frame.Position = UDim2.new(0.5,-130,0.5,-65)
+frame.Size = UDim2.new(0,280,0,140)
+frame.Position = UDim2.new(0.5,-140,0.5,-70)
 frame.BackgroundColor3 = Color3.fromRGB(8,8,20)
 Instance.new("UICorner", frame).CornerRadius = UDim.new(0,12)
 local fs = Instance.new("UIStroke", frame)
@@ -17,7 +18,7 @@ fs.Thickness = 2
 fs.Color = Color3.fromRGB(0,170,255)
 
 local keyTitle = Instance.new("TextLabel", frame)
-keyTitle.Size = UDim2.new(1,0,0,28)
+keyTitle.Size = UDim2.new(1,0,0,30)
 keyTitle.Position = UDim2.new(0,0,0,0)
 keyTitle.Text = "🌌 Drizzz Hub — Enter Key"
 keyTitle.TextColor3 = Color3.fromRGB(0,200,255)
@@ -27,8 +28,8 @@ keyTitle.Font = Enum.Font.GothamBold
 
 local box = Instance.new("TextBox", frame)
 box.Size = UDim2.new(1,-20,0,36)
-box.Position = UDim2.new(0,10,0,32)
-box.PlaceholderText = "Enter Key"
+box.Position = UDim2.new(0,10,0,34)
+box.PlaceholderText = "Enter Key here..."
 box.BackgroundColor3 = Color3.fromRGB(15,15,35)
 box.TextColor3 = Color3.new(1,1,1)
 box.TextScaled = true
@@ -39,7 +40,7 @@ Instance.new("UIStroke", box).Color = Color3.fromRGB(0,100,180)
 
 local btn = Instance.new("TextButton", frame)
 btn.Size = UDim2.new(1,-20,0,32)
-btn.Position = UDim2.new(0,10,0,76)
+btn.Position = UDim2.new(0,10,0,78)
 btn.Text = "✔ Submit"
 btn.BackgroundColor3 = Color3.fromRGB(0,120,220)
 btn.TextColor3 = Color3.new(1,1,1)
@@ -69,19 +70,24 @@ local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
 local StarterGui = game:GetService("StarterGui")
 
+-- ==================
 -- BAHASA
+-- ==================
 local languages = {
     EN = {
         flag="🇬🇧", name="English",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nHome", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetting", tab_lang="🌍\nLanguage",
-        home1="🌌 <b>Drizzz Hub</b>  |  Version <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
-        home2="📋 <b>Update Log V3.0:</b>\n✅ Galaxy UI theme\n✅ Sidebar navigation\n✅ Smooth toggle switch\n✅ Settings tab\n✅ Multi Language System",
+        home1="🌌 <b>Drizzz Hub</b>  |  Version <b>V3.1</b>\n👤 Developer: <b>Dirzzz</b>",
+        home2="📋 <b>Update Log V3.1:</b>\n✅ Galaxy UI theme\n✅ Sidebar navigation\n✅ Smooth animations\n✅ Game Filter in Main\n✅ More scripts added\n✅ Cooler watermark",
         home3="📢 <b>Announcement:</b>\n⚠️ Don't spam execute!\n🔑 Key: FREE\n💬 Report bugs to Dirzzz",
         home4="⚠️ <b>IMPORTANT:</b>\n🚫 This script is FREE and\n<b>NOT FOR SALE!</b>\n❌ If anyone sells it, it's FAKE!",
-        home5="💡 <b>Tips:</b>\n🔍 Search in Main tab\n📌 Click ─ to minimize\n✕ Click X to close",
+        home5="💡 <b>Tips:</b>\n🔍 Filter by game in Main tab\n📌 Click ─ to minimize\n✕ Click X to close",
         search_ph="🔍 Search script...",
+        filter_all="🌐 All", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ WalkSpeed (max 500)", ws_ph="Type 1-500...",
         jp_label="🦘 JumpPower (max 1000)", jp_ph="Type 1-1000...",
         inf_jump="Infinite Jump", noclip="Noclip", anti_afk="Anti AFK", rejoin="Rejoin Game",
@@ -97,15 +103,18 @@ local languages = {
     },
     ID = {
         flag="🇮🇩", name="Indonesia",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nHome", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetting", tab_lang="🌍\nBahasa",
-        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
-        home2="📋 <b>Update Log V3.0:</b>\n✅ Tema UI Galaxy\n✅ Sidebar navigasi\n✅ Toggle switch smooth\n✅ Tab Pengaturan\n✅ Sistem Multi Bahasa",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.1</b>\n👤 Developer: <b>Dirzzz</b>",
+        home2="📋 <b>Update Log V3.1:</b>\n✅ Tema UI Galaxy\n✅ Sidebar navigasi\n✅ Animasi smooth\n✅ Filter Game di Main\n✅ Lebih banyak script\n✅ Watermark lebih keren",
         home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute!\n🔑 Key: FREE\n💬 Report bug ke Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 Script ini GRATIS dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!",
-        home5="💡 <b>Tips:</b>\n🔍 Search di tab Main\n📌 Klik ─ untuk minimize\n✕ Klik X untuk tutup",
+        home5="💡 <b>Tips:</b>\n🔍 Filter game di tab Main\n📌 Klik ─ untuk minimize\n✕ Klik X untuk tutup",
         search_ph="🔍 Cari script...",
+        filter_all="🌐 Semua", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ WalkSpeed (maks 500)", ws_ph="Ketik 1-500...",
         jp_label="🦘 JumpPower (maks 1000)", jp_ph="Ketik 1-1000...",
         inf_jump="Infinite Jump", noclip="Noclip", anti_afk="Anti AFK", rejoin="Rejoin Game",
@@ -121,15 +130,18 @@ local languages = {
     },
     JP = {
         flag="🇯🇵", name="日本語",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nホーム", tab_main="📜\nメイン", tab_visual="👁\nビジュアル",
         tab_admin="⚡\nアドミン", tab_hub="🌐\nハブ", tab_setting="⚙️\n設定", tab_lang="🌍\n言語",
-        home1="🌌 <b>Drizzz Hub</b>  |  バージョン <b>V3.0</b>\n👤 開発者: <b>Dirzzz</b>",
-        home2="📋 <b>更新ログ V3.0:</b>\n✅ ギャラクシーUI\n✅ サイドバー\n✅ トグルスイッチ\n✅ 設定タブ\n✅ 多言語システム",
+        home1="🌌 <b>Drizzz Hub</b>  |  バージョン <b>V3.1</b>\n👤 開発者: <b>Dirzzz</b>",
+        home2="📋 <b>更新ログ V3.1:</b>\n✅ ギャラクシーUI\n✅ サイドバー\n✅ スムーズアニメ\n✅ ゲームフィルター\n✅ スクリプト追加\n✅ ウォーターマーク改善",
         home3="📢 <b>お知らせ:</b>\n⚠️ スパム禁止!\n🔑 キー: FREE\n💬 バグ報告はDirzzzへ",
         home4="⚠️ <b>重要:</b>\n🚫 このスクリプトは無料!\n<b>販売禁止!</b>\n❌ 販売は偽物です!",
-        home5="💡 <b>ヒント:</b>\n🔍 メインで検索\n📌 ─で最小化\n✕ Xで閉じる",
+        home5="💡 <b>ヒント:</b>\n🔍 ゲームフィルター使用\n📌 ─で最小化\n✕ Xで閉じる",
         search_ph="🔍 スクリプト検索...",
+        filter_all="🌐 全て", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ 歩行速度 (最大500)", ws_ph="1-500を入力...",
         jp_label="🦘 ジャンプ力 (最大1000)", jp_ph="1-1000を入力...",
         inf_jump="無限ジャンプ", noclip="ノークリップ", anti_afk="AFK防止", rejoin="再参加",
@@ -145,15 +157,18 @@ local languages = {
     },
     AR = {
         flag="🇸🇦", name="عربي",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nالرئيسية", tab_main="📜\nالرئيسي", tab_visual="👁\nمرئي",
         tab_admin="⚡\nإدارة", tab_hub="🌐\nهاب", tab_setting="⚙️\nإعداد", tab_lang="🌍\nلغة",
-        home1="🌌 <b>Drizzz Hub</b>  |  الإصدار <b>V3.0</b>\n👤 المطور: <b>Dirzzz</b>",
-        home2="📋 <b>سجل التحديث:</b>\n✅ واجهة مجرة\n✅ شريط جانبي\n✅ مفتاح تبديل\n✅ إعدادات\n✅ متعدد اللغات",
+        home1="🌌 <b>Drizzz Hub</b>  |  الإصدار <b>V3.1</b>\n👤 المطور: <b>Dirzzz</b>",
+        home2="📋 <b>سجل التحديث:</b>\n✅ واجهة مجرة\n✅ شريط جانبي\n✅ رسوم متحركة\n✅ فلتر الألعاب\n✅ سكريبتات أكثر\n✅ علامة مائية أجمل",
         home3="📢 <b>إعلان:</b>\n⚠️ لا تكرر!\n🔑 المفتاح: FREE\n💬 أبلغ Dirzzz",
         home4="⚠️ <b>مهم:</b>\n🚫 مجاني!\n<b>ليس للبيع!</b>\n❌ البيع مزيف!",
-        home5="💡 <b>نصائح:</b>\n🔍 ابحث في Main\n📌 ─ للتصغير\n✕ X للإغلاق",
+        home5="💡 <b>نصائح:</b>\n🔍 فلتر الألعاب في Main\n📌 ─ للتصغير\n✕ X للإغلاق",
         search_ph="🔍 ابحث...",
+        filter_all="🌐 الكل", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ سرعة المشي (500)", ws_ph="1-500...",
         jp_label="🦘 قوة القفز (1000)", jp_ph="1-1000...",
         inf_jump="قفز لا نهائي", noclip="اختراق", anti_afk="مضاد AFK", rejoin="إعادة",
@@ -169,15 +184,18 @@ local languages = {
     },
     MY = {
         flag="🇲🇾", name="Melayu",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nUtama", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nTetapan", tab_lang="🌍\nBahasa",
-        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Pembangun: <b>Dirzzz</b>",
-        home2="📋 <b>Log Kemaskini V3.0:</b>\n✅ Tema UI Galaksi\n✅ Bar sisi\n✅ Togol lancar\n✅ Tetapan\n✅ Pelbagai Bahasa",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.1</b>\n👤 Pembangun: <b>Dirzzz</b>",
+        home2="📋 <b>Log Kemaskini V3.1:</b>\n✅ Tema UI Galaksi\n✅ Bar sisi\n✅ Animasi lancar\n✅ Penapis permainan\n✅ Lebih skrip\n✅ Tanda air lebih cantik",
         home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam!\n🔑 Kunci: FREE\n💬 Laporkan kepada Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 PERCUMA!\n<b>TIDAK DIJUAL!</b>\n❌ Jika dijual, ia PALSU!",
-        home5="💡 <b>Tips:</b>\n🔍 Cari di Main\n📌 ─ minimumkan\n✕ X tutup",
+        home5="💡 <b>Tips:</b>\n🔍 Tapis permainan di Main\n📌 ─ minimumkan\n✕ X tutup",
         search_ph="🔍 Cari skrip...",
+        filter_all="🌐 Semua", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ Kelajuan (maks 500)", ws_ph="Taip 1-500...",
         jp_label="🦘 Kuasa Lompat (maks 1000)", jp_ph="Taip 1-1000...",
         inf_jump="Lompat Tak Terhad", noclip="Tembus", anti_afk="Anti AFK", rejoin="Sertai Semula",
@@ -193,15 +211,18 @@ local languages = {
     },
     CN = {
         flag="🇨🇳", name="中文",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\n主页", tab_main="📜\n主要", tab_visual="👁\n视觉",
         tab_admin="⚡\n管理", tab_hub="🌐\n中心", tab_setting="⚙️\n设置", tab_lang="🌍\n语言",
-        home1="🌌 <b>Drizzz Hub</b>  |  版本 <b>V3.0</b>\n👤 开发者: <b>Dirzzz</b>",
-        home2="📋 <b>更新日志:</b>\n✅ 星系UI主题\n✅ 侧边栏\n✅ 开关\n✅ 设置\n✅ 多语言",
+        home1="🌌 <b>Drizzz Hub</b>  |  版本 <b>V3.1</b>\n👤 开发者: <b>Dirzzz</b>",
+        home2="📋 <b>更新日志:</b>\n✅ 星系UI主题\n✅ 侧边栏\n✅ 流畅动画\n✅ 游戏过滤器\n✅ 更多脚本\n✅ 更酷水印",
         home3="📢 <b>公告:</b>\n⚠️ 勿重复!\n🔑 密钥: FREE\n💬 报告给Dirzzz",
         home4="⚠️ <b>重要:</b>\n🚫 免费!\n<b>不出售!</b>\n❌ 出售是假的!",
-        home5="💡 <b>提示:</b>\n🔍 在Main搜索\n📌 ─最小化\n✕ X关闭",
+        home5="💡 <b>提示:</b>\n🔍 在Main过滤游戏\n📌 ─最小化\n✕ X关闭",
         search_ph="🔍 搜索脚本...",
+        filter_all="🌐 全部", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ 步行速度 (最大500)", ws_ph="输入1-500...",
         jp_label="🦘 跳跃力 (最大1000)", jp_ph="输入1-1000...",
         inf_jump="无限跳跃", noclip="穿墙", anti_afk="防AFK", rejoin="重新加入",
@@ -217,15 +238,18 @@ local languages = {
     },
     JV = {
         flag="☕", name="Jawa",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nOmah", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetelan", tab_lang="🌍\nBasa",
-        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Sing gawe: <b>Dirzzz</b>",
-        home2="📋 <b>Update Log V3.0:</b>\n✅ Tampilan Galaxy\n✅ Sidebar\n✅ Toggle alus\n✅ Setelan\n✅ Multi Basa",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.1</b>\n👤 Sing gawe: <b>Dirzzz</b>",
+        home2="📋 <b>Update Log V3.1:</b>\n✅ Tampilan Galaxy\n✅ Sidebar\n✅ Animasi alus\n✅ Filter Game\n✅ Script tambah\n✅ Watermark apik",
         home3="📢 <b>Pengumuman:</b>\n⚠️ Ojo spam!\n🔑 Kunci: FREE\n💬 Lapor neng Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 GRATIS!\n<b>ORA DIDOL!</b>\n❌ Yen didol, kuwi PALSU!",
-        home5="💡 <b>Tips:</b>\n🔍 Goleki neng Main\n📌 ─ minimize\n✕ X nutup",
+        home5="💡 <b>Tips:</b>\n🔍 Filter game neng Main\n📌 ─ minimize\n✕ X nutup",
         search_ph="🔍 Goleki script...",
+        filter_all="🌐 Kabeh", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ Kecepatan Mlaku (maks 500)", ws_ph="Ketik 1-500...",
         jp_label="🦘 Kekuatan Loncat (maks 1000)", jp_ph="Ketik 1-1000...",
         inf_jump="Loncat Terus", noclip="Tembus Tembok", anti_afk="Anti AFK", rejoin="Mlebu Maneh",
@@ -241,15 +265,18 @@ local languages = {
     },
     DK = {
         flag="🌿", name="Dayak Ngaju",
-        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.1", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nBetang", tab_main="📜\nUtama", tab_visual="👁\nTampak",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nAtur", tab_lang="🌍\nBasa",
-        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Anak buah: <b>Dirzzz</b>",
-        home2="📋 <b>Catatan Ubah V3.0:</b>\n✅ Tampak Galaxy\n✅ Sidebar navigasi\n✅ Tombol toggle halus\n✅ Tab pengatur\n✅ Sistem basa hindai",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.1</b>\n👤 Anak buah: <b>Dirzzz</b>",
+        home2="📋 <b>Catatan Ubah V3.1:</b>\n✅ Tampak Galaxy\n✅ Sidebar navigasi\n✅ Animasi halus\n✅ Filter Game\n✅ Script tambah\n✅ Watermark lebih keren",
         home3="📢 <b>Pemberita:</b>\n⚠️ Ela spam execute!\n🔑 Kunci: FREE\n💬 Lapor kasalahan kilau Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 Script ije GRATIS\n<b>ELA DIJUAL!</b>\n❌ Amon ada manjual, ije PALSU!",
-        home5="💡 <b>Petunjuk:</b>\n🔍 Sanan di tab Utama\n📌 Klik ─ kare ngecilkan\n✕ Klik X kare nutup",
+        home5="💡 <b>Petunjuk:</b>\n🔍 Filter game di tab Utama\n📌 Klik ─ kare ngecilkan\n✕ Klik X kare nutup",
         search_ph="🔍 Sanan script...",
+        filter_all="🌐 Semua", filter_bloxfruit="🍎 Blox Fruits", filter_tsb="⚡ TSB",
+        filter_doors="🚪 Doors", filter_arsenal="🔫 Arsenal", filter_mm2="🔪 MM2",
+        filter_brookhaven="🏘 Brookhaven", filter_universal="🔧 Universal",
         ws_label="⚡ Kacepatan Jalan (maks 500)", ws_ph="Ketik 1-500...",
         jp_label="🦘 Kuasa Lompat (maks 1000)", jp_ph="Ketik 1-1000...",
         inf_jump="Lompat Terus", noclip="Tembus Dinding", anti_afk="Anti AFK", rejoin="Masuk Balik",
@@ -269,9 +296,10 @@ local currentLang = languages.EN
 local allTexts = {}
 
 -- ==================
--- LOADING SCREEN (GALAXY THEME)
+-- LOADING SCREEN
 -- ==================
 local loadingGui = Instance.new("ScreenGui", CoreGui)
+loadingGui.Name = "DirzzzHubLoading"
 
 local overlay = Instance.new("Frame", loadingGui)
 overlay.Size = UDim2.new(1,0,1,0)
@@ -279,8 +307,8 @@ overlay.BackgroundColor3 = Color3.fromRGB(0,0,10)
 overlay.BackgroundTransparency = 0.2
 
 local loadFrame = Instance.new("Frame", loadingGui)
-loadFrame.Size = UDim2.new(0,280,0,240)
-loadFrame.Position = UDim2.new(0.5,-140,0.5,-120)
+loadFrame.Size = UDim2.new(0,300,0,260)
+loadFrame.Position = UDim2.new(0.5,-150,0.5,-130)
 loadFrame.BackgroundColor3 = Color3.fromRGB(5,5,18)
 Instance.new("UICorner", loadFrame).CornerRadius = UDim.new(0,16)
 
@@ -288,7 +316,6 @@ local loadStroke = Instance.new("UIStroke", loadFrame)
 loadStroke.Thickness = 3
 loadStroke.Color = Color3.fromRGB(0,170,255)
 
--- Galaxy circle logo
 local galaxyBg = Instance.new("Frame", loadFrame)
 galaxyBg.Size = UDim2.new(0,100,0,100)
 galaxyBg.Position = UDim2.new(0.5,-50,0,18)
@@ -310,7 +337,6 @@ galaxyInner.Position = UDim2.new(0.5,-10,0.5,-10)
 galaxyInner.BackgroundColor3 = Color3.fromRGB(255,255,255)
 Instance.new("UICorner", galaxyInner).CornerRadius = UDim.new(1,0)
 
--- Orbit ring 1
 local orbit1 = Instance.new("Frame", galaxyBg)
 orbit1.Size = UDim2.new(0,80,0,80)
 orbit1.Position = UDim2.new(0.5,-40,0.5,-40)
@@ -320,7 +346,6 @@ local os1 = Instance.new("UIStroke", orbit1)
 os1.Thickness = 2
 os1.Color = Color3.fromRGB(0,140,220)
 
--- Orbit ring 2
 local orbit2 = Instance.new("Frame", galaxyBg)
 orbit2.Size = UDim2.new(0,65,0,65)
 orbit2.Position = UDim2.new(0.5,-32.5,0.5,-32.5)
@@ -331,17 +356,26 @@ os2.Thickness = 1.5
 os2.Color = Color3.fromRGB(100,80,220)
 
 local loadTitle = Instance.new("TextLabel", loadFrame)
-loadTitle.Size = UDim2.new(1,0,0,28)
-loadTitle.Position = UDim2.new(0,0,0,125)
+loadTitle.Size = UDim2.new(1,0,0,30)
+loadTitle.Position = UDim2.new(0,0,0,128)
 loadTitle.Text = "🌌 DRIZZZ HUB"
 loadTitle.TextColor3 = Color3.fromRGB(0,200,255)
 loadTitle.BackgroundTransparency = 1
 loadTitle.TextScaled = true
 loadTitle.Font = Enum.Font.GothamBold
 
+local loadVer = Instance.new("TextLabel", loadFrame)
+loadVer.Size = UDim2.new(1,0,0,18)
+loadVer.Position = UDim2.new(0,0,0,158)
+loadVer.Text = "V3.1  —  by Dirzzz"
+loadVer.TextColor3 = Color3.fromRGB(40,100,180)
+loadVer.BackgroundTransparency = 1
+loadVer.TextScaled = true
+loadVer.Font = Enum.Font.GothamBold
+
 local loadSub = Instance.new("TextLabel", loadFrame)
-loadSub.Size = UDim2.new(1,0,0,20)
-loadSub.Position = UDim2.new(0,0,0,153)
+loadSub.Size = UDim2.new(1,0,0,18)
+loadSub.Position = UDim2.new(0,0,0,178)
 loadSub.Text = "EXECUTE  •  DOMINATE  •  FREE"
 loadSub.TextColor3 = Color3.fromRGB(60,130,200)
 loadSub.BackgroundTransparency = 1
@@ -349,8 +383,8 @@ loadSub.TextScaled = true
 loadSub.Font = Enum.Font.Gotham
 
 local loadStatus = Instance.new("TextLabel", loadFrame)
-loadStatus.Size = UDim2.new(1,0,0,18)
-loadStatus.Position = UDim2.new(0,0,0,175)
+loadStatus.Size = UDim2.new(1,0,0,16)
+loadStatus.Position = UDim2.new(0,0,0,198)
 loadStatus.Text = "Loading..."
 loadStatus.TextColor3 = Color3.fromRGB(80,150,200)
 loadStatus.BackgroundTransparency = 1
@@ -368,12 +402,10 @@ bar.Size = UDim2.new(0,0,1,0)
 bar.BackgroundColor3 = Color3.fromRGB(0,170,255)
 Instance.new("UICorner", bar).CornerRadius = UDim.new(1,0)
 
--- Loading bar glow pulse
 task.spawn(function()
     TweenService:Create(bar, TweenInfo.new(3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size=UDim2.new(1,0,1,0)}):Play()
 end)
 
--- Galaxy color cycle
 local rgbRunning = true
 task.spawn(function()
     local colors = {
@@ -399,7 +431,6 @@ task.spawn(function()
     end
 end)
 
--- Orbit spin
 task.spawn(function()
     local r = 0
     while rgbRunning do
@@ -417,13 +448,13 @@ loadingGui:Destroy()
 pcall(function()
     StarterGui:SetCore("SendNotification", {
         Title="🌌 Drizzz Hub",
-        Text="✅ Script loaded! EXECUTE • DOMINATE • FREE",
+        Text="✅ V3.1 Loaded! EXECUTE • DOMINATE • FREE",
         Duration=4
     })
 end)
 
 -- ==================
--- MAIN GUI (GALAXY THEME)
+-- MAIN GUI
 -- ==================
 local mainGui = Instance.new("ScreenGui")
 mainGui.Name = "DirzzzHub"
@@ -431,8 +462,8 @@ mainGui.Parent = CoreGui
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Parent = mainGui
-mainFrame.Size = UDim2.new(0,500,0,320)
-mainFrame.Position = UDim2.new(0.5,-250,0.5,-160)
+mainFrame.Size = UDim2.new(0,0,0,0)
+mainFrame.Position = UDim2.new(0.5,-270,0.5,-175)
 mainFrame.BackgroundColor3 = Color3.fromRGB(6,6,18)
 mainFrame.Active = true
 mainFrame.Draggable = true
@@ -441,7 +472,11 @@ Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,12)
 local mainStroke = Instance.new("UIStroke", mainFrame)
 mainStroke.Thickness = 2
 
--- Galaxy stroke glow animation
+TweenService:Create(mainFrame, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+    Size = UDim2.new(0,540,0,350),
+    Position = UDim2.new(0.5,-270,0.5,-175)
+}):Play()
+
 task.spawn(function()
     local cols = {
         Color3.fromRGB(0,170,255),
@@ -451,14 +486,12 @@ task.spawn(function()
     }
     while mainGui.Parent do
         for _, c in ipairs(cols) do
+            if not mainGui.Parent then break end
             TweenService:Create(mainStroke, TweenInfo.new(1.2), {Color=c}):Play()
             task.wait(1.2)
         end
     end
 end)
-
-mainFrame.Size = UDim2.new(0,0,0,0)
-TweenService:Create(mainFrame, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size=UDim2.new(0,500,0,320)}):Play()
 
 -- Topbar
 local topBar = Instance.new("Frame", mainFrame)
@@ -467,7 +500,6 @@ topBar.BackgroundColor3 = Color3.fromRGB(8,8,25)
 Instance.new("UICorner", topBar).CornerRadius = UDim.new(0,12)
 Instance.new("UIStroke", topBar).Color = Color3.fromRGB(0,100,180)
 
--- Galaxy dot decoration on topbar
 local dot1 = Instance.new("Frame", topBar)
 dot1.Size = UDim2.new(0,6,0,6)
 dot1.Position = UDim2.new(0,8,0.5,-3)
@@ -516,12 +548,12 @@ closeBtn.TextScaled = true
 Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(0,6)
 
 closeBtn.MouseButton1Click:Connect(function()
-    TweenService:Create(mainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), {Size=UDim2.new(0,0,0,0)}):Play()
-    task.wait(0.3)
+    TweenService:Create(mainFrame, TweenInfo.new(0.35, Enum.EasingStyle.Back, Enum.EasingDirection.In), {Size=UDim2.new(0,0,0,0)}):Play()
+    task.wait(0.35)
     mainGui:Destroy()
 end)
 
--- Minimize icon (galaxy circle)
+-- Minimize icon (bulat)
 local icon = Instance.new("TextButton", mainGui)
 icon.Size = UDim2.new(0,46,0,46)
 icon.Position = UDim2.new(0,20,0.5,-23)
@@ -537,6 +569,17 @@ local iconStroke = Instance.new("UIStroke", icon)
 iconStroke.Thickness = 2
 iconStroke.Color = Color3.fromRGB(0,170,255)
 
+task.spawn(function()
+    local cols = {Color3.fromRGB(0,170,255), Color3.fromRGB(255,255,255), Color3.fromRGB(80,60,255)}
+    while mainGui.Parent do
+        for _, c in ipairs(cols) do
+            if not mainGui.Parent then break end
+            TweenService:Create(iconStroke, TweenInfo.new(1), {Color=c}):Play()
+            task.wait(1)
+        end
+    end
+end)
+
 local minimized = false
 minBtn.MouseButton1Click:Connect(function()
     minimized = not minimized
@@ -549,20 +592,49 @@ icon.MouseButton1Click:Connect(function()
     minimized = false
 end)
 
--- Watermark
-local watermark = Instance.new("TextLabel", mainGui)
-watermark.Size = UDim2.new(0,135,0,22)
-watermark.Position = UDim2.new(1,-145,0,8)
-watermark.BackgroundColor3 = Color3.fromRGB(6,6,18)
-watermark.BackgroundTransparency = 0.2
+-- Watermark keren (pill shape + dot + glow animasi)
+local wmFrame = Instance.new("Frame", mainGui)
+wmFrame.Size = UDim2.new(0,165,0,28)
+wmFrame.Position = UDim2.new(1,-175,0,8)
+wmFrame.BackgroundColor3 = Color3.fromRGB(6,6,20)
+Instance.new("UICorner", wmFrame).CornerRadius = UDim.new(1,0)
+local wmStroke = Instance.new("UIStroke", wmFrame)
+wmStroke.Thickness = 1.5
+wmStroke.Color = Color3.fromRGB(0,170,255)
+
+local wmDot = Instance.new("Frame", wmFrame)
+wmDot.Size = UDim2.new(0,10,0,10)
+wmDot.Position = UDim2.new(0,9,0.5,-5)
+wmDot.BackgroundColor3 = Color3.fromRGB(0,200,255)
+Instance.new("UICorner", wmDot).CornerRadius = UDim.new(1,0)
+
+local watermark = Instance.new("TextLabel", wmFrame)
+watermark.Size = UDim2.new(1,-26,1,0)
+watermark.Position = UDim2.new(0,24,0,0)
+watermark.BackgroundTransparency = 1
 watermark.Text = currentLang.watermark
 watermark.TextColor3 = Color3.fromRGB(0,200,255)
 watermark.TextScaled = true
 watermark.Font = Enum.Font.GothamBold
-Instance.new("UICorner", watermark).CornerRadius = UDim.new(0,6)
-local wmStroke = Instance.new("UIStroke", watermark)
-wmStroke.Thickness = 1.5
-wmStroke.Color = Color3.fromRGB(0,120,200)
+watermark.TextXAlignment = Enum.TextXAlignment.Left
+
+task.spawn(function()
+    local cols = {
+        Color3.fromRGB(0,170,255),
+        Color3.fromRGB(255,255,255),
+        Color3.fromRGB(80,60,255),
+        Color3.fromRGB(0,220,255),
+    }
+    while mainGui.Parent do
+        for _, c in ipairs(cols) do
+            if not mainGui.Parent then break end
+            TweenService:Create(wmStroke, TweenInfo.new(1.5), {Color=c}):Play()
+            TweenService:Create(wmDot, TweenInfo.new(1.5), {BackgroundColor3=c}):Play()
+            TweenService:Create(watermark, TweenInfo.new(1.5), {TextColor3=c}):Play()
+            task.wait(1.5)
+        end
+    end
+end)
 
 -- Sidebar
 local sidebar = Instance.new("Frame", mainFrame)
@@ -648,62 +720,64 @@ local function createTab(textKey)
     return page
 end
 
-local function createStaticButton(parent, name, callback)
-    local btn = Instance.new("TextButton", parent)
-    btn.Size = UDim2.new(1,-8,0,32)
-    btn.Text = "  "..name
-    btn.BackgroundColor3 = Color3.fromRGB(10,10,28)
-    btn.TextColor3 = Color3.fromRGB(180,210,240)
-    btn.TextScaled = true
-    btn.Font = Enum.Font.Gotham
-    btn.TextXAlignment = Enum.TextXAlignment.Left
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
-    local s = Instance.new("UIStroke", btn)
+local function createStaticButton(parent, name, tag, callback)
+    local b = Instance.new("TextButton", parent)
+    b.Size = UDim2.new(1,-8,0,32)
+    b.Text = "  "..name
+    b.BackgroundColor3 = Color3.fromRGB(10,10,28)
+    b.TextColor3 = Color3.fromRGB(180,210,240)
+    b.TextScaled = true
+    b.Font = Enum.Font.Gotham
+    b.TextXAlignment = Enum.TextXAlignment.Left
+    b.Name = tag or "all"
+    Instance.new("UICorner", b).CornerRadius = UDim.new(0,6)
+    local s = Instance.new("UIStroke", b)
     s.Thickness = 1
     s.Color = Color3.fromRGB(0,60,120)
-    btn.MouseEnter:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
+    b.MouseEnter:Connect(function()
+        TweenService:Create(b, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
     end)
-    btn.MouseLeave:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(10,10,28)}):Play()
+    b.MouseLeave:Connect(function()
+        TweenService:Create(b, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(10,10,28)}):Play()
     end)
-    btn.MouseButton1Click:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,220)}):Play()
+    b.MouseButton1Click:Connect(function()
+        TweenService:Create(b, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,220)}):Play()
         task.wait(0.08)
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
+        TweenService:Create(b, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
         callback()
     end)
+    return b
 end
 
 local function createButton(parent, langKey, callback)
-    local btn = Instance.new("TextButton", parent)
-    btn.Size = UDim2.new(1,-8,0,32)
-    btn.Text = "  "..(currentLang[langKey] or langKey)
-    btn.BackgroundColor3 = Color3.fromRGB(10,10,28)
-    btn.TextColor3 = Color3.fromRGB(180,210,240)
-    btn.TextScaled = true
-    btn.Font = Enum.Font.Gotham
-    btn.TextXAlignment = Enum.TextXAlignment.Left
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
-    local s = Instance.new("UIStroke", btn)
+    local b = Instance.new("TextButton", parent)
+    b.Size = UDim2.new(1,-8,0,32)
+    b.Text = "  "..(currentLang[langKey] or langKey)
+    b.BackgroundColor3 = Color3.fromRGB(10,10,28)
+    b.TextColor3 = Color3.fromRGB(180,210,240)
+    b.TextScaled = true
+    b.Font = Enum.Font.Gotham
+    b.TextXAlignment = Enum.TextXAlignment.Left
+    Instance.new("UICorner", b).CornerRadius = UDim.new(0,6)
+    local s = Instance.new("UIStroke", b)
     s.Thickness = 1
     s.Color = Color3.fromRGB(0,60,120)
-    btn.MouseEnter:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
+    b.MouseEnter:Connect(function()
+        TweenService:Create(b, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
     end)
-    btn.MouseLeave:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(10,10,28)}):Play()
+    b.MouseLeave:Connect(function()
+        TweenService:Create(b, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(10,10,28)}):Play()
     end)
-    btn.MouseButton1Click:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,220)}):Play()
+    b.MouseButton1Click:Connect(function()
+        TweenService:Create(b, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,220)}):Play()
         task.wait(0.08)
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
+        TweenService:Create(b, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
         callback()
     end)
     if languages.EN[langKey] then
-        table.insert(allTexts, {obj=btn, key=langKey, type="btn"})
+        table.insert(allTexts, {obj=b, key=langKey, type="btn"})
     end
-    return btn
+    return b
 end
 
 local function createLabel(parent, textKey, color)
@@ -723,8 +797,10 @@ local function createLabel(parent, textKey, color)
     Instance.new("UICorner", lbl).CornerRadius = UDim.new(0,6)
     Instance.new("UIStroke", lbl).Color = Color3.fromRGB(0,50,100)
     local pad = Instance.new("UIPadding", lbl)
-    pad.PaddingLeft = UDim.new(0,8) pad.PaddingRight = UDim.new(0,8)
-    pad.PaddingTop = UDim.new(0,6) pad.PaddingBottom = UDim.new(0,6)
+    pad.PaddingLeft = UDim.new(0,8)
+    pad.PaddingRight = UDim.new(0,8)
+    pad.PaddingTop = UDim.new(0,6)
+    pad.PaddingBottom = UDim.new(0,6)
     table.insert(allTexts, {obj=lbl, key=textKey, type="text"})
     return lbl
 end
@@ -797,16 +873,16 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
     il.FillDirection = Enum.FillDirection.Horizontal
     il.Padding = UDim.new(0,4)
 
-    local box = Instance.new("TextBox", inputRow)
-    box.Size = UDim2.new(0.55,0,1,0)
-    box.PlaceholderText = currentLang[phKey] or phKey
-    box.BackgroundColor3 = Color3.fromRGB(8,8,22)
-    box.TextColor3 = Color3.new(1,1,1)
-    box.TextScaled = true
-    box.Font = Enum.Font.Gotham
-    box.ClearTextOnFocus = false
-    Instance.new("UICorner", box).CornerRadius = UDim.new(0,6)
-    Instance.new("UIStroke", box).Color = Color3.fromRGB(0,100,180)
+    local ibox = Instance.new("TextBox", inputRow)
+    ibox.Size = UDim2.new(0.55,0,1,0)
+    ibox.PlaceholderText = currentLang[phKey] or phKey
+    ibox.BackgroundColor3 = Color3.fromRGB(8,8,22)
+    ibox.TextColor3 = Color3.new(1,1,1)
+    ibox.TextScaled = true
+    ibox.Font = Enum.Font.Gotham
+    ibox.ClearTextOnFocus = false
+    Instance.new("UICorner", ibox).CornerRadius = UDim.new(0,6)
+    Instance.new("UIStroke", ibox).Color = Color3.fromRGB(0,100,180)
 
     local setBtn = Instance.new("TextButton", inputRow)
     setBtn.Size = UDim2.new(0.22,0,1,0)
@@ -826,7 +902,7 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
     Instance.new("UICorner", resetBtn).CornerRadius = UDim.new(0,6)
 
     setBtn.MouseButton1Click:Connect(function()
-        local val = tonumber(box.Text)
+        local val = tonumber(ibox.Text)
         if val and val >= 1 and val <= maxVal then
             callback(val, false)
             setBtn.Text = "✓"
@@ -843,12 +919,12 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
         end
     end)
     resetBtn.MouseButton1Click:Connect(function()
-        box.Text = ""
+        ibox.Text = ""
         callback(nil, true)
     end)
 
     table.insert(allTexts, {obj=lbl, key=labelKey, type="text"})
-    table.insert(allTexts, {obj=box, key=phKey, type="ph"})
+    table.insert(allTexts, {obj=ibox, key=phKey, type="ph"})
     table.insert(allTexts, {obj=setBtn, key="set_btn", type="text"})
 end
 
@@ -879,7 +955,9 @@ local function applyLanguage(lang)
     end)
 end
 
+-- ==================
 -- CREATE TABS
+-- ==================
 local homePage    = createTab("tab_home")
 local mainPage    = createTab("tab_main")
 local visualPage  = createTab("tab_visual")
@@ -893,14 +971,18 @@ tabButtons[1].btn.TextColor3 = Color3.fromRGB(255,255,255)
 tabButtons[1].indicator.Visible = true
 homePage.Visible = true
 
+-- ==================
 -- HOME PAGE
+-- ==================
 createLabel(homePage, "home1", Color3.fromRGB(0,200,255))
 createLabel(homePage, "home2", Color3.fromRGB(100,220,255))
 createLabel(homePage, "home3", Color3.fromRGB(255,210,80))
 createLabel(homePage, "home4", Color3.fromRGB(255,80,80))
 createLabel(homePage, "home5", Color3.fromRGB(150,180,255))
 
--- MAIN PAGE
+-- ==================
+-- MAIN PAGE (game filter)
+-- ==================
 local searchBox = Instance.new("TextBox", mainPage)
 searchBox.Size = UDim2.new(1,-8,0,30)
 searchBox.PlaceholderText = currentLang.search_ph
@@ -913,55 +995,152 @@ Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,6)
 Instance.new("UIStroke", searchBox).Color = Color3.fromRGB(0,100,180)
 table.insert(allTexts, {obj=searchBox, key="search_ph", type="ph"})
 
+-- Filter row
+local filterRow = Instance.new("Frame", mainPage)
+filterRow.Size = UDim2.new(1,-8,0,26)
+filterRow.BackgroundTransparency = 1
+local filterLayout = Instance.new("UIListLayout", filterRow)
+filterLayout.FillDirection = Enum.FillDirection.Horizontal
+filterLayout.Padding = UDim.new(0,3)
+
+local activeFilter = "all"
+local allScriptBtns = {}
+local filterBtnObjs = {}
+
+local filterDefs = {
+    {key="filter_all",        tag="all"},
+    {key="filter_bloxfruit",  tag="bloxfruit"},
+    {key="filter_tsb",        tag="tsb"},
+    {key="filter_doors",      tag="doors"},
+    {key="filter_arsenal",    tag="arsenal"},
+    {key="filter_mm2",        tag="mm2"},
+    {key="filter_brookhaven", tag="brookhaven"},
+    {key="filter_universal",  tag="universal"},
+}
+
+local function applyFilter(tag)
+    activeFilter = tag
+    for _, fb in pairs(filterBtnObjs) do
+        if fb.tag == tag then
+            TweenService:Create(fb.btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,120,220)}):Play()
+        else
+            TweenService:Create(fb.btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(15,15,38)}):Play()
+        end
+    end
+    local searchText = string.lower(searchBox.Text)
+    for _, sb in pairs(allScriptBtns) do
+        local matchFilter = (tag == "all") or (sb.Name == tag)
+        local matchSearch = (searchText == "") or (string.find(string.lower(sb.Text), searchText) ~= nil)
+        sb.Visible = matchFilter and matchSearch
+    end
+end
+
+for _, fd in ipairs(filterDefs) do
+    local fb = Instance.new("TextButton", filterRow)
+    fb.Size = UDim2.new(0,0,1,0)
+    fb.AutomaticSize = Enum.AutomaticSize.X
+    fb.Text = currentLang[fd.key]
+    fb.BackgroundColor3 = fd.tag == "all" and Color3.fromRGB(0,120,220) or Color3.fromRGB(15,15,38)
+    fb.TextColor3 = Color3.new(1,1,1)
+    fb.TextScaled = false
+    fb.TextSize = 10
+    fb.Font = Enum.Font.GothamBold
+    Instance.new("UICorner", fb).CornerRadius = UDim.new(0,5)
+    local fbp = Instance.new("UIPadding", fb)
+    fbp.PaddingLeft = UDim.new(0,5)
+    fbp.PaddingRight = UDim.new(0,5)
+    local fbtag = fd.tag
+    fb.MouseButton1Click:Connect(function() applyFilter(fbtag) end)
+    table.insert(filterBtnObjs, {btn=fb, tag=fd.tag, key=fd.key})
+    table.insert(allTexts, {obj=fb, key=fd.key, type="text"})
+end
+
 searchBox:GetPropertyChangedSignal("Text"):Connect(function()
     local text = string.lower(searchBox.Text)
-    for _, v in pairs(mainPage:GetChildren()) do
-        if v:IsA("TextButton") then
-            v.Visible = string.find(string.lower(v.Text), text) ~= nil
-        end
+    for _, sb in pairs(allScriptBtns) do
+        local matchFilter = (activeFilter == "all") or (sb.Name == activeFilter)
+        local matchSearch = (text == "") or (string.find(string.lower(sb.Text), text) ~= nil)
+        sb.Visible = matchFilter and matchSearch
     end
 end)
 
-createStaticButton(mainPage, "Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
-createStaticButton(mainPage, "Dex Explorer", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))() end)
-createStaticButton(mainPage, "Orbital Tsb op", function() loadstring(game:HttpGet("https://pastebin.com/raw/cQgr9kqU"))() end)
-createStaticButton(mainPage, "Op wallhop", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script"))() end)
-createStaticButton(mainPage, "Sambung kata No key", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Sambung-Kata-Auto-Answer-No-Key-126550"))() end)
-createStaticButton(mainPage, "Tag game op", function() loadstring(game:HttpGet("https://pastebin.com/raw/GVZZgEf6"))() end)
-createStaticButton(mainPage, "Shlied hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua"))() end)
-createStaticButton(mainPage, "Gomaba hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/JustLevel/goombahub/main/AriseCrossover.lua"))() end)
-createStaticButton(mainPage, "Prison life", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua"))() end)
-createStaticButton(mainPage, "Dark Dex V3", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))() end)
-createStaticButton(mainPage, "Hydroxide", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua"))() end)
-createStaticButton(mainPage, "Owl Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))() end)
-createStaticButton(mainPage, "VG Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"))() end)
-createStaticButton(mainPage, "Simple Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpy.lua"))() end)
-createStaticButton(mainPage, "Remote Spy", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"))() end)
-createStaticButton(mainPage, "Than hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))() end)
-createStaticButton(mainPage, "Moon hub", function() loadstring(game:HttpGet("https://usemoon.xyz/loader"))() end)
-createStaticButton(mainPage, "Exuso hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/BexruzScripts/Blue-lock-no-cd-reo-get-any-style-script.-WORKS-WITH-WORLD-CLASSES-/refs/heads/main/script.lua"))() end)
-createStaticButton(mainPage, "Merebennie tsb", function() loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))() end)
-createStaticButton(mainPage, "Overdrive", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))() end)
-createStaticButton(mainPage, "Solix", function() loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))() end)
-createStaticButton(mainPage, "Redz hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruit/main/redz9999"))() end)
-createStaticButton(mainPage, "Arsenal", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
-createStaticButton(mainPage, "Doors", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end)
-createStaticButton(mainPage, "Universal Aimbot", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
-createStaticButton(mainPage, "Steal Tools Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
-createStaticButton(mainPage, "Death ball", function() loadstring(game:HttpGet("https://spypanel.com.br/"))() end)
+local function addScript(name, tag, url)
+    local b = createStaticButton(mainPage, name, tag, function()
+        loadstring(game:HttpGet(url))()
+    end)
+    table.insert(allScriptBtns, b)
+end
 
+-- Universal
+addScript("Infinite Yield",       "universal", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+addScript("Dex Explorer",         "universal", "https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua")
+addScript("Dark Dex V3",          "universal", "https://raw.githubusercontent.com/infyiff/backup/main/dex.lua")
+addScript("Hydroxide",            "universal", "https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua")
+addScript("Simple Spy",           "universal", "https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpy.lua")
+addScript("Remote Spy",           "universal", "https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua")
+addScript("Universal Aimbot",     "universal", "https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua")
+addScript("Owl Hub",              "universal", "https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt")
+addScript("VG Hub",               "universal", "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub")
+addScript("Steal Tools Hub",      "universal", "https://raw.githubusercontent.com/shlexware/DomainX/main/source")
+addScript("Overdrive",            "universal", "https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904")
+addScript("Solix",                "universal", "https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687")
+addScript("Op Wallhop",           "universal", "https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script")
+addScript("Moon Hub",             "universal", "https://usemoon.xyz/loader")
+addScript("Than Hub",             "universal", "https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1")
+addScript("Exuso Hub",            "universal", "https://raw.githubusercontent.com/BexruzScripts/Blue-lock-no-cd-reo-get-any-style-script.-WORKS-WITH-WORLD-CLASSES-/refs/heads/main/script.lua")
+
+-- Blox Fruits
+addScript("BF Merebennie",        "bloxfruit", "https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua")
+addScript("BF Redz Hub",          "bloxfruit", "https://raw.githubusercontent.com/REDzHUB/BloxFruit/main/redz9999")
+addScript("BF Orbital OP",        "bloxfruit", "https://pastebin.com/raw/cQgr9kqU")
+
+-- TSB
+addScript("TSB Gomaba Hub",       "tsb", "https://raw.githubusercontent.com/JustLevel/goombahub/main/AriseCrossover.lua")
+addScript("TSB Shlied Hub",       "tsb", "https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua")
+addScript("TSB Death Ball",       "tsb", "https://spypanel.com.br/")
+
+-- Doors
+addScript("Doors Script",         "doors", "https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua")
+
+-- Arsenal
+addScript("Arsenal Aimbot",       "arsenal", "https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua")
+
+-- MM2
+addScript("MM2 OP Script",        "mm2", "https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904")
+
+-- Brookhaven
+addScript("Brookhaven OP",        "brookhaven", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+
+-- All (lainnya)
+addScript("Sambung Kata No Key",  "all", "https://rawscripts.net/raw/Sambung-Kata-Auto-Answer-No-Key-126550")
+addScript("Tag Game OP",          "all", "https://pastebin.com/raw/GVZZgEf6")
+addScript("Prison Life",          "all", "https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua")
+
+-- ==================
 -- VISUAL PAGE
+-- ==================
 createToggle(visualPage, "fullbright", function(on)
     local l = game:GetService("Lighting")
-    if on then l.Brightness=2 l.ClockTime=14 l.FogEnd=100000 l.GlobalShadows=false l.Ambient=Color3.fromRGB(255,255,255)
-    else l.Brightness=1 l.GlobalShadows=true l.Ambient=Color3.fromRGB(70,70,70) end
+    if on then
+        l.Brightness = 2
+        l.ClockTime = 14
+        l.FogEnd = 100000
+        l.GlobalShadows = false
+        l.Ambient = Color3.fromRGB(255,255,255)
+    else
+        l.Brightness = 1
+        l.GlobalShadows = true
+        l.Ambient = Color3.fromRGB(70,70,70)
+    end
 end)
 createToggle(visualPage, "no_fog", function(on)
     game:GetService("Lighting").FogEnd = on and 100000 or 1000
 end)
 createToggle(visualPage, "rem_tex", function(on)
     for _, v in pairs(game:GetDescendants()) do
-        if v:IsA("Texture") or v:IsA("Decal") then v.Transparency = on and 1 or 0 end
+        if v:IsA("Texture") or v:IsA("Decal") then
+            v.Transparency = on and 1 or 0
+        end
     end
 end)
 createToggle(visualPage, "fps", function(on)
@@ -976,36 +1155,54 @@ createToggle(visualPage, "blur", function(on)
     for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
         if v:IsA("BlurEffect") then v:Destroy() end
     end
-    if on then local b = Instance.new("BlurEffect", game:GetService("Lighting")) b.Size=15 end
+    if on then
+        local b = Instance.new("BlurEffect", game:GetService("Lighting"))
+        b.Size = 15
+    end
 end)
 createToggle(visualPage, "neon", function(on)
     local l = game:GetService("Lighting")
-    if on then l.Ambient=Color3.fromRGB(0,100,200) l.ClockTime=0 l.FogEnd=500 l.FogColor=Color3.fromRGB(0,20,80)
-    else l.Ambient=Color3.fromRGB(70,70,70) l.ClockTime=14 l.FogEnd=100000 end
+    if on then
+        l.Ambient = Color3.fromRGB(0,100,200)
+        l.ClockTime = 0
+        l.FogEnd = 500
+        l.FogColor = Color3.fromRGB(0,20,80)
+    else
+        l.Ambient = Color3.fromRGB(70,70,70)
+        l.ClockTime = 14
+        l.FogEnd = 100000
+    end
 end)
 createToggle(visualPage, "rainbow", function(on)
     getgenv().rainbowOn = on
     if on then
         task.spawn(function()
-            local l = game:GetService("Lighting") local hue = 0
+            local l = game:GetService("Lighting")
+            local hue = 0
             while getgenv().rainbowOn do
-                hue = (hue+0.005)%1
-                l.Ambient = Color3.fromHSV(hue,0.8,1)
+                hue = (hue + 0.005) % 1
+                l.Ambient = Color3.fromHSV(hue, 0.8, 1)
                 task.wait(0.05)
             end
         end)
     end
 end)
-createButton(visualPage, "daytime", function() game:GetService("Lighting").ClockTime=12 end)
-createButton(visualPage, "nighttime", function() game:GetService("Lighting").ClockTime=0 end)
+createButton(visualPage, "daytime", function() game:GetService("Lighting").ClockTime = 12 end)
+createButton(visualPage, "nighttime", function() game:GetService("Lighting").ClockTime = 0 end)
 createButton(visualPage, "reset_light", function()
-    local l=game:GetService("Lighting")
-    l.Brightness=1 l.ClockTime=14 l.FogEnd=100000 l.GlobalShadows=true l.Ambient=Color3.fromRGB(70,70,70)
+    local l = game:GetService("Lighting")
+    l.Brightness = 1
+    l.ClockTime = 14
+    l.FogEnd = 100000
+    l.GlobalShadows = true
+    l.Ambient = Color3.fromRGB(70,70,70)
 end)
 createButton(visualPage, "esp", function() loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))() end)
 createButton(visualPage, "pshade", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))() end)
 
+-- ==================
 -- ADMIN PAGE
+-- ==================
 createButton(adminPage, "fly", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))() end)
 createButton(adminPage, "godmode", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))() end)
 createButton(adminPage, "cmdx", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))() end)
@@ -1016,10 +1213,13 @@ createInput(adminPage, "ws_label", "ws_ph", 500, function(val, reset)
 end)
 createInput(adminPage, "jp_label", "jp_ph", 1000, function(val, reset)
     local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-    if hum then hum.UseJumpPower=true hum.JumpPower = reset and 50 or val end
+    if hum then
+        hum.UseJumpPower = true
+        hum.JumpPower = reset and 50 or val
+    end
 end)
 
-createToggle(adminPage, "inf_jump", function(on) getgenv().infJumpOn=on end)
+createToggle(adminPage, "inf_jump", function(on) getgenv().infJumpOn = on end)
 game:GetService("UserInputService").JumpRequest:Connect(function()
     if getgenv().infJumpOn then
         local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
@@ -1027,13 +1227,13 @@ game:GetService("UserInputService").JumpRequest:Connect(function()
     end
 end)
 
-createToggle(adminPage, "noclip", function(on) getgenv().noclipOn=on end)
+createToggle(adminPage, "noclip", function(on) getgenv().noclipOn = on end)
 game:GetService("RunService").Stepped:Connect(function()
     if getgenv().noclipOn then
         local char = game.Players.LocalPlayer.Character
         if char then
             for _, v in pairs(char:GetDescendants()) do
-                if v:IsA("BasePart") then v.CanCollide=false end
+                if v:IsA("BasePart") then v.CanCollide = false end
             end
         end
     end
@@ -1051,37 +1251,54 @@ createButton(adminPage, "rejoin", function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end)
 
+-- ==================
 -- HUB PAGE
-createStaticButton(hubPage, "Speed hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
-createStaticButton(hubPage, "Chiyo hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
-createStaticButton(hubPage, "Hoho Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
-createStaticButton(hubPage, "Domain X Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
-createStaticButton(hubPage, "Orion UI Demo", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))() end)
-createStaticButton(hubPage, "Thunder Client Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))() end)
-createStaticButton(hubPage, "Rayfield UI", function() loadstring(game:HttpGet("https://sirius.menu/rayfield"))() end)
-createStaticButton(hubPage, "Linoria Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
-createStaticButton(hubPage, "Kavo UI Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
+-- ==================
+createStaticButton(hubPage, "Speed Hub",          "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
+createStaticButton(hubPage, "Chiyo Hub",          "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
+createStaticButton(hubPage, "Hoho Hub",           "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
+createStaticButton(hubPage, "Domain X Hub",       "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
+createStaticButton(hubPage, "Orion UI Demo",      "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))() end)
+createStaticButton(hubPage, "Thunder Client Hub", "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderClient/ThunderClient/main/source.lua"))() end)
+createStaticButton(hubPage, "Rayfield UI",        "all", function() loadstring(game:HttpGet("https://sirius.menu/rayfield"))() end)
+createStaticButton(hubPage, "Linoria Lib",        "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
+createStaticButton(hubPage, "Kavo UI Lib",        "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
 
+-- ==================
 -- SETTING PAGE
+-- ==================
 createToggle(settingPage, "auto_exec", function(on)
     getgenv().autoExecOn = on
     if on then
         game.Players.LocalPlayer.CharacterAdded:Connect(function()
-            if getgenv().autoExecOn then task.wait(2) getgenv().DirzzzHubLoaded=false end
+            if getgenv().autoExecOn then
+                task.wait(2)
+                getgenv().DirzzzHubLoaded = false
+            end
         end)
     end
 end)
 createToggle(settingPage, "fix_lag", function(on)
     local l = game:GetService("Lighting")
     if on then
-        l.GlobalShadows=false l.FogEnd=100000 l.Brightness=1
+        l.GlobalShadows = false
+        l.FogEnd = 100000
+        l.Brightness = 1
         for _, v in pairs(game:GetDescendants()) do
-            if v:IsA("ParticleEmitter") or v:IsA("Trail") or v:IsA("Smoke") or v:IsA("Fire") or v:IsA("Sparkles") then v.Enabled=false end
-            if v:IsA("Texture") or v:IsA("Decal") then v.Transparency=1 end
-            if v:IsA("BasePart") then v.Material=Enum.Material.Plastic v.Reflectance=0 v.CastShadow=false end
+            if v:IsA("ParticleEmitter") or v:IsA("Trail") or v:IsA("Smoke") or v:IsA("Fire") or v:IsA("Sparkles") then
+                v.Enabled = false
+            end
+            if v:IsA("Texture") or v:IsA("Decal") then v.Transparency = 1 end
+            if v:IsA("BasePart") then
+                v.Material = Enum.Material.Plastic
+                v.Reflectance = 0
+                v.CastShadow = false
+            end
         end
         for _, v in pairs(l:GetChildren()) do
-            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("DepthOfFieldEffect") or v:IsA("BloomEffect") then v:Destroy() end
+            if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("DepthOfFieldEffect") or v:IsA("BloomEffect") then
+                v:Destroy()
+            end
         end
         settings().Rendering.QualityLevel = 1
     else
@@ -1091,20 +1308,37 @@ end)
 createToggle(settingPage, "shaders", function(on)
     local l = game:GetService("Lighting")
     for _, v in pairs(l:GetChildren()) do
-        if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then v:Destroy() end
+        if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
+            v:Destroy()
+        end
     end
     if on then
-        local bloom=Instance.new("BloomEffect",l) bloom.Intensity=0.8 bloom.Size=24 bloom.Threshold=0.95
-        local sr=Instance.new("SunRaysEffect",l) sr.Intensity=0.25 sr.Spread=0.5
-        local cc=Instance.new("ColorCorrectionEffect",l) cc.Brightness=0.05 cc.Contrast=0.15 cc.Saturation=0.2 cc.TintColor=Color3.fromRGB(220,235,255)
-        l.GlobalShadows=true l.Brightness=2 l.ClockTime=14 l.EnvironmentDiffuseScale=1 l.EnvironmentSpecularScale=1
+        local bloom = Instance.new("BloomEffect", l)
+        bloom.Intensity = 0.8
+        bloom.Size = 24
+        bloom.Threshold = 0.95
+        local sr = Instance.new("SunRaysEffect", l)
+        sr.Intensity = 0.25
+        sr.Spread = 0.5
+        local cc = Instance.new("ColorCorrectionEffect", l)
+        cc.Brightness = 0.05
+        cc.Contrast = 0.15
+        cc.Saturation = 0.2
+        cc.TintColor = Color3.fromRGB(220,235,255)
+        l.GlobalShadows = true
+        l.Brightness = 2
+        l.ClockTime = 14
+        l.EnvironmentDiffuseScale = 1
+        l.EnvironmentSpecularScale = 1
         settings().Rendering.QualityLevel = 21
     else
         settings().Rendering.QualityLevel = 10
     end
 end)
 
+-- ==================
 -- LANGUAGE PAGE
+-- ==================
 createLabel(langPage, "lang_title", Color3.fromRGB(0,200,255))
 createLabel(langPage, "lang_desc", Color3.fromRGB(120,160,200))
 
