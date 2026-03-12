@@ -1,4 +1,4 @@
-6-- RESET
+-- RESET
 for _, v in pairs(game.CoreGui:GetChildren()) do
     if v.Name == "DirzzzHub" then v:Destroy() end
 end
