@@ -6,29 +6,46 @@ getgenv().DirzzzHubLoaded = false
 
 -- KEY SYSTEM
 local key = "FREE"
-
 local gui = Instance.new("ScreenGui", game.CoreGui)
 local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.new(0, 250, 0, 120)
-frame.Position = UDim2.new(0.5, -125, 0.5, -60)
-frame.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
-Instance.new("UICorner", frame)
+frame.Size = UDim2.new(0,260,0,130)
+frame.Position = UDim2.new(0.5,-130,0.5,-65)
+frame.BackgroundColor3 = Color3.fromRGB(8,8,20)
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0,12)
+local fs = Instance.new("UIStroke", frame)
+fs.Thickness = 2
+fs.Color = Color3.fromRGB(0,170,255)
+
+local keyTitle = Instance.new("TextLabel", frame)
+keyTitle.Size = UDim2.new(1,0,0,28)
+keyTitle.Position = UDim2.new(0,0,0,0)
+keyTitle.Text = "🌌 Drizzz Hub — Enter Key"
+keyTitle.TextColor3 = Color3.fromRGB(0,200,255)
+keyTitle.BackgroundTransparency = 1
+keyTitle.TextScaled = true
+keyTitle.Font = Enum.Font.GothamBold
 
 local box = Instance.new("TextBox", frame)
-box.Size = UDim2.new(1, -20, 0, 40)
-box.Position = UDim2.new(0, 10, 0, 20)
-box.PlaceholderText = "Key: FREE"
-box.BackgroundColor3 = Color3.fromRGB(50, 50, 70)
-box.TextColor3 = Color3.new(1, 1, 1)
-Instance.new("UICorner", box)
+box.Size = UDim2.new(1,-20,0,36)
+box.Position = UDim2.new(0,10,0,32)
+box.PlaceholderText = "Enter Key"
+box.BackgroundColor3 = Color3.fromRGB(15,15,35)
+box.TextColor3 = Color3.new(1,1,1)
+box.TextScaled = true
+box.Font = Enum.Font.Gotham
+box.ClearTextOnFocus = false
+Instance.new("UICorner", box).CornerRadius = UDim.new(0,8)
+Instance.new("UIStroke", box).Color = Color3.fromRGB(0,100,180)
 
 local btn = Instance.new("TextButton", frame)
-btn.Size = UDim2.new(1, -20, 0, 35)
-btn.Position = UDim2.new(0, 10, 0, 70)
-btn.Text = "Submit"
-btn.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
-btn.TextColor3 = Color3.new(1, 1, 1)
-Instance.new("UICorner", btn)
+btn.Size = UDim2.new(1,-20,0,32)
+btn.Position = UDim2.new(0,10,0,76)
+btn.Text = "✔ Submit"
+btn.BackgroundColor3 = Color3.fromRGB(0,120,220)
+btn.TextColor3 = Color3.new(1,1,1)
+btn.TextScaled = true
+btn.Font = Enum.Font.GothamBold
+Instance.new("UICorner", btn).CornerRadius = UDim.new(0,8)
 
 local unlocked = false
 btn.MouseButton1Click:Connect(function()
@@ -36,12 +53,15 @@ btn.MouseButton1Click:Connect(function()
         unlocked = true
         gui:Destroy()
     else
-        box.Text = "Wrong Key"
+        box.Text = "❌ Wrong Key!"
+        box.TextColor3 = Color3.fromRGB(255,80,80)
+        task.wait(1.5)
+        box.Text = ""
+        box.TextColor3 = Color3.new(1,1,1)
     end
 end)
 
 repeat task.wait() until unlocked
-
 if getgenv().DirzzzHubLoaded then return end
 getgenv().DirzzzHubLoaded = true
 
@@ -49,17 +69,15 @@ local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
 local StarterGui = game:GetService("StarterGui")
 
--- ==================
--- SISTEM BAHASA
--- ==================
+-- BAHASA
 local languages = {
     EN = {
         flag="🇬🇧", name="English",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nHome", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetting", tab_lang="🌍\nLanguage",
-        home1="🔥 <b>Dirzzz Hub</b>  |  Version <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
-        home2="📋 <b>Update Log V3.0:</b>\n✅ New Lunar Hub style UI\n✅ Sidebar navigation\n✅ Smooth toggle switch\n✅ Settings tab\n✅ Multi Language System",
+        home1="🌌 <b>Drizzz Hub</b>  |  Version <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
+        home2="📋 <b>Update Log V3.0:</b>\n✅ Galaxy UI theme\n✅ Sidebar navigation\n✅ Smooth toggle switch\n✅ Settings tab\n✅ Multi Language System",
         home3="📢 <b>Announcement:</b>\n⚠️ Don't spam execute!\n🔑 Key: FREE\n💬 Report bugs to Dirzzz",
         home4="⚠️ <b>IMPORTANT:</b>\n🚫 This script is FREE and\n<b>NOT FOR SALE!</b>\n❌ If anyone sells it, it's FAKE!",
         home5="💡 <b>Tips:</b>\n🔍 Search in Main tab\n📌 Click ─ to minimize\n✕ Click X to close",
@@ -79,11 +97,11 @@ local languages = {
     },
     ID = {
         flag="🇮🇩", name="Indonesia",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nHome", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetting", tab_lang="🌍\nBahasa",
-        home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
-        home2="📋 <b>Update Log V3.0:</b>\n✅ UI baru style Lunar Hub\n✅ Sidebar navigasi\n✅ Toggle switch smooth\n✅ Tab Pengaturan\n✅ Sistem Multi Bahasa",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Developer: <b>Dirzzz</b>",
+        home2="📋 <b>Update Log V3.0:</b>\n✅ Tema UI Galaxy\n✅ Sidebar navigasi\n✅ Toggle switch smooth\n✅ Tab Pengaturan\n✅ Sistem Multi Bahasa",
         home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam execute!\n🔑 Key: FREE\n💬 Report bug ke Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 Script ini GRATIS dan\n<b>TIDAK DIPERJUALBELIKAN!</b>\n❌ Jika ada yg jual, itu PALSU!",
         home5="💡 <b>Tips:</b>\n🔍 Search di tab Main\n📌 Klik ─ untuk minimize\n✕ Klik X untuk tutup",
@@ -103,11 +121,11 @@ local languages = {
     },
     JP = {
         flag="🇯🇵", name="日本語",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nホーム", tab_main="📜\nメイン", tab_visual="👁\nビジュアル",
         tab_admin="⚡\nアドミン", tab_hub="🌐\nハブ", tab_setting="⚙️\n設定", tab_lang="🌍\n言語",
-        home1="🔥 <b>Dirzzz Hub</b>  |  バージョン <b>V3.0</b>\n👤 開発者: <b>Dirzzz</b>",
-        home2="📋 <b>更新ログ V3.0:</b>\n✅ 新しいUI\n✅ サイドバー\n✅ トグルスイッチ\n✅ 設定タブ\n✅ 多言語システム",
+        home1="🌌 <b>Drizzz Hub</b>  |  バージョン <b>V3.0</b>\n👤 開発者: <b>Dirzzz</b>",
+        home2="📋 <b>更新ログ V3.0:</b>\n✅ ギャラクシーUI\n✅ サイドバー\n✅ トグルスイッチ\n✅ 設定タブ\n✅ 多言語システム",
         home3="📢 <b>お知らせ:</b>\n⚠️ スパム禁止!\n🔑 キー: FREE\n💬 バグ報告はDirzzzへ",
         home4="⚠️ <b>重要:</b>\n🚫 このスクリプトは無料!\n<b>販売禁止!</b>\n❌ 販売は偽物です!",
         home5="💡 <b>ヒント:</b>\n🔍 メインで検索\n📌 ─で最小化\n✕ Xで閉じる",
@@ -127,11 +145,11 @@ local languages = {
     },
     AR = {
         flag="🇸🇦", name="عربي",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nالرئيسية", tab_main="📜\nالرئيسي", tab_visual="👁\nمرئي",
         tab_admin="⚡\nإدارة", tab_hub="🌐\nهاب", tab_setting="⚙️\nإعداد", tab_lang="🌍\nلغة",
-        home1="🔥 <b>Dirzzz Hub</b>  |  الإصدار <b>V3.0</b>\n👤 المطور: <b>Dirzzz</b>",
-        home2="📋 <b>سجل التحديث:</b>\n✅ واجهة جديدة\n✅ شريط جانبي\n✅ مفتاح تبديل\n✅ إعدادات\n✅ متعدد اللغات",
+        home1="🌌 <b>Drizzz Hub</b>  |  الإصدار <b>V3.0</b>\n👤 المطور: <b>Dirzzz</b>",
+        home2="📋 <b>سجل التحديث:</b>\n✅ واجهة مجرة\n✅ شريط جانبي\n✅ مفتاح تبديل\n✅ إعدادات\n✅ متعدد اللغات",
         home3="📢 <b>إعلان:</b>\n⚠️ لا تكرر!\n🔑 المفتاح: FREE\n💬 أبلغ Dirzzz",
         home4="⚠️ <b>مهم:</b>\n🚫 مجاني!\n<b>ليس للبيع!</b>\n❌ البيع مزيف!",
         home5="💡 <b>نصائح:</b>\n🔍 ابحث في Main\n📌 ─ للتصغير\n✕ X للإغلاق",
@@ -151,11 +169,11 @@ local languages = {
     },
     MY = {
         flag="🇲🇾", name="Melayu",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nUtama", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nTetapan", tab_lang="🌍\nBahasa",
-        home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Pembangun: <b>Dirzzz</b>",
-        home2="📋 <b>Log Kemaskini V3.0:</b>\n✅ UI baharu\n✅ Bar sisi\n✅ Togol lancar\n✅ Tetapan\n✅ Pelbagai Bahasa",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Pembangun: <b>Dirzzz</b>",
+        home2="📋 <b>Log Kemaskini V3.0:</b>\n✅ Tema UI Galaksi\n✅ Bar sisi\n✅ Togol lancar\n✅ Tetapan\n✅ Pelbagai Bahasa",
         home3="📢 <b>Pengumuman:</b>\n⚠️ Jangan spam!\n🔑 Kunci: FREE\n💬 Laporkan kepada Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 PERCUMA!\n<b>TIDAK DIJUAL!</b>\n❌ Jika dijual, ia PALSU!",
         home5="💡 <b>Tips:</b>\n🔍 Cari di Main\n📌 ─ minimumkan\n✕ X tutup",
@@ -175,11 +193,11 @@ local languages = {
     },
     CN = {
         flag="🇨🇳", name="中文",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\n主页", tab_main="📜\n主要", tab_visual="👁\n视觉",
         tab_admin="⚡\n管理", tab_hub="🌐\n中心", tab_setting="⚙️\n设置", tab_lang="🌍\n语言",
-        home1="🔥 <b>Dirzzz Hub</b>  |  版本 <b>V3.0</b>\n👤 开发者: <b>Dirzzz</b>",
-        home2="📋 <b>更新日志:</b>\n✅ 新界面\n✅ 侧边栏\n✅ 开关\n✅ 设置\n✅ 多语言",
+        home1="🌌 <b>Drizzz Hub</b>  |  版本 <b>V3.0</b>\n👤 开发者: <b>Dirzzz</b>",
+        home2="📋 <b>更新日志:</b>\n✅ 星系UI主题\n✅ 侧边栏\n✅ 开关\n✅ 设置\n✅ 多语言",
         home3="📢 <b>公告:</b>\n⚠️ 勿重复!\n🔑 密钥: FREE\n💬 报告给Dirzzz",
         home4="⚠️ <b>重要:</b>\n🚫 免费!\n<b>不出售!</b>\n❌ 出售是假的!",
         home5="💡 <b>提示:</b>\n🔍 在Main搜索\n📌 ─最小化\n✕ X关闭",
@@ -199,11 +217,11 @@ local languages = {
     },
     JV = {
         flag="☕", name="Jawa",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nOmah", tab_main="📜\nMain", tab_visual="👁\nVisual",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nSetelan", tab_lang="🌍\nBasa",
-        home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Sing gawe: <b>Dirzzz</b>",
-        home2="📋 <b>Update Log V3.0:</b>\n✅ Tampilan anyar\n✅ Sidebar\n✅ Toggle alus\n✅ Setelan\n✅ Multi Basa",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Sing gawe: <b>Dirzzz</b>",
+        home2="📋 <b>Update Log V3.0:</b>\n✅ Tampilan Galaxy\n✅ Sidebar\n✅ Toggle alus\n✅ Setelan\n✅ Multi Basa",
         home3="📢 <b>Pengumuman:</b>\n⚠️ Ojo spam!\n🔑 Kunci: FREE\n💬 Lapor neng Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 GRATIS!\n<b>ORA DIDOL!</b>\n❌ Yen didol, kuwi PALSU!",
         home5="💡 <b>Tips:</b>\n🔍 Goleki neng Main\n📌 ─ minimize\n✕ X nutup",
@@ -220,14 +238,14 @@ local languages = {
         lang_title="🌍 <b>Pilih Basa</b>",
         lang_desc="Klik tombol kanggo ganti kabeh tulisan!",
         set_btn="Setel",
-},
-DK = {
+    },
+    DK = {
         flag="🌿", name="Dayak Ngaju",
-        hub_title="🔥 Dirzzz Hub  |  V3.0", watermark="⚡ Dirzzz Hub",
+        hub_title="🌌 Drizzz Hub  |  V3.0", watermark="⚡ Drizzz Hub",
         tab_home="🏠\nBetang", tab_main="📜\nUtama", tab_visual="👁\nTampak",
         tab_admin="⚡\nAdmin", tab_hub="🌐\nHub", tab_setting="⚙️\nAtur", tab_lang="🌍\nBasa",
-        home1="🔥 <b>Dirzzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Anak buah: <b>Dirzzz</b>",
-        home2="📋 <b>Catatan Ubah V3.0:</b>\n✅ Tampak barue\n✅ Sidebar navigasi\n✅ Tombol toggle halus\n✅ Tab pengatur\n✅ Sistem basa hindai",
+        home1="🌌 <b>Drizzz Hub</b>  |  Versi <b>V3.0</b>\n👤 Anak buah: <b>Dirzzz</b>",
+        home2="📋 <b>Catatan Ubah V3.0:</b>\n✅ Tampak Galaxy\n✅ Sidebar navigasi\n✅ Tombol toggle halus\n✅ Tab pengatur\n✅ Sistem basa hindai",
         home3="📢 <b>Pemberita:</b>\n⚠️ Ela spam execute!\n🔑 Kunci: FREE\n💬 Lapor kasalahan kilau Dirzzz",
         home4="⚠️ <b>PENTING:</b>\n🚫 Script ije GRATIS\n<b>ELA DIJUAL!</b>\n❌ Amon ada manjual, ije PALSU!",
         home5="💡 <b>Petunjuk:</b>\n🔍 Sanan di tab Utama\n📌 Klik ─ kare ngecilkan\n✕ Klik X kare nutup",
@@ -251,74 +269,144 @@ local currentLang = languages.EN
 local allTexts = {}
 
 -- ==================
--- LOADING SCREEN
+-- LOADING SCREEN (GALAXY THEME)
 -- ==================
 local loadingGui = Instance.new("ScreenGui", CoreGui)
+
 local overlay = Instance.new("Frame", loadingGui)
 overlay.Size = UDim2.new(1,0,1,0)
-overlay.BackgroundColor3 = Color3.fromRGB(0,0,0)
-overlay.BackgroundTransparency = 0.4
+overlay.BackgroundColor3 = Color3.fromRGB(0,0,10)
+overlay.BackgroundTransparency = 0.2
 
 local loadFrame = Instance.new("Frame", loadingGui)
-loadFrame.Size = UDim2.new(0,260,0,220)
-loadFrame.Position = UDim2.new(0.5,-130,0.5,-110)
-loadFrame.BackgroundColor3 = Color3.fromRGB(255,0,0)
-Instance.new("UICorner", loadFrame).CornerRadius = UDim.new(0,12)
+loadFrame.Size = UDim2.new(0,280,0,240)
+loadFrame.Position = UDim2.new(0.5,-140,0.5,-120)
+loadFrame.BackgroundColor3 = Color3.fromRGB(5,5,18)
+Instance.new("UICorner", loadFrame).CornerRadius = UDim.new(0,16)
 
 local loadStroke = Instance.new("UIStroke", loadFrame)
 loadStroke.Thickness = 3
+loadStroke.Color = Color3.fromRGB(0,170,255)
 
-local logoBox = Instance.new("Frame", loadFrame)
-logoBox.Size = UDim2.new(0,90,0,90)
-logoBox.Position = UDim2.new(0,15,0.5,-45)
-logoBox.BackgroundColor3 = Color3.fromRGB(0,120,255)
-Instance.new("UICorner", logoBox).CornerRadius = UDim.new(0,8)
+-- Galaxy circle logo
+local galaxyBg = Instance.new("Frame", loadFrame)
+galaxyBg.Size = UDim2.new(0,100,0,100)
+galaxyBg.Position = UDim2.new(0.5,-50,0,18)
+galaxyBg.BackgroundColor3 = Color3.fromRGB(10,10,40)
+Instance.new("UICorner", galaxyBg).CornerRadius = UDim.new(1,0)
+local galaxyStroke = Instance.new("UIStroke", galaxyBg)
+galaxyStroke.Thickness = 3
+galaxyStroke.Color = Color3.fromRGB(0,170,255)
 
-local logoText = Instance.new("TextLabel", logoBox)
-logoText.Size = UDim2.new(1,0,1,0)
-logoText.Text = "DH"
-logoText.TextColor3 = Color3.new(1,1,1)
-logoText.BackgroundTransparency = 1
-logoText.TextScaled = true
+local galaxyCore = Instance.new("Frame", galaxyBg)
+galaxyCore.Size = UDim2.new(0,40,0,40)
+galaxyCore.Position = UDim2.new(0.5,-20,0.5,-20)
+galaxyCore.BackgroundColor3 = Color3.fromRGB(200,220,255)
+Instance.new("UICorner", galaxyCore).CornerRadius = UDim.new(1,0)
 
-local loadText = Instance.new("TextLabel", loadFrame)
-loadText.Size = UDim2.new(0,130,0,40)
-loadText.Position = UDim2.new(0,120,0.5,-20)
-loadText.BackgroundTransparency = 1
-loadText.Text = "DirzzzHub\nLoading..."
-loadText.TextScaled = true
-loadText.TextColor3 = Color3.fromRGB(255,255,255)
+local galaxyInner = Instance.new("Frame", galaxyBg)
+galaxyInner.Size = UDim2.new(0,20,0,20)
+galaxyInner.Position = UDim2.new(0.5,-10,0.5,-10)
+galaxyInner.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Instance.new("UICorner", galaxyInner).CornerRadius = UDim.new(1,0)
+
+-- Orbit ring 1
+local orbit1 = Instance.new("Frame", galaxyBg)
+orbit1.Size = UDim2.new(0,80,0,80)
+orbit1.Position = UDim2.new(0.5,-40,0.5,-40)
+orbit1.BackgroundTransparency = 1
+Instance.new("UICorner", orbit1).CornerRadius = UDim.new(1,0)
+local os1 = Instance.new("UIStroke", orbit1)
+os1.Thickness = 2
+os1.Color = Color3.fromRGB(0,140,220)
+
+-- Orbit ring 2
+local orbit2 = Instance.new("Frame", galaxyBg)
+orbit2.Size = UDim2.new(0,65,0,65)
+orbit2.Position = UDim2.new(0.5,-32.5,0.5,-32.5)
+orbit2.BackgroundTransparency = 1
+Instance.new("UICorner", orbit2).CornerRadius = UDim.new(1,0)
+local os2 = Instance.new("UIStroke", orbit2)
+os2.Thickness = 1.5
+os2.Color = Color3.fromRGB(100,80,220)
+
+local loadTitle = Instance.new("TextLabel", loadFrame)
+loadTitle.Size = UDim2.new(1,0,0,28)
+loadTitle.Position = UDim2.new(0,0,0,125)
+loadTitle.Text = "🌌 DRIZZZ HUB"
+loadTitle.TextColor3 = Color3.fromRGB(0,200,255)
+loadTitle.BackgroundTransparency = 1
+loadTitle.TextScaled = true
+loadTitle.Font = Enum.Font.GothamBold
+
+local loadSub = Instance.new("TextLabel", loadFrame)
+loadSub.Size = UDim2.new(1,0,0,20)
+loadSub.Position = UDim2.new(0,0,0,153)
+loadSub.Text = "EXECUTE  •  DOMINATE  •  FREE"
+loadSub.TextColor3 = Color3.fromRGB(60,130,200)
+loadSub.BackgroundTransparency = 1
+loadSub.TextScaled = true
+loadSub.Font = Enum.Font.Gotham
+
+local loadStatus = Instance.new("TextLabel", loadFrame)
+loadStatus.Size = UDim2.new(1,0,0,18)
+loadStatus.Position = UDim2.new(0,0,0,175)
+loadStatus.Text = "Loading..."
+loadStatus.TextColor3 = Color3.fromRGB(80,150,200)
+loadStatus.BackgroundTransparency = 1
+loadStatus.TextScaled = true
+loadStatus.Font = Enum.Font.Gotham
 
 local barBg = Instance.new("Frame", loadFrame)
-barBg.Size = UDim2.new(0.85,0,0,8)
-barBg.Position = UDim2.new(0.075,0,1,-20)
-barBg.BackgroundColor3 = Color3.fromRGB(50,50,80)
+barBg.Size = UDim2.new(0.85,0,0,7)
+barBg.Position = UDim2.new(0.075,0,1,-22)
+barBg.BackgroundColor3 = Color3.fromRGB(20,20,50)
 Instance.new("UICorner", barBg).CornerRadius = UDim.new(1,0)
 
 local bar = Instance.new("Frame", barBg)
 bar.Size = UDim2.new(0,0,1,0)
-bar.BackgroundColor3 = Color3.fromRGB(0,200,255)
+bar.BackgroundColor3 = Color3.fromRGB(0,170,255)
 Instance.new("UICorner", bar).CornerRadius = UDim.new(1,0)
 
+-- Loading bar glow pulse
 task.spawn(function()
     TweenService:Create(bar, TweenInfo.new(3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size=UDim2.new(1,0,1,0)}):Play()
 end)
 
+-- Galaxy color cycle
 local rgbRunning = true
 task.spawn(function()
     local colors = {
-        Color3.fromRGB(255,0,0), Color3.fromRGB(255,120,0),
-        Color3.fromRGB(255,255,0), Color3.fromRGB(0,255,0),
-        Color3.fromRGB(0,255,255), Color3.fromRGB(0,120,255),
-        Color3.fromRGB(180,0,255)
+        Color3.fromRGB(0,170,255),
+        Color3.fromRGB(60,80,255),
+        Color3.fromRGB(120,0,255),
+        Color3.fromRGB(0,200,255),
+        Color3.fromRGB(255,255,255),
+        Color3.fromRGB(0,140,220),
     }
+    local statuses = {"Loading assets...", "Building UI...", "Almost ready...", "Connecting..."}
+    local si = 1
     while rgbRunning do
         for _, c in ipairs(colors) do
             if not rgbRunning then break end
-            TweenService:Create(loadFrame, TweenInfo.new(0.8), {BackgroundColor3=c}):Play()
-            TweenService:Create(loadStroke, TweenInfo.new(0.8), {Color=c}):Play()
-            task.wait(0.8)
+            TweenService:Create(loadStroke, TweenInfo.new(0.7), {Color=c}):Play()
+            TweenService:Create(galaxyStroke, TweenInfo.new(0.7), {Color=c}):Play()
+            TweenService:Create(bar, TweenInfo.new(0.7), {BackgroundColor3=c}):Play()
+            loadStatus.Text = statuses[si]
+            si = (si % #statuses) + 1
+            task.wait(0.7)
         end
+    end
+end)
+
+-- Orbit spin
+task.spawn(function()
+    local r = 0
+    while rgbRunning do
+        r = r + 3
+        orbit1.Rotation = r
+        orbit2.Rotation = -r * 0.7
+        task.wait(0.03)
     end
 end)
 
@@ -327,11 +415,15 @@ rgbRunning = false
 loadingGui:Destroy()
 
 pcall(function()
-    StarterGui:SetCore("SendNotification", {Title="🔥 Dirzzz Hub", Text="Script Executed!", Duration=4})
+    StarterGui:SetCore("SendNotification", {
+        Title="🌌 Drizzz Hub",
+        Text="✅ Script loaded! EXECUTE • DOMINATE • FREE",
+        Duration=4
+    })
 end)
 
 -- ==================
--- MAIN GUI
+-- MAIN GUI (GALAXY THEME)
 -- ==================
 local mainGui = Instance.new("ScreenGui")
 mainGui.Name = "DirzzzHub"
@@ -341,34 +433,62 @@ local mainFrame = Instance.new("Frame")
 mainFrame.Parent = mainGui
 mainFrame.Size = UDim2.new(0,500,0,320)
 mainFrame.Position = UDim2.new(0.5,-250,0.5,-160)
-mainFrame.BackgroundColor3 = Color3.fromRGB(18,18,28)
+mainFrame.BackgroundColor3 = Color3.fromRGB(6,6,18)
 mainFrame.Active = true
 mainFrame.Draggable = true
-Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,10)
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,12)
 
 local mainStroke = Instance.new("UIStroke", mainFrame)
-mainStroke.Thickness = 1.5
+mainStroke.Thickness = 2
 
+-- Galaxy stroke glow animation
 task.spawn(function()
+    local cols = {
+        Color3.fromRGB(0,170,255),
+        Color3.fromRGB(255,255,255),
+        Color3.fromRGB(80,60,255),
+        Color3.fromRGB(0,200,255),
+    }
     while mainGui.Parent do
-        TweenService:Create(mainStroke, TweenInfo.new(1.5), {Color=Color3.fromRGB(0,200,255)}):Play()
-        task.wait(1.5)
-        TweenService:Create(mainStroke, TweenInfo.new(1.5), {Color=Color3.fromRGB(100,0,255)}):Play()
-        task.wait(1.5)
+        for _, c in ipairs(cols) do
+            TweenService:Create(mainStroke, TweenInfo.new(1.2), {Color=c}):Play()
+            task.wait(1.2)
+        end
     end
 end)
 
 mainFrame.Size = UDim2.new(0,0,0,0)
 TweenService:Create(mainFrame, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size=UDim2.new(0,500,0,320)}):Play()
 
+-- Topbar
 local topBar = Instance.new("Frame", mainFrame)
-topBar.Size = UDim2.new(1,0,0,35)
-topBar.BackgroundColor3 = Color3.fromRGB(12,12,20)
-Instance.new("UICorner", topBar).CornerRadius = UDim.new(0,10)
+topBar.Size = UDim2.new(1,0,0,36)
+topBar.BackgroundColor3 = Color3.fromRGB(8,8,25)
+Instance.new("UICorner", topBar).CornerRadius = UDim.new(0,12)
+Instance.new("UIStroke", topBar).Color = Color3.fromRGB(0,100,180)
+
+-- Galaxy dot decoration on topbar
+local dot1 = Instance.new("Frame", topBar)
+dot1.Size = UDim2.new(0,6,0,6)
+dot1.Position = UDim2.new(0,8,0.5,-3)
+dot1.BackgroundColor3 = Color3.fromRGB(0,200,255)
+Instance.new("UICorner", dot1).CornerRadius = UDim.new(1,0)
+
+local dot2 = Instance.new("Frame", topBar)
+dot2.Size = UDim2.new(0,6,0,6)
+dot2.Position = UDim2.new(0,18,0.5,-3)
+dot2.BackgroundColor3 = Color3.fromRGB(100,80,255)
+Instance.new("UICorner", dot2).CornerRadius = UDim.new(1,0)
+
+local dot3 = Instance.new("Frame", topBar)
+dot3.Size = UDim2.new(0,6,0,6)
+dot3.Position = UDim2.new(0,28,0.5,-3)
+dot3.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Instance.new("UICorner", dot3).CornerRadius = UDim.new(1,0)
 
 local topTitle = Instance.new("TextLabel", topBar)
-topTitle.Size = UDim2.new(1,-80,1,0)
-topTitle.Position = UDim2.new(0,15,0,0)
+topTitle.Size = UDim2.new(1,-100,1,0)
+topTitle.Position = UDim2.new(0,42,0,0)
 topTitle.Text = currentLang.hub_title
 topTitle.TextColor3 = Color3.fromRGB(0,200,255)
 topTitle.BackgroundTransparency = 1
@@ -377,19 +497,20 @@ topTitle.Font = Enum.Font.GothamBold
 topTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 local minBtn = Instance.new("TextButton", topBar)
-minBtn.Size = UDim2.new(0,28,0,28)
-minBtn.Position = UDim2.new(1,-65,0.5,-14)
+minBtn.Size = UDim2.new(0,26,0,26)
+minBtn.Position = UDim2.new(1,-62,0.5,-13)
 minBtn.Text = "─"
-minBtn.BackgroundColor3 = Color3.fromRGB(40,40,60)
-minBtn.TextColor3 = Color3.new(1,1,1)
+minBtn.BackgroundColor3 = Color3.fromRGB(20,20,50)
+minBtn.TextColor3 = Color3.fromRGB(0,200,255)
 minBtn.TextScaled = true
 Instance.new("UICorner", minBtn).CornerRadius = UDim.new(0,6)
+Instance.new("UIStroke", minBtn).Color = Color3.fromRGB(0,100,180)
 
 local closeBtn = Instance.new("TextButton", topBar)
-closeBtn.Size = UDim2.new(0,28,0,28)
-closeBtn.Position = UDim2.new(1,-33,0.5,-14)
+closeBtn.Size = UDim2.new(0,26,0,26)
+closeBtn.Position = UDim2.new(1,-32,0.5,-13)
 closeBtn.Text = "✕"
-closeBtn.BackgroundColor3 = Color3.fromRGB(200,50,50)
+closeBtn.BackgroundColor3 = Color3.fromRGB(180,30,30)
 closeBtn.TextColor3 = Color3.new(1,1,1)
 closeBtn.TextScaled = true
 Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(0,6)
@@ -400,18 +521,21 @@ closeBtn.MouseButton1Click:Connect(function()
     mainGui:Destroy()
 end)
 
+-- Minimize icon (galaxy circle)
 local icon = Instance.new("TextButton", mainGui)
-icon.Size = UDim2.new(0,45,0,45)
-icon.Position = UDim2.new(0,20,0.5,-22)
-icon.BackgroundColor3 = Color3.fromRGB(0,150,255)
-icon.Text = "DH"
+icon.Size = UDim2.new(0,46,0,46)
+icon.Position = UDim2.new(0,20,0.5,-23)
+icon.BackgroundColor3 = Color3.fromRGB(8,8,25)
+icon.Text = "🌌"
 icon.TextColor3 = Color3.new(1,1,1)
 icon.Visible = false
 icon.Active = true
 icon.Draggable = true
 icon.TextScaled = true
-icon.Font = Enum.Font.GothamBold
 Instance.new("UICorner", icon).CornerRadius = UDim.new(1,0)
+local iconStroke = Instance.new("UIStroke", icon)
+iconStroke.Thickness = 2
+iconStroke.Color = Color3.fromRGB(0,170,255)
 
 local minimized = false
 minBtn.MouseButton1Click:Connect(function()
@@ -425,40 +549,44 @@ icon.MouseButton1Click:Connect(function()
     minimized = false
 end)
 
+-- Watermark
 local watermark = Instance.new("TextLabel", mainGui)
-watermark.Size = UDim2.new(0,130,0,22)
-watermark.Position = UDim2.new(1,-140,0,8)
-watermark.BackgroundColor3 = Color3.fromRGB(12,12,20)
-watermark.BackgroundTransparency = 0.3
+watermark.Size = UDim2.new(0,135,0,22)
+watermark.Position = UDim2.new(1,-145,0,8)
+watermark.BackgroundColor3 = Color3.fromRGB(6,6,18)
+watermark.BackgroundTransparency = 0.2
 watermark.Text = currentLang.watermark
 watermark.TextColor3 = Color3.fromRGB(0,200,255)
 watermark.TextScaled = true
 watermark.Font = Enum.Font.GothamBold
 Instance.new("UICorner", watermark).CornerRadius = UDim.new(0,6)
+local wmStroke = Instance.new("UIStroke", watermark)
+wmStroke.Thickness = 1.5
+wmStroke.Color = Color3.fromRGB(0,120,200)
 
+-- Sidebar
 local sidebar = Instance.new("Frame", mainFrame)
-sidebar.Size = UDim2.new(0,110,1,-35)
-sidebar.Position = UDim2.new(0,0,0,35)
-sidebar.BackgroundColor3 = Color3.fromRGB(12,12,22)
+sidebar.Size = UDim2.new(0,110,1,-36)
+sidebar.Position = UDim2.new(0,0,0,36)
+sidebar.BackgroundColor3 = Color3.fromRGB(8,8,22)
 Instance.new("UICorner", sidebar).CornerRadius = UDim.new(0,10)
+Instance.new("UIStroke", sidebar).Color = Color3.fromRGB(0,60,120)
 
 local sideLayout = Instance.new("UIListLayout", sidebar)
-sideLayout.Padding = UDim.new(0,4)
+sideLayout.Padding = UDim.new(0,3)
 sideLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 local sidePad = Instance.new("UIPadding", sidebar)
-sidePad.PaddingTop = UDim.new(0,8)
-sidePad.PaddingLeft = UDim.new(0,6)
-sidePad.PaddingRight = UDim.new(0,6)
+sidePad.PaddingTop = UDim.new(0,7)
+sidePad.PaddingLeft = UDim.new(0,5)
+sidePad.PaddingRight = UDim.new(0,5)
 
+-- Content area
 local contentArea = Instance.new("Frame", mainFrame)
-contentArea.Size = UDim2.new(1,-118,1,-35)
-contentArea.Position = UDim2.new(0,114,0,35)
+contentArea.Size = UDim2.new(1,-118,1,-36)
+contentArea.Position = UDim2.new(0,114,0,36)
 contentArea.BackgroundTransparency = 1
 
--- ==================
--- FUNGSI
--- ==================
 local tabButtons = {}
 
 local function createPage()
@@ -467,7 +595,7 @@ local function createPage()
     scroll.ScrollBarThickness = 3
     scroll.BackgroundTransparency = 1
     scroll.Visible = false
-    scroll.ScrollBarImageColor3 = Color3.fromRGB(0,150,255)
+    scroll.ScrollBarImageColor3 = Color3.fromRGB(0,170,255)
     local layout = Instance.new("UIListLayout", scroll)
     layout.Padding = UDim.new(0,5)
     local pad = Instance.new("UIPadding", scroll)
@@ -481,19 +609,19 @@ end
 
 local function createTab(textKey)
     local tabBtn = Instance.new("TextButton", sidebar)
-    tabBtn.Size = UDim2.new(1,0,0,38)
-    tabBtn.BackgroundColor3 = Color3.fromRGB(25,25,40)
-    tabBtn.TextColor3 = Color3.fromRGB(160,160,180)
+    tabBtn.Size = UDim2.new(1,0,0,37)
+    tabBtn.BackgroundColor3 = Color3.fromRGB(12,12,30)
+    tabBtn.TextColor3 = Color3.fromRGB(100,140,180)
     tabBtn.TextScaled = true
     tabBtn.Font = Enum.Font.GothamBold
     tabBtn.Text = currentLang[textKey]
-    tabBtn.BackgroundTransparency = 0.3
+    tabBtn.BackgroundTransparency = 0.2
     Instance.new("UICorner", tabBtn).CornerRadius = UDim.new(0,8)
 
     local indicator = Instance.new("Frame", tabBtn)
     indicator.Size = UDim2.new(0,3,0.7,0)
     indicator.Position = UDim2.new(0,0,0.15,0)
-    indicator.BackgroundColor3 = Color3.fromRGB(0,150,255)
+    indicator.BackgroundColor3 = Color3.fromRGB(0,170,255)
     indicator.Visible = false
     Instance.new("UICorner", indicator).CornerRadius = UDim.new(1,0)
 
@@ -502,14 +630,14 @@ local function createTab(textKey)
     tabBtn.MouseButton1Click:Connect(function()
         for _, t in pairs(tabButtons) do
             TweenService:Create(t.btn, TweenInfo.new(0.2), {
-                BackgroundColor3=Color3.fromRGB(25,25,40),
-                TextColor3=Color3.fromRGB(160,160,180)
+                BackgroundColor3=Color3.fromRGB(12,12,30),
+                TextColor3=Color3.fromRGB(100,140,180)
             }):Play()
             t.indicator.Visible = false
             t.page.Visible = false
         end
         TweenService:Create(tabBtn, TweenInfo.new(0.2), {
-            BackgroundColor3=Color3.fromRGB(0,80,160),
+            BackgroundColor3=Color3.fromRGB(0,60,140),
             TextColor3=Color3.fromRGB(255,255,255)
         }):Play()
         indicator.Visible = true
@@ -520,34 +648,58 @@ local function createTab(textKey)
     return page
 end
 
--- FIX: createButton sekarang simpan ke allTexts dengan langKey
-local function createButton(parent, langKey, callback)
+local function createStaticButton(parent, name, callback)
     local btn = Instance.new("TextButton", parent)
     btn.Size = UDim2.new(1,-8,0,32)
-    btn.Text = "  "..(currentLang[langKey] or langKey)
-    btn.BackgroundColor3 = Color3.fromRGB(25,25,45)
-    btn.TextColor3 = Color3.fromRGB(200,200,220)
+    btn.Text = "  "..name
+    btn.BackgroundColor3 = Color3.fromRGB(10,10,28)
+    btn.TextColor3 = Color3.fromRGB(180,210,240)
     btn.TextScaled = true
     btn.Font = Enum.Font.Gotham
     btn.TextXAlignment = Enum.TextXAlignment.Left
     Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
     local s = Instance.new("UIStroke", btn)
     s.Thickness = 1
-    s.Color = Color3.fromRGB(40,40,70)
+    s.Color = Color3.fromRGB(0,60,120)
     btn.MouseEnter:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,80,160)}):Play()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
     end)
     btn.MouseLeave:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(25,25,45)}):Play()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(10,10,28)}):Play()
     end)
     btn.MouseButton1Click:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,255)}):Play()
+        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,220)}):Play()
         task.wait(0.08)
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,80,160)}):Play()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
         callback()
     end)
-    -- Simpan ke allTexts untuk update bahasa
-    -- Kalau langKey ada di languages, simpan. Kalau tidak (button name static), skip
+end
+
+local function createButton(parent, langKey, callback)
+    local btn = Instance.new("TextButton", parent)
+    btn.Size = UDim2.new(1,-8,0,32)
+    btn.Text = "  "..(currentLang[langKey] or langKey)
+    btn.BackgroundColor3 = Color3.fromRGB(10,10,28)
+    btn.TextColor3 = Color3.fromRGB(180,210,240)
+    btn.TextScaled = true
+    btn.Font = Enum.Font.Gotham
+    btn.TextXAlignment = Enum.TextXAlignment.Left
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
+    local s = Instance.new("UIStroke", btn)
+    s.Thickness = 1
+    s.Color = Color3.fromRGB(0,60,120)
+    btn.MouseEnter:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
+    end)
+    btn.MouseLeave:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(10,10,28)}):Play()
+    end)
+    btn.MouseButton1Click:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,220)}):Play()
+        task.wait(0.08)
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,60,140)}):Play()
+        callback()
+    end)
     if languages.EN[langKey] then
         table.insert(allTexts, {obj=btn, key=langKey, type="btn"})
     end
@@ -559,8 +711,8 @@ local function createLabel(parent, textKey, color)
     lbl.Size = UDim2.new(1,-8,0,0)
     lbl.AutomaticSize = Enum.AutomaticSize.Y
     lbl.Text = currentLang[textKey] or textKey
-    lbl.TextColor3 = color or Color3.fromRGB(200,200,220)
-    lbl.BackgroundColor3 = Color3.fromRGB(20,20,35)
+    lbl.TextColor3 = color or Color3.fromRGB(180,210,240)
+    lbl.BackgroundColor3 = Color3.fromRGB(10,10,28)
     lbl.BackgroundTransparency = 0.1
     lbl.TextScaled = false
     lbl.TextSize = 12
@@ -569,6 +721,7 @@ local function createLabel(parent, textKey, color)
     lbl.Font = Enum.Font.Gotham
     lbl.RichText = true
     Instance.new("UICorner", lbl).CornerRadius = UDim.new(0,6)
+    Instance.new("UIStroke", lbl).Color = Color3.fromRGB(0,50,100)
     local pad = Instance.new("UIPadding", lbl)
     pad.PaddingLeft = UDim.new(0,8) pad.PaddingRight = UDim.new(0,8)
     pad.PaddingTop = UDim.new(0,6) pad.PaddingBottom = UDim.new(0,6)
@@ -576,20 +729,19 @@ local function createLabel(parent, textKey, color)
     return lbl
 end
 
--- FIX: createToggle sekarang pakai langKey dan simpan ke allTexts
 local function createToggle(parent, langKey, callback)
     local toggleOn = false
     local row = Instance.new("Frame", parent)
     row.Size = UDim2.new(1,-8,0,32)
-    row.BackgroundColor3 = Color3.fromRGB(25,25,45)
+    row.BackgroundColor3 = Color3.fromRGB(10,10,28)
     Instance.new("UICorner", row).CornerRadius = UDim.new(0,6)
-    Instance.new("UIStroke", row).Color = Color3.fromRGB(40,40,70)
+    Instance.new("UIStroke", row).Color = Color3.fromRGB(0,60,120)
 
     local lbl = Instance.new("TextLabel", row)
     lbl.Size = UDim2.new(1,-50,1,0)
     lbl.Position = UDim2.new(0,10,0,0)
     lbl.Text = currentLang[langKey] or langKey
-    lbl.TextColor3 = Color3.fromRGB(200,200,220)
+    lbl.TextColor3 = Color3.fromRGB(180,210,240)
     lbl.BackgroundTransparency = 1
     lbl.TextScaled = true
     lbl.Font = Enum.Font.Gotham
@@ -598,13 +750,13 @@ local function createToggle(parent, langKey, callback)
     local toggleBg = Instance.new("Frame", row)
     toggleBg.Size = UDim2.new(0,36,0,20)
     toggleBg.Position = UDim2.new(1,-42,0.5,-10)
-    toggleBg.BackgroundColor3 = Color3.fromRGB(60,60,80)
+    toggleBg.BackgroundColor3 = Color3.fromRGB(30,30,60)
     Instance.new("UICorner", toggleBg).CornerRadius = UDim.new(1,0)
 
     local toggleDot = Instance.new("Frame", toggleBg)
     toggleDot.Size = UDim2.new(0,16,0,16)
     toggleDot.Position = UDim2.new(0,2,0.5,-8)
-    toggleDot.BackgroundColor3 = Color3.fromRGB(180,180,200)
+    toggleDot.BackgroundColor3 = Color3.fromRGB(100,130,180)
     Instance.new("UICorner", toggleDot).CornerRadius = UDim.new(1,0)
 
     local clickBtn = Instance.new("TextButton", row)
@@ -615,11 +767,11 @@ local function createToggle(parent, langKey, callback)
     clickBtn.MouseButton1Click:Connect(function()
         toggleOn = not toggleOn
         if toggleOn then
-            TweenService:Create(toggleBg, TweenInfo.new(0.2), {BackgroundColor3=Color3.fromRGB(0,150,255)}):Play()
+            TweenService:Create(toggleBg, TweenInfo.new(0.2), {BackgroundColor3=Color3.fromRGB(0,140,220)}):Play()
             TweenService:Create(toggleDot, TweenInfo.new(0.2), {Position=UDim2.new(0,18,0.5,-8), BackgroundColor3=Color3.fromRGB(255,255,255)}):Play()
         else
-            TweenService:Create(toggleBg, TweenInfo.new(0.2), {BackgroundColor3=Color3.fromRGB(60,60,80)}):Play()
-            TweenService:Create(toggleDot, TweenInfo.new(0.2), {Position=UDim2.new(0,2,0.5,-8), BackgroundColor3=Color3.fromRGB(180,180,200)}):Play()
+            TweenService:Create(toggleBg, TweenInfo.new(0.2), {BackgroundColor3=Color3.fromRGB(30,30,60)}):Play()
+            TweenService:Create(toggleDot, TweenInfo.new(0.2), {Position=UDim2.new(0,2,0.5,-8), BackgroundColor3=Color3.fromRGB(100,130,180)}):Play()
         end
         callback(toggleOn)
     end)
@@ -648,18 +800,18 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
     local box = Instance.new("TextBox", inputRow)
     box.Size = UDim2.new(0.55,0,1,0)
     box.PlaceholderText = currentLang[phKey] or phKey
-    box.BackgroundColor3 = Color3.fromRGB(20,20,38)
+    box.BackgroundColor3 = Color3.fromRGB(8,8,22)
     box.TextColor3 = Color3.new(1,1,1)
     box.TextScaled = true
     box.Font = Enum.Font.Gotham
     box.ClearTextOnFocus = false
     Instance.new("UICorner", box).CornerRadius = UDim.new(0,6)
-    Instance.new("UIStroke", box).Color = Color3.fromRGB(0,100,200)
+    Instance.new("UIStroke", box).Color = Color3.fromRGB(0,100,180)
 
     local setBtn = Instance.new("TextButton", inputRow)
     setBtn.Size = UDim2.new(0.22,0,1,0)
     setBtn.Text = currentLang.set_btn
-    setBtn.BackgroundColor3 = Color3.fromRGB(0,150,255)
+    setBtn.BackgroundColor3 = Color3.fromRGB(0,120,200)
     setBtn.TextColor3 = Color3.new(1,1,1)
     setBtn.TextScaled = true
     setBtn.Font = Enum.Font.GothamBold
@@ -668,7 +820,7 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
     local resetBtn = Instance.new("TextButton", inputRow)
     resetBtn.Size = UDim2.new(0.2,0,1,0)
     resetBtn.Text = "↺"
-    resetBtn.BackgroundColor3 = Color3.fromRGB(60,60,100)
+    resetBtn.BackgroundColor3 = Color3.fromRGB(25,25,55)
     resetBtn.TextColor3 = Color3.new(1,1,1)
     resetBtn.TextScaled = true
     Instance.new("UICorner", resetBtn).CornerRadius = UDim.new(0,6)
@@ -678,16 +830,16 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
         if val and val >= 1 and val <= maxVal then
             callback(val, false)
             setBtn.Text = "✓"
-            setBtn.BackgroundColor3 = Color3.fromRGB(0,180,80)
+            setBtn.BackgroundColor3 = Color3.fromRGB(0,160,80)
             task.wait(1.5)
             setBtn.Text = currentLang.set_btn
-            setBtn.BackgroundColor3 = Color3.fromRGB(0,150,255)
+            setBtn.BackgroundColor3 = Color3.fromRGB(0,120,200)
         else
             setBtn.Text = "!"
-            setBtn.BackgroundColor3 = Color3.fromRGB(200,50,50)
+            setBtn.BackgroundColor3 = Color3.fromRGB(180,40,40)
             task.wait(1.5)
             setBtn.Text = currentLang.set_btn
-            setBtn.BackgroundColor3 = Color3.fromRGB(0,150,255)
+            setBtn.BackgroundColor3 = Color3.fromRGB(0,120,200)
         end
     end)
     resetBtn.MouseButton1Click:Connect(function()
@@ -700,9 +852,6 @@ local function createInput(parent, labelKey, phKey, maxVal, callback)
     table.insert(allTexts, {obj=setBtn, key="set_btn", type="text"})
 end
 
--- ==================
--- FUNGSI GANTI BAHASA
--- ==================
 local function applyLanguage(lang)
     currentLang = lang
     topTitle.Text = lang.hub_title
@@ -730,9 +879,7 @@ local function applyLanguage(lang)
     end)
 end
 
--- ==================
 -- CREATE TABS
--- ==================
 local homePage    = createTab("tab_home")
 local mainPage    = createTab("tab_main")
 local visualPage  = createTab("tab_visual")
@@ -741,33 +888,29 @@ local hubPage     = createTab("tab_hub")
 local settingPage = createTab("tab_setting")
 local langPage    = createTab("tab_lang")
 
-tabButtons[1].btn.BackgroundColor3 = Color3.fromRGB(0,80,160)
+tabButtons[1].btn.BackgroundColor3 = Color3.fromRGB(0,60,140)
 tabButtons[1].btn.TextColor3 = Color3.fromRGB(255,255,255)
 tabButtons[1].indicator.Visible = true
 homePage.Visible = true
 
--- ==================
 -- HOME PAGE
--- ==================
 createLabel(homePage, "home1", Color3.fromRGB(0,200,255))
-createLabel(homePage, "home2", Color3.fromRGB(120,255,150))
+createLabel(homePage, "home2", Color3.fromRGB(100,220,255))
 createLabel(homePage, "home3", Color3.fromRGB(255,210,80))
 createLabel(homePage, "home4", Color3.fromRGB(255,80,80))
-createLabel(homePage, "home5", Color3.fromRGB(180,150,255))
+createLabel(homePage, "home5", Color3.fromRGB(150,180,255))
 
--- ==================
 -- MAIN PAGE
--- ==================
 local searchBox = Instance.new("TextBox", mainPage)
 searchBox.Size = UDim2.new(1,-8,0,30)
 searchBox.PlaceholderText = currentLang.search_ph
-searchBox.BackgroundColor3 = Color3.fromRGB(20,20,38)
+searchBox.BackgroundColor3 = Color3.fromRGB(8,8,22)
 searchBox.TextColor3 = Color3.new(1,1,1)
 searchBox.TextScaled = true
 searchBox.Font = Enum.Font.Gotham
 searchBox.ClearTextOnFocus = false
 Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,6)
-Instance.new("UIStroke", searchBox).Color = Color3.fromRGB(0,100,200)
+Instance.new("UIStroke", searchBox).Color = Color3.fromRGB(0,100,180)
 table.insert(allTexts, {obj=searchBox, key="search_ph", type="ph"})
 
 searchBox:GetPropertyChangedSignal("Text"):Connect(function()
@@ -778,34 +921,6 @@ searchBox:GetPropertyChangedSignal("Text"):Connect(function()
         end
     end
 end)
-
--- Main buttons pakai string static (nama script tidak ditranslate)
-local function createStaticButton(parent, name, callback)
-    local btn = Instance.new("TextButton", parent)
-    btn.Size = UDim2.new(1,-8,0,32)
-    btn.Text = "  "..name
-    btn.BackgroundColor3 = Color3.fromRGB(25,25,45)
-    btn.TextColor3 = Color3.fromRGB(200,200,220)
-    btn.TextScaled = true
-    btn.Font = Enum.Font.Gotham
-    btn.TextXAlignment = Enum.TextXAlignment.Left
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
-    local s = Instance.new("UIStroke", btn)
-    s.Thickness = 1
-    s.Color = Color3.fromRGB(40,40,70)
-    btn.MouseEnter:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,80,160)}):Play()
-    end)
-    btn.MouseLeave:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(25,25,45)}):Play()
-    end)
-    btn.MouseButton1Click:Connect(function()
-        TweenService:Create(btn, TweenInfo.new(0.08), {BackgroundColor3=Color3.fromRGB(0,120,255)}):Play()
-        task.wait(0.08)
-        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3=Color3.fromRGB(0,80,160)}):Play()
-        callback()
-    end)
-end
 
 createStaticButton(mainPage, "Infinite Yield", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end)
 createStaticButton(mainPage, "Dex Explorer", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))() end)
@@ -828,16 +943,14 @@ createStaticButton(mainPage, "Exuso hub", function() loadstring(game:HttpGet("ht
 createStaticButton(mainPage, "Merebennie tsb", function() loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))() end)
 createStaticButton(mainPage, "Overdrive", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))() end)
 createStaticButton(mainPage, "Solix", function() loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))() end)
-createStaticButton(mainPage, "Redz hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))() end)
+createStaticButton(mainPage, "Redz hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruit/main/redz9999"))() end)
 createStaticButton(mainPage, "Arsenal", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
 createStaticButton(mainPage, "Doors", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end)
 createStaticButton(mainPage, "Universal Aimbot", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
 createStaticButton(mainPage, "Steal Tools Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
 createStaticButton(mainPage, "Death ball", function() loadstring(game:HttpGet("https://spypanel.com.br/"))() end)
 
--- ==================
 -- VISUAL PAGE
--- ==================
 createToggle(visualPage, "fullbright", function(on)
     local l = game:GetService("Lighting")
     if on then l.Brightness=2 l.ClockTime=14 l.FogEnd=100000 l.GlobalShadows=false l.Ambient=Color3.fromRGB(255,255,255)
@@ -892,9 +1005,7 @@ end)
 createButton(visualPage, "esp", function() loadstring(game:HttpGet("https://pastebin.com/raw/AnsfEGXy"))() end)
 createButton(visualPage, "pshade", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua"))() end)
 
--- ==================
 -- ADMIN PAGE
--- ==================
 createButton(adminPage, "fly", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-GUI-112254"))() end)
 createButton(adminPage, "godmode", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/real-script/MyOwnGodModeScript/refs/heads/main/lua"))() end)
 createButton(adminPage, "cmdx", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))() end)
@@ -940,9 +1051,7 @@ createButton(adminPage, "rejoin", function()
     game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
 end)
 
--- ==================
 -- HUB PAGE
--- ==================
 createStaticButton(hubPage, "Speed hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))() end)
 createStaticButton(hubPage, "Chiyo hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/kaisenlmao/loader/refs/heads/main/chiyo.lua"))() end)
 createStaticButton(hubPage, "Hoho Hub", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end)
@@ -953,9 +1062,7 @@ createStaticButton(hubPage, "Rayfield UI", function() loadstring(game:HttpGet("h
 createStaticButton(hubPage, "Linoria Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))() end)
 createStaticButton(hubPage, "Kavo UI Lib", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
 
--- ==================
 -- SETTING PAGE
--- ==================
 createToggle(settingPage, "auto_exec", function(on)
     getgenv().autoExecOn = on
     if on then
@@ -989,7 +1096,7 @@ createToggle(settingPage, "shaders", function(on)
     if on then
         local bloom=Instance.new("BloomEffect",l) bloom.Intensity=0.8 bloom.Size=24 bloom.Threshold=0.95
         local sr=Instance.new("SunRaysEffect",l) sr.Intensity=0.25 sr.Spread=0.5
-        local cc=Instance.new("ColorCorrectionEffect",l) cc.Brightness=0.05 cc.Contrast=0.15 cc.Saturation=0.2 cc.TintColor=Color3.fromRGB(255,245,235)
+        local cc=Instance.new("ColorCorrectionEffect",l) cc.Brightness=0.05 cc.Contrast=0.15 cc.Saturation=0.2 cc.TintColor=Color3.fromRGB(220,235,255)
         l.GlobalShadows=true l.Brightness=2 l.ClockTime=14 l.EnvironmentDiffuseScale=1 l.EnvironmentSpecularScale=1
         settings().Rendering.QualityLevel = 21
     else
@@ -997,21 +1104,19 @@ createToggle(settingPage, "shaders", function(on)
     end
 end)
 
--- ==================
 -- LANGUAGE PAGE
--- ==================
 createLabel(langPage, "lang_title", Color3.fromRGB(0,200,255))
-createLabel(langPage, "lang_desc", Color3.fromRGB(180,180,200))
+createLabel(langPage, "lang_desc", Color3.fromRGB(120,160,200))
 
 local langList = {
-    {code="EN", color=Color3.fromRGB(0,80,200)},
-    {code="ID", color=Color3.fromRGB(220,50,50)},
-    {code="JP", color=Color3.fromRGB(200,50,80)},
-    {code="AR", color=Color3.fromRGB(0,150,50)},
-    {code="MY", color=Color3.fromRGB(0,80,160)},
-    {code="CN", color=Color3.fromRGB(200,30,30)},
-    {code="JV", color=Color3.fromRGB(120,80,30)},
-    {code="DK", color=Color3.fromRGB(30,130,60)},
+    {code="EN", color=Color3.fromRGB(0,70,180)},
+    {code="ID", color=Color3.fromRGB(180,30,30)},
+    {code="JP", color=Color3.fromRGB(160,30,60)},
+    {code="AR", color=Color3.fromRGB(0,120,40)},
+    {code="MY", color=Color3.fromRGB(0,60,140)},
+    {code="CN", color=Color3.fromRGB(160,20,20)},
+    {code="JV", color=Color3.fromRGB(100,60,20)},
+    {code="DK", color=Color3.fromRGB(20,110,50)},
 }
 
 for _, l in ipairs(langList) do
@@ -1027,6 +1132,7 @@ for _, l in ipairs(langList) do
     Instance.new("UICorner", langBtn).CornerRadius = UDim.new(0,6)
     local lp = Instance.new("UIPadding", langBtn)
     lp.PaddingLeft = UDim.new(0,12)
+    Instance.new("UIStroke", langBtn).Color = Color3.fromRGB(0,100,180)
 
     langBtn.MouseButton1Click:Connect(function()
         TweenService:Create(langBtn, TweenInfo.new(0.1), {Size=UDim2.new(1,-8,0,26)}):Play()
