@@ -850,6 +850,7 @@ createStaticButton(mainPage, "Doors",                "all", function() loadstrin
 createStaticButton(mainPage, "Universal Aimbot",     "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
 createStaticButton(mainPage, "Steal Tools Hub",      "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/DomainX/main/source"))() end)
 createStaticButton(mainPage, "Death ball",           "all", function() loadstring(game:HttpGet("https://spypanel.com.br/"))() end)
+createStaticButton(mainPage, "Bf PVP",               "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
 
 createToggle(visualPage, "fullbright", function(on)
 local l = game:GetService("Lighting")
