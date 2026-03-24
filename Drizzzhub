@@ -469,6 +469,17 @@ mainFrame.Active = true
 mainFrame.Draggable = true
 Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,12)
 
+-- Anime background
+local bgImage = Instance.new("ImageLabel", mainFrame)
+bgImage.Size = UDim2.new(1,0,1,0)
+bgImage.Position = UDim2.new(0,0,0,0)
+bgImage.Image = "rbxassetid://114721264050309"
+bgImage.BackgroundTransparency = 1
+bgImage.ImageTransparency = 0.3
+bgImage.ScaleType = Enum.ScaleType.Crop
+bgImage.ZIndex = 0
+Instance.new("UICorner", bgImage).CornerRadius = UDim.new(0,12)
+
 local mainStroke = Instance.new("UIStroke", mainFrame)
 mainStroke.Thickness = 2
 
@@ -1325,8 +1336,7 @@ end)
 createToggle(settingPage, "shaders", function(on)
     local l = game:GetService("Lighting")
     for _, v in pairs(l:GetChildren()) do
-        if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v
-:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
+        if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") then
             v:Destroy()
         end
     end
