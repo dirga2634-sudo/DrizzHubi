@@ -1017,7 +1017,7 @@ nameTag.TextXAlignment = Enum.TextXAlignment.Left
 local roleTag = Instance.new("TextLabel", avatarFrame)
 roleTag.Size = UDim2.new(1,-75,0,18)
 roleTag.Position = UDim2.new(0,72,0,38)
-roleTag.Text = "⚡ DRIZZZ HUB USER"
+roleTag.Text = "DRIZZZ HUB USER ⭐"
 roleTag.TextColor3 = Color3.fromRGB(100,120,255)
 roleTag.BackgroundTransparency = 1
 roleTag.TextScaled = true
@@ -1136,7 +1136,7 @@ createStaticButton(mainPage, "Exuso hub",            "all", function() loadstrin
 createStaticButton(mainPage, "Merebennie tsb",       "all", function() loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/07c66feb0bbcedbf160b4e6102addb20156b9c64344f5428f8adab01b56fd703.lua"))() end)
 createStaticButton(mainPage, "Overdrive",            "all", function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Overdrive-h-125904"))() end)
 createStaticButton(mainPage, "Solix",                "all", function() loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Solix-Hub-For-119687"))() end)
-createStaticButton(mainPage, "Redz hub",             "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruit/main/redz9999"))() end)
+createStaticButton(mainPage, "Redz hub",             "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/huy384/redzHub/refs/heads/main/redzHub.lua"))() end)
 createStaticButton(mainPage, "Arsenal",              "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
 createStaticButton(mainPage, "Doors",                "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end)
 createStaticButton(mainPage, "Universal Aimbot",     "all", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Main.lua"))() end)
